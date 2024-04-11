@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { HeroSection } from '../../TextData'
 import GradientButton from '../../buttons/GradientButton'
 import BorderGradientButton from '../../buttons/BorderGradientButton'
+import Flow from '../../assets/images/Flow.json'
 const Hero = () => {
+
+    const [FlowLink, SetFlowLink] = useState();
+    useEffect(() => {
+
+        SetFlowLink(Flow.assets[6].p)
+    })
+    console.log(Flow.assets);
     return (
         <div className=' h-screen '>
 
@@ -32,7 +40,10 @@ const Hero = () => {
                 </div>
             </div>
 
-         
+
+            {/* <div>
+                <img src={FlowLink} alt="" />
+            </div> */}
         </div>
     )
 }
