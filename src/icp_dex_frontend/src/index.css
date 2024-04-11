@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "fahkwang";
+  src: url('./assets/fonts/Fahkwang-Regular.ttf');
+}
+
+@font-face {
+  font-family: "cabin";
+  src: url('./assets/fonts/Cabin-Regular.ttf');
+}
+
+@layer utilities {
+
+  /* Act as a border */
+  .button-gradient-wrapper {
+    @apply relative overflow-hidden rounded-lg bg-gradient-to-r from-[#8D4C00] via-[#3E0200] to-[#00308E];
+  }
+
+  /* Gradient */
+  .button-gradient-wrapper::before {
+    background: conic-gradient(rgba(255, 255, 255, 0.906) 0deg,
+        transparent 80deg);
+    @apply absolute left-[-250%] top-[-85%] h-[300%] w-[600%] animate-border-spin content-[''];
+  }
+
+
+  /* Body */
+  .button-gradient-content {
+    @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-lg bg-gradient-to-r from-[#8D4C00] via-[#3E0200] to-[#00308E];
+  }
+
+  .button-border-gradient-content {
+    @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-lg bg-[#000711];
+  }
+
+}
