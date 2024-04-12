@@ -2,12 +2,12 @@ import React from 'react'
 import MethodsImageOne from '../../assets/images/MethodsImageOne.png'
 import MethodsImageTwo from '../../assets/images/MethodsImageTwo.png'
 import { LandingPageData } from '../../TextData'
+import { NavbarData } from '../../TextData'
 import GradientSpan from '../../CustomSpan/GradientSpan'
 import GradientButton from '../../buttons/GradientButton'
-
 const Methods = () => {
     return (
-        <div className='mt-16 h-full md:mx-20  mb-16'>
+        <div className='mt-16 h-full md:mx-20  mb-16' id={`${NavbarData.Links[2].LinkId}`}>
 
 
             <div className='hidden lg:flex  flex-row justify-between space-y-0'>

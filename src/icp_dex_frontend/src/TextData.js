@@ -1,5 +1,26 @@
 import PartnerShipLogo from './assets/images/PartnerShipLogo.png'
 
+export const NavbarData = {
+    ButtonText: 'Explore Pools',
+    Links: [
+        {
+            LinkName: 'Swap',
+            LinkId: 'swap',
+        },
+        {
+            LinkName: 'Pool',
+            LinkId: 'pool',
+        },
+        {
+            LinkName: 'Staking',
+            LinkId: 'staking',
+        },
+        {
+            LinkName: 'Whitepaper',
+            LinkId: 'whitepaper',
+        },
+    ]
+}
 
 export const LandingPageData = {
     HeroSection: {

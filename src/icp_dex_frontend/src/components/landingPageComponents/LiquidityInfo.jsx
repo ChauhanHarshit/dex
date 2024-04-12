@@ -1,12 +1,13 @@
 import React from 'react'
 import { LandingPageData } from '../../TextData'
+import { NavbarData } from '../../TextData'
 import LiquidityPageImageOne from '../../assets/images/LiquidityPageImageOne.png'
 import LiquidityPageImageTwo from '../../assets/images/LiquidityPageImageTwo.png'
 import LiquidityPageImageThree from '../../assets/images/LiquidityPageImageThree.png'
 import LiquidityPageImageFour from '../../assets/images/LiquidityPageImageFour.png'
 const LiquidityInfo = () => {
     return (
-        <div className='flex md:flex-row flex-col justify-center gap-8 mb-8 items-center'>
+        <div className='flex md:flex-row flex-col justify-center gap-8 mb-8 items-center' id={`${NavbarData.Links[1].LinkId}`}>
 
             <div className="relative bg-cover bg-center h-[300px] w-[300px] rounded-lg border-2  border-white border-opacity-60 p-4" style={{ backgroundImage: `url(${LiquidityPageImageOne})` }} >
                 <div className="absolute inset-0 bg-gradient-to-b from-[#000000] to-[#00308E] opacity-70  p-4 h-full flex flex-col justify-end rounded-lg"></div>

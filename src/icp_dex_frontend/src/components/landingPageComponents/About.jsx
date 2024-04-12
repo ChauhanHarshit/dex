@@ -5,9 +5,10 @@ import AboutImageSecond from '../../assets/images/AboutImageSecond.png'
 import AboutImageThird from '../../assets/images/AboutImageThird.png'
 import AboutGifFirst from '../../assets/images/AboutGifFirst.gif'
 import { LandingPageData } from '../../TextData'
+import { NavbarData } from '../../TextData'
 const About = () => {
     return (
-        <div className='flex justify-between md:px-[107px] text-3xl md:text-5xl items-center'>
+        <div className='flex justify-between md:px-[107px] text-3xl md:text-5xl items-center ' id={`${NavbarData.Links[0].LinkId}`}>
             <div className='h-screen flex flex-col justify-evenly text-white w-full lg:w-1/2'>
                 <div>
                     <div className='flex items-center font-fahkwang font-[500] gap-2'>

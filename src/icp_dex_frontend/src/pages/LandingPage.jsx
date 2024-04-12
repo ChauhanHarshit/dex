@@ -5,16 +5,18 @@ import Partnership from '../components/landingPageComponents/Partnership'
 import Methods from '../components/landingPageComponents/Methods'
 import WhitePaper from '../components/landingPageComponents/WhitePaper'
 import LiquidityInfo from '../components/landingPageComponents/LiquidityInfo'
+import Navbar from '../navbar/Navbar'
 const LandingPage = () => {
     return (
-        <div className='bg-[#0B0B0B]'>
+        <div className=''>
+            <Navbar />
             <div className='md:mx-8 mx-4'>
                 <div className='relative'>
                     <Hero />
                 </div>
 
                 <About />
-                <LiquidityInfo/>
+                <LiquidityInfo />
                 <Partnership />
                 <Methods />
 
