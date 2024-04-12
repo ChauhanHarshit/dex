@@ -8,14 +8,16 @@ import GradientButton from '../../buttons/GradientButton'
 const Methods = () => {
     return (
         <div className='mt-16 h-full md:mx-20  mb-16'>
-            <div className='flex flex-col justify-center md:flex-row md:justify-between space-y-8 md:space-y-0'>
 
-                <div className='md:w-1/2 md:ml-6 items-start'>
+
+            <div className='hidden lg:flex  flex-row justify-between space-y-0'>
+
+                <div className='w-1/2 ml-16 items-end'>
                     <img src={MethodsImageOne} alt="" className='' />
                 </div>
 
-                <div className='md:w-1/2 flex flex-col justify-evenly font-fahkwang text-4xl p-4 md:items-start items-center'>
-                    <div className='mb-4 md:mb-0'>
+                <div className='w-1/2 flex flex-col justify-evenly font-fahkwang text-4xl p-4  items-start'>
+                    <div className='mb-0'>
                         <div className='flex gap-2 '>
                             <span className='text-white'>{LandingPageData.MethodsText.UpperSection.HeadingWordOne}</span>
                             <GradientSpan>{LandingPageData.MethodsText.UpperSection.HeadingWordTwo}</GradientSpan>
@@ -23,7 +25,7 @@ const Methods = () => {
                         <span className='text-white'>{LandingPageData.MethodsText.UpperSection.HeadingWordThree}</span>
                     </div>
 
-                    <div className='font-cabin font-[400] text-xl leading-7 md:leading-6 text-white text-center md:text-start'>
+                    <div className='font-cabin font-[400] text-xl leading-6 text-white  text-start'>
                         {LandingPageData.MethodsText.UpperSection.Description}
                     </div>
                     <div className='m-4 md:m-0'>
@@ -34,9 +36,9 @@ const Methods = () => {
             </div>
 
 
-            <div className='md:flex justify-between hidden'>
+            <div className='lg:flex justify-between hidden'>
 
-                <div className='w-1/2  flex flex-col justify-evenly font-fahkwang text-4xl p-4 '>
+                <div className='w-1/2 ml-16 flex flex-col justify-evenly font-fahkwang text-4xl p-4 '>
                     <div>
                         <div className='flex gap-2'>
                             <span className='text-white'>{LandingPageData.MethodsText.LowerSection.HeadingWordOne}</span>
@@ -57,9 +59,33 @@ const Methods = () => {
                 </div>
             </div>
 
+            <div className='flex flex-col justify-center text-center items-center space-y-8 lg:hidden'>
 
-            <div className='flex flex-col justify-center items-center md:hidden space-y-8 md:space-y-0'>
-                <div className='md:w-1/2 md:ml-16 items-end'>
+                <div className='md:w-1/2 lg:ml-16 items-end'>
+                    <img src={MethodsImageOne} alt="" className='' />
+                </div>
+
+                <div className='md:w-1/2 flex flex-col justify-evenly font-fahkwang text-4xl p-4 items-center text-center'>
+                    <div className='mb-4 md:mb-0'>
+                        <div className='flex gap-2 text-center'>
+                            <span className='text-white'>{LandingPageData.MethodsText.UpperSection.HeadingWordOne}</span>
+                            <GradientSpan>{LandingPageData.MethodsText.UpperSection.HeadingWordTwo}</GradientSpan>
+                        </div>
+                        <span className='text-white'>{LandingPageData.MethodsText.UpperSection.HeadingWordThree}</span>
+                    </div>
+
+                    <div className='font-cabin font-[400] text-xl leading-7 text-white text-center '>
+                        {LandingPageData.MethodsText.UpperSection.Description}
+                    </div>
+                    <div className='m-4 '>
+                        <GradientButton>{LandingPageData.MethodsText.UpperSection.ButtonText}</GradientButton>
+                    </div>
+                </div>
+
+            </div>
+
+            <div className='flex flex-col justify-center items-center lg:hidden space-y-8 md:space-y-0'>
+                <div className='md:w-1/2 lg:ml-16'>
                     <img src={MethodsImageTwo} alt="" />
                 </div>
 
