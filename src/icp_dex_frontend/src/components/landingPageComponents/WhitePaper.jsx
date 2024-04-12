@@ -3,24 +3,24 @@ import GradientButton from '../../buttons/GradientButton'
 import { LandingPageData } from '../../TextData'
 const whitePaper = () => {
     return (
-        <div className='mx-20 h-screen'>
+        <div className='md:mx-20 h-screen '>
 
-            <div className='w-full bg-gradient-to-r from-[#05071D] via-[#546093] to-[#05071D] border border-1 rounded-lg h-1/2 flex flex-col justify-evenly text-center text-white'>
+            <div className='w-full bg-gradient-to-r from-[#05071D] via-[#546093] to-[#05071D] border border-1 rounded-lg h-1/2 flex flex-col justify-evenly text-center text-white '>
 
-                
 
-                    <div className='font-fahkwang font-[500] text-6xl '>
-                        {LandingPageData.WhitePaperText.Heading}
-                    </div>
 
-                    <div className='text-base font-[400] font-cabin leading-6'>
-                        {LandingPageData.WhitePaperText.Description}
-                    </div>
+                <div className='font-fahkwang font-[500] md:text-6xl text-4xl'>
+                    {LandingPageData.WhitePaperText.Heading}
+                </div>
 
-                    <div>
-                        <GradientButton>{LandingPageData.WhitePaperText.ButtonText}</GradientButton>
-                    </div>
-               
+                <div className='text-xl font-[400] font-cabin leading-6'>
+                    {LandingPageData.WhitePaperText.Description}
+                </div>
+
+                <div>
+                    <GradientButton>{LandingPageData.WhitePaperText.ButtonText}</GradientButton>
+                </div>
+
             </div>
         </div>
     )

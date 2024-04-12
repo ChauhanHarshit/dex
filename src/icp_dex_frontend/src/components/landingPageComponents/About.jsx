@@ -7,15 +7,15 @@ import AboutGifFirst from '../../assets/images/AboutGifFirst.gif'
 import { LandingPageData } from '../../TextData'
 const About = () => {
     return (
-        <div className='flex justify-between px-[107px] text-5xl items-center'>
-            <div className='h-screen flex flex-col justify-evenly text-white w-1/2'>
+        <div className='flex justify-between md:px-[107px] text-3xl md:text-5xl items-center'>
+            <div className='h-screen flex flex-col justify-evenly text-white w-full lg:w-1/2'>
                 <div>
                     <div className='flex items-center font-fahkwang font-[500] gap-2'>
                         <img src={AboutImageFirst} alt="" />
                         <span>{LandingPageData.AboutSectionData.Elementone.WordOne}</span> <GradientSpan>{LandingPageData.AboutSectionData.Elementone.WordTwo}</GradientSpan> <span>{LandingPageData.AboutSectionData.Elementone.WordThree}</span>
 
                     </div>
-                    <p className='font-[400] text-base leading-2 m-2'>
+                    <p className='font-[400] text-xl md:leading-7 leading-6 m-2'>
                         {LandingPageData.AboutSectionData.Elementone.Description}
                     </p>
                 </div>
@@ -25,7 +25,7 @@ const About = () => {
                         <img src={AboutImageSecond} alt="" />
                         <span>{LandingPageData.AboutSectionData.ElementTwo.WordOne}</span> <GradientSpan>{LandingPageData.AboutSectionData.ElementTwo.WordTwo}</GradientSpan>
                     </div>
-                    <p className='font-[400] text-base leading-2 m-2'>
+                    <p className='font-[400] text-xl md:leading-7 leading-6 m-2'>
                         {LandingPageData.AboutSectionData.ElementTwo.Description}
                     </p>
                 </div>
@@ -35,7 +35,7 @@ const About = () => {
                         <img src={AboutImageThird} alt="" />
                         <span>{LandingPageData.AboutSectionData.ElementThree.WordOne}</span> <GradientSpan>{LandingPageData.AboutSectionData.ElementThree.WordTwo}</GradientSpan>
                     </div>
-                    <p className='font-[400] text-base leading-2 m-2'>
+                    <p className='font-[400] text-xl md:leading-7 leading-6 m-2'>
                         {LandingPageData.AboutSectionData.ElementThree.Description}
                     </p>
                 </div>
@@ -43,7 +43,7 @@ const About = () => {
 
             </div>
 
-            <div className='w-1/2'>
+            <div className='w-1/2 hidden lg:block'>
                 <img src={AboutGifFirst} alt="" className='bg-[#000711] rotate-11-7 ' />
             </div>
 

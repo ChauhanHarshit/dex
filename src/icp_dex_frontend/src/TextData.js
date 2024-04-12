@@ -7,70 +7,80 @@ export const LandingPageData = {
         HeadLineWordTwo: "Decentralized",
         HeadLineWordThree: "Finance",
         Tagline: "Leveraging Internet Computer Protocol for streamlined liquidity and asset management.",
+        ExploreButton: 'Explore Pools',
+        ConnectButton: 'Connect Wallet',
         BottomLine: 'Trade Securely, Trade Decentralized',
     },
-    PartnershipData: [
-        {
-            LogoLink: PartnerShipLogo,
-            CompanyName: 'Balancer App',
-            CompanyDesc: 'AMM/DEX'
-        },
-        {
-            LogoLink: PartnerShipLogo,
-            CompanyName: 'Balancer App',
-            CompanyDesc: 'AMM/DEX'
-        },
-        {
-            LogoLink: PartnerShipLogo,
-            CompanyName: 'Balancer App',
-            CompanyDesc: 'AMM/DEX'
-        },
-        {
-            LogoLink: PartnerShipLogo,
-            CompanyName: 'Balancer App',
-            CompanyDesc: 'AMM/DEX'
-        },
-        {
-            LogoLink: PartnerShipLogo,
-            CompanyName: 'Balancer App',
-            CompanyDesc: 'AMM/DEX'
-        },
-        {
-            LogoLink: PartnerShipLogo,
-            CompanyName: 'Balancer App',
-            CompanyDesc: 'AMM/DEX'
-        },
-        {
-            LogoLink: PartnerShipLogo,
-            CompanyName: 'Balancer App',
-            CompanyDesc: 'AMM/DEX'
-        },
-        {
-            LogoLink: PartnerShipLogo,
-            CompanyName: 'Balancer App',
-            CompanyDesc: 'AMM/DEX'
-        },
-        {
-            LogoLink: PartnerShipLogo,
-            CompanyName: 'Balancer App',
-            CompanyDesc: 'AMM/DEX'
-        },
-        {
-            LogoLink: PartnerShipLogo,
-            CompanyName: 'Balancer App',
-            CompanyDesc: 'AMM/DEX'
-        },
-        {
-            LogoLink: PartnerShipLogo,
-            CompanyName: 'Balancer App',
-            CompanyDesc: 'AMM/DEX'
-        },
-        {
-            LogoLink: PartnerShipLogo,
-            CompanyName: 'Balancer App',
-            CompanyDesc: 'AMM/DEX'
-        }
-    ],
+    PaternshipPageData: {
+        HeadingWordOne: 'Strategic',
+        HeadingWordTwo: 'Partnerships',
+        HeadingDescription: 'Partnering with leading technology and financial companies, we ensure our platform stands at the forefront of decentralized trading solutions.',
+
+        PartnershipData: [
+            {
+                LogoLink: PartnerShipLogo,
+                CompanyName: 'Balancer App',
+                CompanyDesc: 'AMM/DEX'
+            },
+            {
+                LogoLink: PartnerShipLogo,
+                CompanyName: 'Balancer App',
+                CompanyDesc: 'AMM/DEX'
+            },
+            {
+                LogoLink: PartnerShipLogo,
+                CompanyName: 'Balancer App',
+                CompanyDesc: 'AMM/DEX'
+            },
+            {
+                LogoLink: PartnerShipLogo,
+                CompanyName: 'Balancer App',
+                CompanyDesc: 'AMM/DEX'
+            },
+            {
+                LogoLink: PartnerShipLogo,
+                CompanyName: 'Balancer App',
+                CompanyDesc: 'AMM/DEX'
+            },
+            {
+                LogoLink: PartnerShipLogo,
+                CompanyName: 'Balancer App',
+                CompanyDesc: 'AMM/DEX'
+            },
+            {
+                LogoLink: PartnerShipLogo,
+                CompanyName: 'Balancer App',
+                CompanyDesc: 'AMM/DEX'
+            },
+            {
+                LogoLink: PartnerShipLogo,
+                CompanyName: 'Balancer App',
+                CompanyDesc: 'AMM/DEX'
+            },
+            {
+                LogoLink: PartnerShipLogo,
+                CompanyName: 'Balancer App',
+                CompanyDesc: 'AMM/DEX'
+            },
+            {
+                LogoLink: PartnerShipLogo,
+                CompanyName: 'Balancer App',
+                CompanyDesc: 'AMM/DEX'
+            },
+            {
+                LogoLink: PartnerShipLogo,
+                CompanyName: 'Balancer App',
+                CompanyDesc: 'AMM/DEX'
+            },
+            {
+                LogoLink: PartnerShipLogo,
+                CompanyName: 'Balancer App',
+                CompanyDesc: 'AMM/DEX'
+            }
+        ],
+
+    },
+
     MethodsText: {
         UpperSection: {
             HeadingWordOne: "Our",

@@ -4,19 +4,12 @@ import GradientButton from '../../buttons/GradientButton'
 import BorderGradientButton from '../../buttons/BorderGradientButton'
 import Flow from '../../assets/images/Flow.json'
 const Hero = () => {
-
-    const [FlowLink, SetFlowLink] = useState();
-    useEffect(() => {
-
-        SetFlowLink(Flow.assets[6].p)
-    })
-    console.log(Flow.assets);
     return (
         <div className=' h-screen '>
 
             <div className='flex items-center justify-center text-center h-screen'>
                 <div>
-                    <div className='font-fahkwang font-[300] text-6xl pb-5'>
+                    <div className='font-fahkwang font-[300] md:text-6xl text-4xl pb-5 m-2 md:m-0'>
                         <span className='text-white'>
                             {LandingPageData.HeroSection.HeadLineWordOne}
                         </span>
@@ -25,16 +18,16 @@ const Hero = () => {
                             <span className='text-white'> {LandingPageData.HeroSection.HeadLineWordThree}</span>
                         </div>
                     </div>
-                    <span className='text-white font-cabin'>
+                    <span className='text-white font-cabin text-lg'>
                         {LandingPageData.HeroSection.Tagline}
                     </span>
 
-                    <div className='flex m-10 gap-4 justify-center'>
+                    <div className='flex mt-5 gap-4 justify-center'>
                         <GradientButton>
-                            Explore Pools
+                            {LandingPageData.HeroSection.ExploreButton}
                         </GradientButton>
                         <BorderGradientButton>
-                            Connect Wallet
+                            {LandingPageData.HeroSection.ConnectButton}
                         </BorderGradientButton>
                     </div>
                 </div>
@@ -42,10 +35,7 @@ const Hero = () => {
 
 
             <div className='text-center'>
-
-
-                <div className='font-cabin font-[400] leading-5 text-base text-white'>
-                  
+                <div className='font-cabin font-[400] leading-5 text-lg text-white'>
                     {LandingPageData.HeroSection.BottomLine}
                 </div>
             </div>

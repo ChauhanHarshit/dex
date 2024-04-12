@@ -7,7 +7,7 @@ import WhitePaper from '../components/landingPageComponents/WhitePaper'
 const LandingPage = () => {
     return (
         <div className='bg-[#0B0B0B]'>
-            <div className='mx-8'>
+            <div className='md:mx-8 mx-4'>
                 <div className='relative'>
                     <Hero />
                 </div>
@@ -15,7 +15,10 @@ const LandingPage = () => {
                 <About />
                 <Partnership />
                 <Methods />
-                <WhitePaper />
+
+                <div className='mt-4'>
+                    <WhitePaper />
+                </div>
             </div>
         </div>
     )
