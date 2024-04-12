@@ -116,6 +116,27 @@ export const LandingPageData = {
 
 
     },
+
+    LiquiditySectionData: {
+        Box1: {
+            NumberData: '1.58B',
+            Description: 'Total Liquidity'
+        },
+        Box2: {
+            SubBox1: {
+                NumberData: '250.59M',
+                Description: 'Swap Vol',
+            },
+            SubBox2: {
+                NumberData: '170.30K',
+                Description: 'Liquidity Provider',
+            }
+        },
+        Box3: {
+            NumberData: '7.5K',
+            Description: 'Total Pools',
+        }
+    },
     WhitePaperText: {
         Heading: "WhitePapers Available",
         Description: 'Read our comprehensive whitepaper to understand the underlying technology, the mechanics of our DEX, and how we aim to revolutionize the way you trade and manage digital assets',
@@ -123,5 +144,6 @@ export const LandingPageData = {
     }
 
 }
+
 
 

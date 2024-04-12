@@ -4,6 +4,7 @@ import About from '../components/landingPageComponents/About'
 import Partnership from '../components/landingPageComponents/Partnership'
 import Methods from '../components/landingPageComponents/Methods'
 import WhitePaper from '../components/landingPageComponents/WhitePaper'
+import LiquidityInfo from '../components/landingPageComponents/LiquidityInfo'
 const LandingPage = () => {
     return (
         <div className='bg-[#0B0B0B]'>
@@ -13,6 +14,7 @@ const LandingPage = () => {
                 </div>
 
                 <About />
+                <LiquidityInfo/>
                 <Partnership />
                 <Methods />
 
