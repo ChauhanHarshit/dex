@@ -1,5 +1,5 @@
 import React from 'react'
-import { PartnershipData } from '../../TextData'
+import { LandingPageData } from '../../TextData'
 import GradientSpan from '../../CustomSpan/GradientSpan'
 import PartnerShipLogo from '../../assets/images/PartnerShipLogo.png'
 const Partnership = () => {
@@ -18,7 +18,7 @@ const Partnership = () => {
 
             <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-16'>
                 {
-                    PartnershipData.map((Company, index) => (
+                    LandingPageData.PartnershipData.map((Company, index) => (
                         <div className='bg-gradient-to-r from-[#3D3F47] via-[#000211] to-[#373942] flex justify-between text-white rounded-lg border border-[#3D3F47] p-8 w-[268px] mx-auto my-4 items-center' key={index}>
                             <div>
                                 <img src={Company.LogoLink} alt="Yaman" />

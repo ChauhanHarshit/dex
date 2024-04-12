@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { HeroSection } from '../../TextData'
+import { LandingPageData } from '../../TextData'
 import GradientButton from '../../buttons/GradientButton'
 import BorderGradientButton from '../../buttons/BorderGradientButton'
 import Flow from '../../assets/images/Flow.json'
@@ -18,15 +18,15 @@ const Hero = () => {
                 <div>
                     <div className='font-fahkwang font-[300] text-6xl pb-5'>
                         <span className='text-white'>
-                            {HeroSection.HeadLineWordOne}
+                            {LandingPageData.HeroSection.HeadLineWordOne}
                         </span>
                         <div>
-                            <span className='bg-gradient-to-r from-[#F2A851] via-[#8F7CFF] to-[#003EC6] text-transparent bg-clip-text'>{HeroSection.HeadLineWordTwo}</span>
-                            <span className='text-white'> {HeroSection.HeadLineWordThree}</span>
+                            <span className='bg-gradient-to-r from-[#F2A851] via-[#8F7CFF] to-[#003EC6] text-transparent bg-clip-text'>{LandingPageData.HeroSection.HeadLineWordTwo}</span>
+                            <span className='text-white'> {LandingPageData.HeroSection.HeadLineWordThree}</span>
                         </div>
                     </div>
                     <span className='text-white font-cabin'>
-                        {HeroSection.Tagline}
+                        {LandingPageData.HeroSection.Tagline}
                     </span>
 
                     <div className='flex m-10 gap-4 justify-center'>
@@ -41,9 +41,14 @@ const Hero = () => {
             </div>
 
 
-            {/* <div>
-                <img src={FlowLink} alt="" />
-            </div> */}
+            <div className='text-center'>
+
+
+                <div className='font-cabin font-[400] leading-5 text-base text-white'>
+                  
+                    {LandingPageData.HeroSection.BottomLine}
+                </div>
+            </div>
         </div>
     )
 }
