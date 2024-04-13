@@ -24,7 +24,7 @@ const Methods = () => {
                         <span className=' '>{LandingPageData.MethodsText.UpperSection.HeadingWordThree}</span>
                     </div>
 
-                    <div className='font-cabin font-[400] text-xl leading-6    text-start'>
+                    <div className='font-cabin font-[400] text-xl leading-6 w-10/12 text-start'>
                         {LandingPageData.MethodsText.UpperSection.Description}
                     </div>
                     <div className='m-4 md:m-0'>
@@ -45,7 +45,7 @@ const Methods = () => {
                         </div>
                     </div>
 
-                    <div className='font-cabin font-[400] text-xl leading-6  '>
+                    <div className='font-cabin font-[400] w-10/12 text-xl leading-6  '>
                         {LandingPageData.MethodsText.LowerSection.Description}
                     </div>
                     <div>
