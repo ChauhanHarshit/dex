@@ -7,9 +7,9 @@ import LiquidityPageImageThree from '../../assets/images/LiquidityPageImageThree
 import LiquidityPageImageFour from '../../assets/images/LiquidityPageImageFour.png'
 const LiquidityInfo = () => {
     return (
-        <div className='flex md:flex-row flex-col justify-center gap-8 mb-8 items-center' id={`${NavbarData.Links[1].LinkId}`}>
+        <div className='flex md:flex-row flex-col justify-center gap-8  items-center mb-8 py-32' id={`${NavbarData.Links[1].LinkId}`}>
 
-            <div className="relative bg-cover bg-center h-[300px] w-[300px] rounded-lg border-2  border-white border-opacity-60 p-4" style={{ backgroundImage: `url(${LiquidityPageImageOne})` }} >
+            <div className="relative bg-cover bg-center h-80 w-80 rounded-lg border-2  border-white border-opacity-60 p-4" style={{ backgroundImage: `url(${LiquidityPageImageOne})` }} >
                 <div className="absolute inset-0 bg-gradient-to-b from-[#000000] to-[#00308E] opacity-70  p-4 h-full flex flex-col justify-end rounded-lg"></div>
                 <div className="relative z-10 text-white flex justify-center top-1/3 text-center md:top-0 md:text-start md:justify-start">
                     <div>
@@ -19,7 +19,7 @@ const LiquidityInfo = () => {
                 </div>
             </div>
             <div className='flex flex-col justify-evenly gap-8'>
-                <div className="relative bg-cover bg-center h-[300px] w-[300px] md:h-[134px] xl:w-[800px] lg:w-[600px] rounded-lg border-2  border-white border-opacity-60 p-2" style={{ backgroundImage: `url(${LiquidityPageImageTwo})` }} >
+                <div className="relative bg-cover bg-center h-80 w-80 md:h-36 xl:w-[800px] lg:w-[600px] rounded-lg border-2  border-white border-opacity-60 p-2" style={{ backgroundImage: `url(${LiquidityPageImageTwo})` }} >
                     <div className="absolute inset-0 bg-gradient-to-b from-[#000000] to-[#00308E] opacity-70 p-4 h-full flex flex-col justify-end rounded-lg"></div>
                     <div className="relative z-10 text-white flex md:justify-start justify-center top-1/3 text-center md:text-start md:top-0">
                         <div>
@@ -28,7 +28,7 @@ const LiquidityInfo = () => {
                         </div>
                     </div>
                 </div>
-                <div className="relative bg-cover bg-center h-[300px] w-[300px] md:h-[134px] xl:w-[800px] lg:w-[600px] rounded-lg border-2  border-white border-opacity-60 p-4" style={{ backgroundImage: `url(${LiquidityPageImageThree})` }} >
+                <div className="relative bg-cover bg-center h-80 w-80 md:h-36 xl:w-[800px] lg:w-[600px] rounded-lg border-2  border-white border-opacity-60 p-4" style={{ backgroundImage: `url(${LiquidityPageImageThree})` }} >
                     <div className="absolute inset-0 bg-gradient-to-b from-[#000000] to-[#00308E] opacity-70 p-4 h-full flex flex-col justify-end rounded-lg"></div>
                     <div className="relative z-10 text-white flex md:justify-end justify-center top-1/3 text-center  md:text-start md:top-0">
                         <div>
@@ -38,7 +38,7 @@ const LiquidityInfo = () => {
                     </div>
                 </div>
             </div>
-            <div className="relative bg-cover bg-center h-[300px] w-[300px] rounded-lg border-2  border-white border-opacity-60 p-4" style={{ backgroundImage: `url(${LiquidityPageImageFour})` }} >
+            <div className="relative bg-cover bg-center h-80 w-80 rounded-lg border-2  border-white border-opacity-60 p-4" style={{ backgroundImage: `url(${LiquidityPageImageFour})` }} >
                 <div className="absolute inset-0 bg-gradient-to-b from-[#000000] to-[#00308E] opacity-70 p-4 h-full flex flex-col justify-end rounded-lg"></div>
                 <div className="relative z-10 text-white flex md:flex-col md:justify-end md:h-full justify-center top-1/3 text-center md:text-start md:top-0">
                     <div >

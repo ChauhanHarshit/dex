@@ -8,10 +8,10 @@ import { LandingPageData } from '../../TextData'
 import { NavbarData } from '../../TextData'
 const About = () => {
     return (
-        <div className='flex justify-between md:px-[107px] text-3xl md:text-5xl items-center ' id={`${NavbarData.Links[0].LinkId}`}>
+        <div className='flex justify-between md:px-24 text-3xl md:text-5xl items-center ' id={`${NavbarData.Links[0].LinkId}`}>
             <div className='h-screen flex flex-col justify-evenly text-white w-full lg:w-1/2'>
                 <div>
-                    <div className='flex items-center font-fahkwang font-[500] gap-2'>
+                    <div className='flex items-center font-fahkwang font-medium gap-2'>
                         <img src={AboutImageFirst} alt="" />
                         <span>{LandingPageData.AboutSectionData.Elementone.WordOne}</span> <GradientSpan>{LandingPageData.AboutSectionData.Elementone.WordTwo}</GradientSpan> <span>{LandingPageData.AboutSectionData.Elementone.WordThree}</span>
 
@@ -45,7 +45,7 @@ const About = () => {
             </div>
 
             <div className='w-1/2 hidden lg:block'>
-                <img src={AboutGifFirst} alt="" className='bg-[#000711] rotate-11-7 ' />
+                <img src={AboutGifFirst} alt="" className='bg-[#000711] rotate-11-7' />
             </div>
 
         </div>

@@ -4,7 +4,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { NavbarData } from '../TextData';
 const Navbar = () => {
     return (
-        <div className='w-[80%] sticky top-8 rounded-2xl mx-auto text-white bg-[#05071D] font-cabin backdrop-blur-md z-50 '>
+        <div className='w-fit sticky top-8 rounded-2xl mx-auto text-white bg-[#05071D] font-cabin backdrop-blur-md z-50 '>
             <div className='w-full m-8 p-4 flex justify-between gap-8 items-center'>
                 <div className='text-base  flex gap-10 items-center'>
                     <span className='font-extrabold'>LOGO</span>
@@ -30,8 +30,10 @@ const Navbar = () => {
 
 
                 <div className='flex items-center gap-8'>
-                <div className="border-l border-white h-12"></div>
-                    <GradientButton>{NavbarData.ButtonText}</GradientButton>
+                    <div className="border-l border-white h-12"></div>
+                    <div className='mr-9'>
+                        <GradientButton>{NavbarData.ButtonText}</GradientButton>
+                    </div>
                 </div>
             </div>
         </div >
