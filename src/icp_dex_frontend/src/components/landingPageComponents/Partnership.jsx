@@ -5,7 +5,7 @@ const Partnership = () => {
     return (
         <div>
             <div className='flex flex-col items-center font-fahkwang '>
-                <div className='text-3xl flex'>
+                <div className='md:text-5xl text-3xl flex'>
                     <span className='text-white mr-2'>{LandingPageData.PaternshipPageData.HeadingWordOne}</span> <GradientSpan>{LandingPageData.PaternshipPageData.HeadingWordTwo}</GradientSpan>
                 </div>
 

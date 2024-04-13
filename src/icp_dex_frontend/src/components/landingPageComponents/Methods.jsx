@@ -40,8 +40,8 @@ const Methods = () => {
                 <div className='w-1/2 ml-16 flex flex-col justify-evenly font-fahkwang text-4xl p-4 '>
                     <div>
                         <div className='flex gap-2'>
-                            <span className='text-white'>{LandingPageData.MethodsText.LowerSection.HeadingWordOne}</span>
-                            <GradientSpan>{LandingPageData.MethodsText.LowerSection.HeadingWordTwo}</GradientSpan>
+                            <GradientSpan >{LandingPageData.MethodsText.LowerSection.HeadingWordOne}</GradientSpan>
+                            <span className='text-white'>{LandingPageData.MethodsText.LowerSection.HeadingWordTwo}</span>
                         </div>
                     </div>
 
