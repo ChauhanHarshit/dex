@@ -4,17 +4,17 @@ import { NavbarData } from '../../TextData'
 import { LandingPageData } from '../../TextData'
 const whitePaper = () => {
     return (
-        <div className='md:mx-20 h-screen' id={`${NavbarData.Links[3].LinkId}`}>
+        <div className='md:mx-20 m-32 h-screen w-11/12' id={`${NavbarData.Links[3].LinkId}`}>
 
-            <div className='w-full bg-gradient-to-r from-[#05071D] via-[#546093] to-[#05071D] border border-1 rounded-lg h-1/2 flex flex-col justify-evenly text-center text-white '>
+            <div className='w-full bg-gradient-to-r from-[#05071D] via-[#546093] to-[#05071D] border border-1 rounded-lg h-4/6 flex flex-col justify-evenly text-center text-white '>
 
 
 
-                <div className='font-fahkwang font-[500] md:text-6xl text-4xl'>
+                <div className='font-fahkwang font-medium md:text-6xl text-2xl'>
                     {LandingPageData.WhitePaperText.Heading}
                 </div>
 
-                <div className='text-xl font-[400] font-cabin leading-6'>
+                <div className='md:text-xl font-normal font-cabin leading-6 max-w-7xl mx-auto'>
                     {LandingPageData.WhitePaperText.Description}
                 </div>
 

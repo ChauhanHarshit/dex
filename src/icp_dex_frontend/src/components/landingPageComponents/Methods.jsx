@@ -9,11 +9,10 @@ const Methods = () => {
     return (
         <div className='mt-16 h-full md:mx-20  mb-16' id={`${NavbarData.Links[2].LinkId}`}>
 
-
             <div className='hidden lg:flex  flex-row justify-between space-y-0'>
 
                 <div className='w-1/2 ml-16 items-end'>
-                    <img src={MethodsImageOne} alt="" className='' />
+                    <img src={MethodsImageOne} alt="MethodImageOne" className='transform hover:scale-105 duration-300' />
                 </div>
 
                 <div className='w-1/2 flex flex-col justify-evenly font-fahkwang text-4xl p-4  items-start'>
@@ -55,7 +54,7 @@ const Methods = () => {
                 </div>
 
                 <div className='w-1/2 ml-16 items-end'>
-                    <img src={MethodsImageTwo} alt="" />
+                    <img src={MethodsImageTwo} alt="MethodImageTwo"  className='transform hover:scale-105 duration-300'/>
                 </div>
             </div>
 

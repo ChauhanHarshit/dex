@@ -159,7 +159,7 @@ export const LandingPageData = {
         }
     },
     WhitePaperText: {
-        Heading: "WhitePapers Available",
+        Heading: "Whitepapers Available",
         Description: 'Read our comprehensive whitepaper to understand the underlying technology, the mechanics of our DEX, and how we aim to revolutionize the way you trade and manage digital assets',
         ButtonText: 'Read Now',
     }
