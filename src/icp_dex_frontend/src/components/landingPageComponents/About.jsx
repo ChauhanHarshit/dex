@@ -9,7 +9,7 @@ import { NavbarData } from '../../TextData'
 const About = () => {
     return (
         <div className='flex justify-between md:px-24 text-3xl md:text-5xl items-center ' id={`${NavbarData.Links[0].LinkId}`}>
-            <div className='h-screen flex flex-col justify-evenly text-white w-full lg:w-1/2'>
+            <div className='h-screen flex flex-col justify-evenly   w-full lg:w-1/2'>
                 <div>
                     <div className='flex items-center font-fahkwang font-medium gap-2'>
                         <img src={AboutImageFirst} alt="" />

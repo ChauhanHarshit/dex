@@ -4,7 +4,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { NavbarData } from '../TextData';
 const Navbar = () => {
     return (
-        <div className='w-fit sticky top-8 rounded-2xl mx-auto text-white bg-[#05071D] font-cabin backdrop-blur-md z-50 '>
+        <div className='w-fit sticky top-8 rounded-2xl mx-auto   bg-[#05071D] font-cabin backdrop-blur-md z-50 '>
             <div className='w-full m-8 p-4 flex justify-between gap-8 items-center'>
                 <div className='text-base  flex gap-10 items-center'>
                     <span className='font-extrabold'>LOGO</span>

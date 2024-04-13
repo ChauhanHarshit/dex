@@ -9,15 +9,15 @@ const Hero = () => {
 
             <div className=' items-center  text-center h-screen'>
                 <div className='font-fahkwang font-[300] md:text-6xl text-4xl pb-5 m-2 md:m-0'>
-                    <span className='text-white'>
+                    <span className=' '>
                         {LandingPageData.HeroSection.HeadLineWordOne}
                     </span>
                     <div>
                         <span className='bg-gradient-to-r from-[#F2A851] via-[#8F7CFF] to-[#003EC6] text-transparent bg-clip-text'>{LandingPageData.HeroSection.HeadLineWordTwo}</span>
-                        <span className='text-white'> {LandingPageData.HeroSection.HeadLineWordThree}</span>
+                        <span className=' '> {LandingPageData.HeroSection.HeadLineWordThree}</span>
                     </div>
                 </div>
-                <span className='text-white font-cabin text-lg'>
+                <span className='  font-cabin text-lg'>
                     {LandingPageData.HeroSection.Tagline}
                 </span>
 
@@ -33,7 +33,7 @@ const Hero = () => {
 
 
             <div className='text-center'>
-                <div className='font-cabin font-[400] leading-5 text-lg text-white'>
+                <div className='font-cabin font-[400] leading-5 text-lg  '>
                     {LandingPageData.HeroSection.BottomLine}
                 </div>
             </div>

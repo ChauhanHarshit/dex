@@ -6,7 +6,7 @@ const whitePaper = () => {
     return (
         <div className='md:mx-20 m-32 h-screen w-11/12' id={`${NavbarData.Links[3].LinkId}`}>
 
-            <div className='w-full bg-gradient-to-r from-[#05071D] via-[#546093] to-[#05071D] border border-1 rounded-lg h-4/6 flex flex-col justify-evenly text-center text-white '>
+            <div className='w-full bg-gradient-to-r from-[#05071D] via-[#546093] to-[#05071D] border border-1 rounded-lg h-4/6 flex flex-col justify-evenly text-center   '>
 
 
 

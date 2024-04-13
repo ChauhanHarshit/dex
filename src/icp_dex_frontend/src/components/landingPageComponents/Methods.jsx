@@ -18,13 +18,13 @@ const Methods = () => {
                 <div className='w-1/2 flex flex-col justify-evenly font-fahkwang text-4xl p-4  items-start'>
                     <div className='mb-0'>
                         <div className='flex gap-2 '>
-                            <span className='text-white'>{LandingPageData.MethodsText.UpperSection.HeadingWordOne}</span>
+                            <span className=' '>{LandingPageData.MethodsText.UpperSection.HeadingWordOne}</span>
                             <GradientSpan>{LandingPageData.MethodsText.UpperSection.HeadingWordTwo}</GradientSpan>
                         </div>
-                        <span className='text-white'>{LandingPageData.MethodsText.UpperSection.HeadingWordThree}</span>
+                        <span className=' '>{LandingPageData.MethodsText.UpperSection.HeadingWordThree}</span>
                     </div>
 
-                    <div className='font-cabin font-[400] text-xl leading-6 text-white  text-start'>
+                    <div className='font-cabin font-[400] text-xl leading-6    text-start'>
                         {LandingPageData.MethodsText.UpperSection.Description}
                     </div>
                     <div className='m-4 md:m-0'>
@@ -41,11 +41,11 @@ const Methods = () => {
                     <div>
                         <div className='flex gap-2'>
                             <GradientSpan >{LandingPageData.MethodsText.LowerSection.HeadingWordOne}</GradientSpan>
-                            <span className='text-white'>{LandingPageData.MethodsText.LowerSection.HeadingWordTwo}</span>
+                            <span className=' '>{LandingPageData.MethodsText.LowerSection.HeadingWordTwo}</span>
                         </div>
                     </div>
 
-                    <div className='font-cabin font-[400] text-xl leading-6 text-white'>
+                    <div className='font-cabin font-[400] text-xl leading-6  '>
                         {LandingPageData.MethodsText.LowerSection.Description}
                     </div>
                     <div>
@@ -67,13 +67,13 @@ const Methods = () => {
                 <div className='md:w-1/2 flex flex-col justify-evenly font-fahkwang text-4xl p-4 items-center text-center'>
                     <div className='mb-4 md:mb-0'>
                         <div className='flex gap-2 text-center'>
-                            <span className='text-white'>{LandingPageData.MethodsText.UpperSection.HeadingWordOne}</span>
+                            <span className=' '>{LandingPageData.MethodsText.UpperSection.HeadingWordOne}</span>
                             <GradientSpan>{LandingPageData.MethodsText.UpperSection.HeadingWordTwo}</GradientSpan>
                         </div>
-                        <span className='text-white'>{LandingPageData.MethodsText.UpperSection.HeadingWordThree}</span>
+                        <span className=' '>{LandingPageData.MethodsText.UpperSection.HeadingWordThree}</span>
                     </div>
 
-                    <div className='font-cabin font-[400] text-xl leading-7 text-white text-center '>
+                    <div className='font-cabin font-[400] text-xl leading-7   text-center '>
                         {LandingPageData.MethodsText.UpperSection.Description}
                     </div>
                     <div className='m-4 '>
@@ -91,12 +91,12 @@ const Methods = () => {
                 <div className='md:w-1/2  flex flex-col justify-evenly font-fahkwang text-4xl p-4 items-center text-center'>
                     <div>
                         <div className='flex gap-2 m-2 text-center'>
-                            <span className='text-white'>{LandingPageData.MethodsText.LowerSection.HeadingWordOne}</span>
+                            <span className=' '>{LandingPageData.MethodsText.LowerSection.HeadingWordOne}</span>
                             <GradientSpan>{LandingPageData.MethodsText.LowerSection.HeadingWordTwo}</GradientSpan>
                         </div>
                     </div>
 
-                    <div className='font-cabin font-[400] text-xl leading-7 text-white '>
+                    <div className='font-cabin font-[400] text-xl leading-7   '>
                         {LandingPageData.MethodsText.LowerSection.Description}
                     </div>
                     <div className='m-4'>
