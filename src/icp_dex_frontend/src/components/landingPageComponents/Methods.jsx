@@ -7,7 +7,10 @@ import GradientSpan from '../../CustomSpan/GradientSpan'
 import GradientButton from '../../buttons/GradientButton'
 const Methods = () => {
     return (
-        <div className='mt-16 h-full md:mx-20  mb-16' id={`${NavbarData.Links[2].LinkId}`}>
+        <div className='mt-16 h-full md:mx-20
+        
+        
+        mb-16' id={`${NavbarData.Links[2].LinkId}`}>
 
             <div className='hidden lg:flex  flex-row justify-between space-y-0 m-16'>
 

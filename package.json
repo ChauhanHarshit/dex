@@ -15,5 +15,8 @@
   "type": "module",
   "workspaces": [
     "src/icp_dex_frontend"
-  ]
+  ],
+  "dependencies": {
+    "lucide-react": "^0.368.0"
+  }
 }
