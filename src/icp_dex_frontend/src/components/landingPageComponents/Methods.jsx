@@ -9,13 +9,13 @@ const Methods = () => {
     return (
         <div className='mt-16 h-full md:mx-20  mb-16' id={`${NavbarData.Links[2].LinkId}`}>
 
-            <div className='hidden lg:flex  flex-row justify-between space-y-0'>
+            <div className='hidden lg:flex  flex-row justify-between space-y-0 m-16'>
 
                 <div className='w-1/2 ml-16 items-end'>
-                    <img src={MethodsImageOne} alt="MethodImageOne" className='transform hover:scale-105 duration-300' />
+                    <img src={MethodsImageOne} alt="MethodImageOne" className='h-10/12 w-10/12 transform hover:scale-105 duration-300' />
                 </div>
 
-                <div className='w-1/2 flex flex-col justify-evenly font-fahkwang text-4xl p-4  items-start'>
+                <div className='w-1/2 flex flex-col justify-between font-fahkwang text-4xl p-4  items-start'>
                     <div className='mb-0'>
                         <div className='flex gap-2 '>
                             <span className=' '>{LandingPageData.MethodsText.UpperSection.HeadingWordOne}</span>
@@ -35,9 +35,9 @@ const Methods = () => {
             </div>
 
 
-            <div className='lg:flex justify-between hidden'>
+            <div className='lg:flex justify-between hidden m-16'>
 
-                <div className='w-1/2 ml-16 flex flex-col justify-evenly font-fahkwang text-4xl p-4 '>
+                <div className='w-1/2 ml-16 flex flex-col justify-between font-fahkwang text-4xl p-6 '>
                     <div>
                         <div className='flex gap-2'>
                             <GradientSpan >{LandingPageData.MethodsText.LowerSection.HeadingWordOne}</GradientSpan>
@@ -53,8 +53,8 @@ const Methods = () => {
                     </div>
                 </div>
 
-                <div className='w-1/2 ml-16 items-end'>
-                    <img src={MethodsImageTwo} alt="MethodImageTwo"  className='transform hover:scale-105 duration-300'/>
+                <div className='w-1/2  ml-16 items-end'>
+                    <img src={MethodsImageTwo} alt="MethodImageTwo"  className=' h-10/12 w-10/12 transform hover:scale-105 duration-300'/>
                 </div>
             </div>
 

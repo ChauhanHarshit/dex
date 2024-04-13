@@ -10,7 +10,7 @@ import Navbar from '../navbar/Navbar'
 const LandingPage = () => {
     return (
         <div className=''>
-            <Navbar />
+            {/* <Navbar /> */}
             <div className='md:mx-8 mx-4'>
                 <div className='relative'>
                     <Hero />

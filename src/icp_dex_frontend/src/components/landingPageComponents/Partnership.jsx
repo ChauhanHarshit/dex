@@ -13,7 +13,7 @@ const Partnership = () => {
                     {LandingPageData.PaternshipPageData.HeadingDescription}
                 </div>
             </div>
-            <div className='mx-auto w-[70%]'>
+            <div className='mx-auto w-[80%]'>
 
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-16 '>
