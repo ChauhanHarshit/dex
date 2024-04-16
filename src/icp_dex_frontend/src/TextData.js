@@ -37,6 +37,7 @@ export const CommonNavbarData = {
         {
             LinkName: 'Swap',
             LinkId: 'swap',
+            LinkPath: '/dex-swap',
         },
         {
             LinkName: 'Pool',

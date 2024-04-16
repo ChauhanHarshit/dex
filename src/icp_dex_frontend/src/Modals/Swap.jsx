@@ -7,8 +7,11 @@ import BorderGradientButton from '../buttons/BorderGradientButton'
 import SearchToken from './SearchToken';
 import DialogBox from './Dialouge';
 import { SwapModalData } from '../TextData';
+import TransactionComplete from './TransactionComplete';
+import { useNavigate } from 'react-router-dom';
 const Swap = () => {
 
+    const navigate = useNavigate();
     const [Message, setMessage] = useState('');
     const [show1, setShow1] = useState(false);
     const [show2, setShow2] = useState(false);
@@ -286,8 +289,8 @@ const Swap = () => {
                                 <div>
                                     {ClickedSwap ? (
                                         <div onClick={() => {
-                                            setClickSwap(true);
-                                            console.log("swap click", ClickedSwap);
+
+                                            navigate('/dex-swap/transaction-successfull')
                                         }}>
                                             <GradientButton CustomCss={'w-full  font-extrabold text-3xl '}>Confirm Swapping</GradientButton>
                                         </div>
@@ -394,8 +397,11 @@ const Swap = () => {
                     </div>
 
                     <BorderGradientButton customCss={`w-full `}>Analyse Pair</BorderGradientButton>
+
+
                 </div>
             )}
+
         </div>
     )
 }
