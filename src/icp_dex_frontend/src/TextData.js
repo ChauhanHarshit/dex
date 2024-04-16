@@ -3,6 +3,8 @@ import BraveWallet from './assets/images/BraveWallet.png'
 import MetaMaskWallet from './assets/images/MetaMaskWallet.png'
 import CoinBaseWallet from './assets/images/CoinBaseWallet.png'
 import UniSwapWallet from './assets/images/UniSwapWallet.png'
+
+
 export const LandingPageNavbarData = {
     ButtonText: 'Explore Pools',
     Links: [
@@ -220,6 +222,35 @@ export const ConnectWalletData = {
     LearnMore: 'Learn More',
     ButtonText: 'Connect Now',
     Heading: 'Connect Wallet',
+
+}
+
+export const SearchTokenData = {
+
+    Array: [
+        {
+            Name: 'BitCoin',
+            Element: 'SiBitcoinsv',
+            ShortForm: 'BTC',
+        },
+        {
+            Name: 'Ethereum',
+            Element: 'FaEthereum',
+            ShortForm: 'ETH',
+        },
+        {
+            Name: 'XRP',
+            Element: 'TbCurrencyXrp',
+            ShortForm: 'XRP',
+        },
+        {
+            Name: 'Solana',
+            Element: 'TbCurrencySolana',
+            ShortForm: 'SOL',
+        },
+    ],
+    Heading: 'Select Token',
+    SearchBarPlaceHolder: 'Search token by Name'
 
 }
 

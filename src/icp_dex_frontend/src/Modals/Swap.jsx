@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Bitcoin, Bolt, ChevronDown, Dot, Info } from 'lucide-react';
+import { Bitcoin, Bolt, ChevronDown, ChevronUp, Dot, Info } from 'lucide-react';
 import BlueGradientButton from '../buttons/BlueGradientButton';
 import GradientButton from '../buttons/GradientButton';
 import ImpactButton from '../buttons/ImpactButton';
 import BorderGradientButton from '../buttons/BorderGradientButton'
+import SearchToken from './SearchToken';
 const Swap = () => {
 
-    const [PayCoin, setPayCoin] = useState('ETH');
+    const [PayCoin, setPayCoin] = useState(null);
     const [RecieveCoin, setRecieveCoin] = useState(null);
     const [changePayCoin, setChangePayCoin] = useState("M5 13.5L9 9.5M5 13.5L1 9.5M5 13.5V1");
     const [balance, setBalance] = useState(10);
@@ -15,8 +16,8 @@ const Swap = () => {
     const [settings, setSettings] = useState(false);
     const [changeRecieveCoin, setChangeRecieveCoin] = useState("M13 1L9 5M13 1L17 5M13 1L13 13.5");
     const [bothCoins, setBothCoins] = useState(false);
-
-
+    const [searchToken, setSearchToken] = useState(false);
+    const [id, setId] = useState(0);
 
     useEffect(() => {
         if (PayCoin && RecieveCoin) {
@@ -68,13 +69,23 @@ const Swap = () => {
 
                     <div>
                         {!PayCoin ? (
-                            <div className='flex mr-12 items-center  gap-2'>
-                                <BlueGradientButton customCss={'px-4 py-3 font-cabin font-extrabold'}>
-                                    <div className='flex items-center gap-1'>
-                                        Select a Token
-                                        <span className='cursor-pointer'><ChevronDown /></span>
-                                    </div>
-                                </BlueGradientButton>
+                            <div>
+                                <div className='flex mr-12 items-center  gap-2'
+                                >
+                                    <BlueGradientButton customCss={'px-4 py-3 font-cabin font-extrabold'}
+                                    >
+                                        <div className='flex items-center gap-1'>
+                                            Select a Token
+                                            <span className='cursor-pointer'
+                                                onClick={() => {
+                                                    console.log(searchToken)
+                                                    setId(1);
+                                                    setSearchToken(!searchToken);
+                                                }}><ChevronDown /></span>
+                                        </div>
+                                    </BlueGradientButton>
+                                </div>
+                                {searchToken && <SearchToken setSearchToken={setSearchToken} setPayToken={setPayCoin} setRecToken={setRecieveCoin} id={id} />}
                             </div>
                         ) : (
                             <div className='flex  flex-col gap-1'>
@@ -93,7 +104,18 @@ const Swap = () => {
                                     <div className='font-cabin font-normal text-2xl'>
                                         {PayCoin}
                                     </div>
-                                    <span className='cursor-pointer'><ChevronDown /></span>
+                                    {!searchToken ? (
+                                        <span className='cursor-pointer' onClick={() => {
+                                            setId(1);
+                                            setSearchToken(!searchToken);
+                                        }}><ChevronDown /></span>
+                                    ) : (
+                                        <span className='cursor-pointer' onClick={() => {
+                                            setId(1);
+                                            setSearchToken(!searchToken);
+                                        }}><ChevronUp /></span>
+                                    )}
+                                    {searchToken && <SearchToken setSearchToken={setSearchToken} setPayToken={setPayCoin} setRecToken={setRecieveCoin} id={id} />}
                                 </div>
                                 <span className='font-cabin font-normal'>
                                     ${AmountToPay}
@@ -141,7 +163,13 @@ const Swap = () => {
                                 <BlueGradientButton customCss={'px-4 py-3 font-cabin font-extrabold'}>
                                     <div className='flex items-center gap-1'>
                                         Select a Token
-                                        <span className='cursor-pointer'><ChevronDown /></span>
+                                        <span className='cursor-pointer'
+                                            onClick={() => {
+                                                console.log(searchToken)
+                                                setId(2);
+                                                setSearchToken(!searchToken);
+                                            }}><ChevronDown /></span>
+                                        {searchToken && <SearchToken setSearchToken={setSearchToken} setRecToken={setRecieveCoin} setPayToken={setPayCoin} id={id} />}
                                     </div>
                                 </BlueGradientButton>
                             </div>
@@ -161,7 +189,18 @@ const Swap = () => {
                                 <div className='font-cabin font-normal text-2xl'>
                                     {RecieveCoin}
                                 </div>
-                                <span className='cursor-pointer'><ChevronDown /></span>
+                                {!searchToken ? (
+                                    <span className='cursor-pointer' onClick={() => {
+                                        setSearchToken(!searchToken);
+                                        setId(2);
+                                    }}><ChevronDown /></span>
+                                ) : (
+                                    <span className='cursor-pointer' onClick={() => {
+                                        setSearchToken(!searchToken);
+                                        setId(2);
+                                    }}><ChevronUp /></span>
+                                )}
+                                {searchToken && <SearchToken setSearchToken={setSearchToken} setRecToken={setRecieveCoin} setPayToken={setPayCoin} id={id} />}
                             </div>
                         )}
                     </div>
