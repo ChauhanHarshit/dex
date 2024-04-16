@@ -1,8 +1,8 @@
 const DialogBox = ({ text }) => {
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-            <div className="bg-purple-600 text-white p-4 rounded-lg shadow-xl">
-                <p className="text-sm">{text}</p>
+        <div className=" z-50 inset-0 flex justify-center items-center mx-auto ">
+            <div className="bg-[#010427] text-white p-4 rounded-lg shadow-xl font-cabin text-lg font-medium">
+                <p>{text}</p>
             </div>
         </div>
     );

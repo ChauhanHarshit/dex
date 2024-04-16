@@ -254,5 +254,16 @@ export const SearchTokenData = {
 
 }
 
+export const SwapModalData = {
+
+
+
+
+    infoMessageOne: 'Your Transaction will be roll backed if there is a large price movement before its being confirmed',
+    infoMessageTwo: 'It is the estimated difference between the market price and estimated price due to Trade size',
+    infoMessageThree: `A portion of the trade goes to Liquidity 
+    provider as their Incentive`,
+}
+
 
 

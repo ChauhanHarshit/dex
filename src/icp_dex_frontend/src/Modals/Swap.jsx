@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { Bitcoin, Bolt, ChevronDown, ChevronUp, Dot, Info } from 'lucide-react';
+import { Bolt, ChevronDown, ChevronUp, Dot, Info } from 'lucide-react';
 import BlueGradientButton from '../buttons/BlueGradientButton';
 import GradientButton from '../buttons/GradientButton';
 import ImpactButton from '../buttons/ImpactButton';
 import BorderGradientButton from '../buttons/BorderGradientButton'
 import SearchToken from './SearchToken';
+import DialogBox from './Dialouge';
+import { SwapModalData } from '../TextData';
 const Swap = () => {
 
+    const [Message, setMessage] = useState('');
+    const [show1, setShow1] = useState(false);
+    const [show2, setShow2] = useState(false);
+    const [show3, setShow3] = useState(false);
     const [PayCoin, setPayCoin] = useState(null);
     const [RecieveCoin, setRecieveCoin] = useState(null);
     const [changePayCoin, setChangePayCoin] = useState("M5 13.5L9 9.5M5 13.5L1 9.5M5 13.5V1");
@@ -18,6 +24,7 @@ const Swap = () => {
     const [bothCoins, setBothCoins] = useState(false);
     const [searchToken, setSearchToken] = useState(false);
     const [id, setId] = useState(0);
+    const [ClickedSwap, setClickSwap] = useState(false);
 
     useEffect(() => {
         if (PayCoin && RecieveCoin) {
@@ -206,71 +213,181 @@ const Swap = () => {
                     </div>
                 </div>
 
-                {bothCoins && (<div>
-                    <div className='w-full mx-auto flex justify-between items-center my-3'>
+                {bothCoins && (
+                    <div>
+                        <div className='w-full mx-auto flex justify-between items-center my-3'>
 
-                        <div className='flex items-center'>
-                            <Dot color='#F7931A' />
-                            <span>Price</span>
+                            <div className='flex items-center'>
+                                <Dot color='#F7931A' />
+                                <span>Price</span>
+                            </div>
+
+                            <div className='font-cabin font-medium'>
+                                {`1 CT = 0.0025674 ETH (12.58$)`}
+                            </div>
                         </div>
 
-                        <div className='font-cabin font-medium'>
-                            {`1 CT = 0.0025674 ETH (12.58$)`}
+                        <div className='w-full mx-auto my-3 flex justify-between items-center '>
+
+                            <div className='flex items-center'>
+                                <Dot color='#F7931A' />
+                                <span>Gas Fees</span>
+                            </div>
+
+                            <div className='font-cabin font-medium'>
+                                {`0.000052 ETH  ($0.1656)`}
+                            </div>
                         </div>
+
+
+
+
+
+
+                        <div>
+                            {
+                                ClickedSwap && (
+                                    <div className='flex flex-col gap-4   my-4  rounded-lg'>
+
+                                        <div className='flex justify-between'>
+                                            <div className='flex items-center'>
+                                                <Dot color='#F7931A' />
+                                                <span>Minimum Recieved </span>
+                                            </div>
+
+                                            <div className='font-cabin font-medium text-base'>10.5580 CT</div>
+                                        </div>
+                                        <div className='flex justify-between items-center'>
+                                            <div className='flex items-center'>
+                                                <Dot color='#F7931A' />
+                                                <span className='relative'>Overall Slippage</span>
+                                            </div>
+
+                                            <div><ImpactButton customCss={`font-bold`} Impact={'Positive'}>10%</ImpactButton></div>
+                                        </div>
+                                        <div className='flex justify-between'>
+                                            <div className='flex items-center'>
+                                                <Dot color='#F7931A' />
+                                                <span>Liquidity Provider Incentive</span>
+                                            </div>
+                                            <div className='font-cabin font-medium text-base'>0.000056 ETH</div>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        </div>
+
+                        <div>
+                            {CoinAmount > balance ? (
+
+                                <GradientButton CustomCss={'w-full cursor-auto disabled opacity-75 font-extrabold text-3xl '}
+                                >Insufficient Balance</GradientButton>
+                            ) : (
+                                <div>
+                                    {ClickedSwap ? (
+                                        <div onClick={() => {
+                                            setClickSwap(true);
+                                            console.log("swap click", ClickedSwap);
+                                        }}>
+                                            <GradientButton CustomCss={'w-full  font-extrabold text-3xl '}>Confirm Swapping</GradientButton>
+                                        </div>
+                                    ) : (
+                                        <div onClick={() => {
+                                            setClickSwap(true);
+                                            console.log("swap click", ClickedSwap);
+                                        }}>
+                                            <GradientButton CustomCss={'w-full  font-extrabold text-3xl '}>Swap Now</GradientButton>
+                                        </div>
+                                    )}
+                                </div>
+
+                            )}
+                        </div>
+
+
+
+
                     </div>
-
-                    <div className='w-full mx-auto my-3 flex justify-between items-center '>
-
-                        <div className='flex items-center'>
-                            <Dot color='#F7931A' />
-                            <span>Gas Fees</span>
-                        </div>
-
-                        <div className='font-cabin font-medium'>
-                            {`0.000052 ETH  ($0.1656)`}
-                        </div>
-                    </div>
-
-
-
-                    <div className=''>
-                        {CoinAmount > balance ? (
-
-                            <GradientButton CustomCss={'w-full cursor-auto disabled opacity-75 font-extrabold text-3xl '}
-                            >Insufficient Balance</GradientButton>
-                        ) : (
-                            <GradientButton CustomCss={'w-full  font-extrabold text-3xl '}
-                            >Swap Now</GradientButton>
-                        )}
-                    </div>
-                </div>)}
+                )}
 
 
             </div>
 
-            {bothCoins && (
+            {bothCoins && !ClickedSwap && (
                 <div className='lg:w-4/12 md:w-6/12 flex flex-col gap-4 p-4  mx-auto my-4  rounded-lg'>
 
                     <div className='flex justify-between'>
                         <div className='flex items-center gap-2'>
-                            <span>Minimum Recieved </span>
-                            <Info />
+                            <span className='relative'>Minimum Recieved
+                                {show1 &&
+                                    <div className='absolute ml-40 w-[250%]'>
+                                        <DialogBox text={Message} />
+                                    </div>
+                                }
+                            </span>
+                            <span
+                                onMouseEnter={() => {
+                                    setShow1(true);
+                                    setMessage(SwapModalData.infoMessageOne);
+                                }}
+
+                                onMouseLeave={() => {
+                                    setShow1(false);
+                                }}
+                            >
+                                <Info />
+
+                            </span>
                         </div>
 
                         <div className='font-cabin font-medium text-base'>10.5580 CT</div>
                     </div>
                     <div className='flex justify-between'>
                         <div className='flex items-center gap-2'>
-                            <span>Overall Slippage </span>
-                            <Info />
+                            <span className='relative'>Overall Slippage
+                                {show2 &&
+                                    <div className='absolute ml-40 w-[250%]'>
+                                        <DialogBox text={Message} />
+                                    </div>
+                                }
+                            </span>
+
+                            <span
+                                className='z-50'
+                                onMouseEnter={() => {
+                                    setShow2(true);
+                                    setMessage(SwapModalData.infoMessageTwo);
+                                }}
+                                onMouseLeave={() => {
+                                    setShow2(false);
+                                }}>
+                                <Info />
+                            </span>
                         </div>
 
                         <div><ImpactButton customCss={`font-bold`} Impact={'Positive'}>10%</ImpactButton></div>
                     </div>
                     <div className='flex justify-between'>
                         <div className='flex items-center gap-2'>
-                            <span>Liquidity Provider Incentive</span>
-                            <Info />
+                            <span className='relative'>Liquidity Provider Incentive
+                                {show3 &&
+                                    <div className='absolute ml-40 w-[250%]'>
+                                        <DialogBox text={Message} />
+                                    </div>
+                                }
+                            </span>
+                            <span
+                                className='z-50'
+                                onMouseEnter={() => {
+                                    setShow3(true);
+                                    setMessage(SwapModalData.infoMessageThree);
+                                }}
+
+                                onMouseLeave={() => {
+                                    setShow3(false);
+                                }}>
+                                <Info />
+                            </span>
                         </div>
 
                         <div className='font-cabin font-medium text-base'>0.000056 ETH</div>
