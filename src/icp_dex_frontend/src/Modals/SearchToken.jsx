@@ -8,19 +8,84 @@ import { CiSearch } from "react-icons/ci";
 const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id }) => {
     const [TokenOption, SetTokenOption] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
-    const [filteredTokens, setFilteredTokens] = useState(SearchTokenData.Array);
+    const [filteredTokens, setFilteredTokens] = useState([
+        {
+            Name: 'BitCoin',
+            Element: 'SiBitcoinsv',
+            ShortForm: 'BTC',
+        },
+        {
+            Name: 'Ethereum',
+            Element: 'FaEthereum',
+            ShortForm: 'ETH',
+        },
+        {
+            Name: 'XRP',
+            Element: 'TbCurrencyXrp',
+            ShortForm: 'XRP',
+        },
+        {
+            Name: 'Solana',
+            Element: 'TbCurrencySolana',
+            ShortForm: 'SOL',
+        },
+    ])
     const HandleClickToken = (index) => {
         console.log("token selected", index)
         SetTokenOption(TokenOption === index ? null : index);
     }
 
 
-    useEffect(() => {
+    const SearchFunction = () => {
         const filtered = SearchTokenData.Array.filter(token =>
             token.Name.toLowerCase().includes(searchQuery.toLowerCase())
         );
         setFilteredTokens(filtered);
-    }, [searchQuery]);
+    }
+
+    useEffect(() => {
+        // console.log("filteredTokens",filteredTokens)
+        // console.log("searchQuery",searchQuery)
+        if(searchQuery && searchQuery.trim() && searchQuery.trim() !== ""){
+       setFilteredTokens(filteredTokens.filter((token) => token.Name.toLowerCase().includes(searchQuery.toLowerCase())))
+        }else{
+            setFilteredTokens([
+                {
+                    Name: 'BitCoin',
+                    Element: 'SiBitcoinsv',
+                    ShortForm: 'BTC',
+                },
+                {
+                    Name: 'Ethereum',
+                    Element: 'FaEthereum',
+                    ShortForm: 'ETH',
+                },
+                {
+                    Name: 'XRP',
+                    Element: 'TbCurrencyXrp',
+                    ShortForm: 'XRP',
+                },
+                {
+                    Name: 'Solana',
+                    Element: 'TbCurrencySolana',
+                    ShortForm: 'SOL',
+                },
+            ])
+
+        }
+        
+
+    }, [searchQuery])
+
+
+
+
+    // useEffect(() => {
+    //     const filtered = SearchTokenData.Array.filter(token =>
+    //         token.Name.toLowerCase().includes(searchQuery.toLowerCase())
+    //     );
+    //     setFilteredTokens(filtered);
+    // }, [searchQuery]);
 
     return (
         <div className='z-50'>
@@ -45,12 +110,13 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id }) => {
                         placeholder='Search token by Name'
                         className='w-full  border rounded-lg text-white bg-[#303030] placeholder-gray-400  p-4'
                         value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onChange={(e) =>{setSearchQuery(e.target.value);
+                        }}
                     />
                 </div>
 
                 <div className='flex flex-col items-center gap-4 mb-10'>
-                    {
+                    {filteredTokens &&
 
                         filteredTokens.map((token, index) => (
                             <div className={`flex gap-6 items-center w-10/12  p-2 bg-[#303030] hover:opacity-80 cursor-pointer  opacity-100 rounded-xl

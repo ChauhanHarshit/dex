@@ -4,10 +4,10 @@ import BlueGradientButton from '../buttons/BlueGradientButton';
 import GradientButton from '../buttons/GradientButton';
 import ImpactButton from '../buttons/ImpactButton';
 import BorderGradientButton from '../buttons/BorderGradientButton'
+import { TokensSvgData } from '../TextData';
 import SearchToken from './SearchToken';
 import DialogBox from './Dialouge';
 import { SwapModalData } from '../TextData';
-import TransactionComplete from './TransactionComplete';
 import { useNavigate } from 'react-router-dom';
 const Swap = () => {
 
@@ -25,7 +25,8 @@ const Swap = () => {
     const [settings, setSettings] = useState(false);
     const [changeRecieveCoin, setChangeRecieveCoin] = useState("M13 1L9 5M13 1L17 5M13 1L13 13.5");
     const [bothCoins, setBothCoins] = useState(false);
-    const [searchToken, setSearchToken] = useState(false);
+    const [searchToken1, setSearchToken1] = useState(false);
+    const [searchToken2, setSearchToken2] = useState(false);
     const [id, setId] = useState(0);
     const [ClickedSwap, setClickSwap] = useState(false);
 
@@ -88,20 +89,20 @@ const Swap = () => {
                                             Select a Token
                                             <span className='cursor-pointer'
                                                 onClick={() => {
-                                                    console.log(searchToken)
+                                                    console.log(searchToken1)
                                                     setId(1);
-                                                    setSearchToken(!searchToken);
+                                                    setSearchToken1(!searchToken1);
                                                 }}><ChevronDown /></span>
                                         </div>
                                     </BlueGradientButton>
                                 </div>
-                                {searchToken && <SearchToken setSearchToken={setSearchToken} setPayToken={setPayCoin} setRecToken={setRecieveCoin} id={id} />}
+                                {searchToken1 && <SearchToken setSearchToken={setSearchToken1} setPayToken={setPayCoin} setRecToken={setRecieveCoin} id={id} />}
                             </div>
                         ) : (
                             <div className='flex  flex-col gap-1'>
                                 <div className='flex mr-12 items-center place-self-end gap-2'>
                                     <BlueGradientButton customCss={'disabled px-4 py-3 normal-cursor'}>
-                                        <svg width="18" height="22" viewBox="0 0 18 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="18" height="22" viewBox="0 0 18 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M8.90047 0L8.70605 0.660819V19.8363L8.90047 20.0303L17.8015 14.769L8.90047 0Z" fill="#9F9F9F" />
                                             <path d="M8.90102 0L0 14.769L8.90102 20.0304V10.7232V0Z" fill="white" />
                                             <path d="M8.90057 21.7158L8.79102 21.8493V28.68L8.90057 29.0001L17.8069 16.457L8.90057 21.7158Z" fill="#6A6A6A" />
@@ -114,18 +115,17 @@ const Swap = () => {
                                     <div className='font-cabin font-normal text-2xl'>
                                         {PayCoin}
                                     </div>
-                                    {!searchToken ? (
+                                    {!searchToken1 ? (
                                         <span className='cursor-pointer' onClick={() => {
                                             setId(1);
-                                            setSearchToken(!searchToken);
+                                            setSearchToken1(!searchToken1);
                                         }}><ChevronDown /></span>
                                     ) : (
                                         <span className='cursor-pointer' onClick={() => {
-                                            setId(1);
-                                            setSearchToken(!searchToken);
+                                            setSearchToken1(!searchToken1);
                                         }}><ChevronUp /></span>
                                     )}
-                                    {searchToken && <SearchToken setSearchToken={setSearchToken} setPayToken={setPayCoin} setRecToken={setRecieveCoin} id={id} />}
+                                    {searchToken1 && <SearchToken setSearchToken={setSearchToken1} setPayToken={setPayCoin} setRecToken={setRecieveCoin} id={id} />}
                                 </div>
                                 <span className='font-cabin font-normal'>
                                     ${AmountToPay}
@@ -175,11 +175,11 @@ const Swap = () => {
                                         Select a Token
                                         <span className='cursor-pointer'
                                             onClick={() => {
-                                                console.log(searchToken)
+                                                console.log(searchToken2)
                                                 setId(2);
-                                                setSearchToken(!searchToken);
+                                                setSearchToken2(!searchToken2);
                                             }}><ChevronDown /></span>
-                                        {searchToken && <SearchToken setSearchToken={setSearchToken} setRecToken={setRecieveCoin} setPayToken={setPayCoin} id={id} />}
+                                        {searchToken2 && <SearchToken setSearchToken={setSearchToken2} setRecToken={setRecieveCoin} setPayToken={setPayCoin} id={id} />}
                                     </div>
                                 </BlueGradientButton>
                             </div>
@@ -199,18 +199,18 @@ const Swap = () => {
                                 <div className='font-cabin font-normal text-2xl'>
                                     {RecieveCoin}
                                 </div>
-                                {!searchToken ? (
+                                {!searchToken2 ? (
                                     <span className='cursor-pointer' onClick={() => {
-                                        setSearchToken(!searchToken);
+                                        setSearchToken2(!searchToken2);
                                         setId(2);
                                     }}><ChevronDown /></span>
                                 ) : (
                                     <span className='cursor-pointer' onClick={() => {
-                                        setSearchToken(!searchToken);
+                                        setSearchToken2(!searchToken2);
                                         setId(2);
                                     }}><ChevronUp /></span>
                                 )}
-                                {searchToken && <SearchToken setSearchToken={setSearchToken} setRecToken={setRecieveCoin} setPayToken={setPayCoin} id={id} />}
+                                {searchToken2 && <SearchToken setSearchToken={setSearchToken2} setRecToken={setRecieveCoin} setPayToken={setPayCoin} id={id} />}
                             </div>
                         )}
                     </div>
@@ -405,5 +405,4 @@ const Swap = () => {
         </div>
     )
 }
-
 export default Swap
