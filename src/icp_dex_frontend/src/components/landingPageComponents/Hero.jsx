@@ -8,13 +8,13 @@ const Hero = () => {
         <div className=' h-screen '>
 
             <div className=' items-center  text-center h-screen'>
-                <div className='font-fahkwang font-[300] md:text-6xl text-4xl pb-5 m-2 md:m-0'>
+                <div className='font-fahkwang font-light md:text-6xl text-4xl pb-5 m-2 md:m-0'>
                     <span className=' '>
                         {LandingPageData.HeroSection.HeadLineWordOne}
                     </span>
                     <div>
                         <span className='bg-gradient-to-r from-[#F2A851] via-[#8F7CFF] to-[#003EC6] text-transparent bg-clip-text'>{LandingPageData.HeroSection.HeadLineWordTwo}</span>
-                        <span className=' '> {LandingPageData.HeroSection.HeadLineWordThree}</span>
+                        <span > {LandingPageData.HeroSection.HeadLineWordThree}</span>
                     </div>
                 </div>
                 <span className='  font-cabin text-lg'>

@@ -5,7 +5,7 @@ import AboutImageSecond from '../../assets/images/AboutImageSecond.png'
 import AboutImageThird from '../../assets/images/AboutImageThird.png'
 import AboutGifFirst from '../../assets/images/AboutGifFirst.gif'
 import { LandingPageData } from '../../TextData'
-import { NavbarData } from '../../TextData'
+import {LandingPageNavbarData as NavbarData } from '../../TextData'
 const About = () => {
     return (
         <div className='flex justify-between md:px-24 text-3xl md:text-5xl items-center ' id={`${NavbarData.Links[0].LinkId}`}>

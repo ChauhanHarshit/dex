@@ -6,12 +6,15 @@ import Methods from '../components/landingPageComponents/Methods'
 import WhitePaper from '../components/landingPageComponents/WhitePaper'
 import LiquidityInfo from '../components/landingPageComponents/LiquidityInfo'
 import DialogBox from '../Modals/Dialouge'
-import Swap from '../Modals/Swap'
 import Navbar from '../navbar/Navbar'
+import { LandingPageNavbarData } from '../TextData'
+import { useState } from 'react'
 const LandingPage = () => {
+
+   
     return (
         <div className=''>
-            <Navbar />
+            <Navbar NavbarData={LandingPageNavbarData}/>
             <div className='md:mx-8 mx-4'>
                 <div className='relative'>
                     <Hero />
@@ -27,9 +30,7 @@ const LandingPage = () => {
                 </div>
 
 
-                <div>
-                    <Swap/  >
-                </div>
+                
             </div>
         </div>
     )

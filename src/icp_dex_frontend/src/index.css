@@ -28,7 +28,8 @@ body {
   .button-gradient-wrapper::before {
     background: conic-gradient(rgba(255, 255, 255, 0.906) 0deg,
         transparent 80deg);
-    @apply absolute left-[-250%] top-[-85%] h-[300%] w-[600%] animate-border-spin content-[''];
+    /* @apply absolute left-[-250%] top-[-85%] h-[300%] w-[600%] animate-border-spin content-['']; in Case the Css is broken this is old one to roll back */
+    @apply absolute left-[-250%] top-[-475%] h-[1050%] w-[600%] animate-border-spin content-[''];
   }
 
 
@@ -50,6 +51,11 @@ body {
 .normal-cursor {
   cursor: auto !important;
 }
+
 .scale-115 {
   transform: scale(1.15);
+}
+
+.custom-height-3 {
+  height: 3px;
 }

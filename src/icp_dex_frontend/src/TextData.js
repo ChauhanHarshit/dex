@@ -1,7 +1,36 @@
 import PartnerShipLogo from './assets/images/PartnerShipLogo.png'
-
-export const NavbarData = {
+import BraveWallet from './assets/images/BraveWallet.png'
+import MetaMaskWallet from './assets/images/MetaMaskWallet.png'
+import CoinBaseWallet from './assets/images/CoinBaseWallet.png'
+import UniSwapWallet from './assets/images/UniSwapWallet.png'
+export const LandingPageNavbarData = {
     ButtonText: 'Explore Pools',
+    Links: [
+        {
+            LinkName: 'Swap',
+            LinkId: 'swap',
+            LinkPath: '/dex-swap',
+        },
+        {
+            LinkName: 'Pool',
+            LinkId: 'pool',
+            LinkPath: '/dex-pool',
+        },
+        {
+            LinkName: 'Staking',
+            LinkId: 'staking',
+            LinkPath: '/dex-staking',
+        },
+        {
+            LinkName: 'Whitepaper',
+            LinkId: 'whitepaper',
+            LinkPath: '/dex-whitepaper',
+        },
+    ]
+}
+
+export const CommonNavbarData = {
+    ButtonText: 'Connect Wallet',
     Links: [
         {
             LinkName: 'Swap',
@@ -12,7 +41,7 @@ export const NavbarData = {
             LinkId: 'pool',
         },
         {
-            LinkName: 'Staking',
+            LinkName: 'Portfolio',
             LinkId: 'staking',
         },
         {
@@ -163,6 +192,34 @@ export const LandingPageData = {
         Description: 'Read our comprehensive whitepaper to understand the underlying technology, the mechanics of our DEX, and how we aim to revolutionize the way you trade and manage digital assets',
         ButtonText: 'Read Now',
     }
+
+}
+
+
+export const ConnectWalletData = {
+
+    Array: [
+        {
+            Name: 'Brave Wallet',
+            Image: BraveWallet
+        },
+        {
+            Name: 'Metamask',
+            Image: MetaMaskWallet
+        },
+        {
+            Name: 'Coinbase Wallet',
+            Image: CoinBaseWallet
+        },
+        {
+            Name: 'Uniswap',
+            Image: UniSwapWallet
+        },
+    ],
+    TermsAndConditions: 'By connecting a wallet, you agree to [company name] Terms of Service and consent to its Privacy Policy.',
+    LearnMore: 'Learn More',
+    ButtonText: 'Connect Now',
+    Heading: 'Connect Wallet',
 
 }
 

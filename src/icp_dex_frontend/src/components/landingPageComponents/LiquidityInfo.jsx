@@ -1,6 +1,6 @@
 import React from 'react'
 import { LandingPageData } from '../../TextData'
-import { NavbarData } from '../../TextData'
+import { LandingPageNavbarData as NavbarData } from '../../TextData'
 import LiquidityPageImageOne from '../../assets/images/LiquidityPageImageOne.png'
 import LiquidityPageImageTwo from '../../assets/images/LiquidityPageImageTwo.png'
 import LiquidityPageImageThree from '../../assets/images/LiquidityPageImageThree.png'

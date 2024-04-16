@@ -1,6 +1,6 @@
 import React from 'react'
 import GradientButton from '../../buttons/GradientButton'
-import { NavbarData } from '../../TextData'
+import { LandingPageNavbarData as NavbarData } from '../../TextData'
 import { LandingPageData } from '../../TextData'
 const whitePaper = () => {
     return (
