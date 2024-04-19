@@ -49,7 +49,7 @@ const Swap = () => {
         <div className=''>
             <div className='lg:w-4/12 md:w-6/12 h-5/6 flex flex-col gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
                 <div className='w-[58%] place-self-end  flex justify-between'>
-                    <span className='font-fahkwang font-light text-3xl '>SWAP</span>
+                    <span className='font-fahkwang font-light text-3xl '>{SwapModalData.Heading}</span>
                     <Bolt size={30} className='cursor-pointer' onClick={() => { console.log("settings open") }} />
                 </div>
 
@@ -58,21 +58,21 @@ const Swap = () => {
                     {
                         PayCoin ? (
                             <div className='flex flex-col font-cabin font-normal gap-2'>
-                                <span className='text-base font-medium'>Pay</span>
+                                <span className='text-base font-medium'>{SwapModalData.PaySection.Heading}</span>
                                 <span className='text-4xl'>{CoinAmount}</span>
                                 <div className='flex gap-2'>
                                     <span className='text-base font-normal'
-                                    >Balance:  {parseFloat(balance)}</span>
+                                    >{SwapModalData.PaySection.Balance}:  {parseFloat(balance)}</span>
                                     <button className='font-cabin text-orange-400' onClick={() => {
                                         setCoinAmount(parseFloat(balance))
-                                    }}>Max</button>
+                                    }}>{SwapModalData.PaySection.Max}</button>
                                 </div>
                             </div>
                         ) : (
                             <div className='flex flex-col font-cabin font-normal gap-2'>
-                                <span className='text-base font-medium'>Pay</span>
+                                <span className='text-base font-medium'>{SwapModalData.PaySection.Heading}</span>
                                 <span className='text-4xl'>0</span>
-                                <span className='text-base font-normal'>Balance: Select a Coin to Fetch Balance</span>
+                                <span className='text-base font-medium'>{SwapModalData.PaySection.Balance}: {SwapModalData.PaySection.NoTokenSelectBalanceMessage}</span>
                             </div>
                         )
                     }
@@ -85,7 +85,7 @@ const Swap = () => {
                                     <BlueGradientButton customCss={'px-4 py-3 font-cabin font-extrabold'}
                                     >
                                         <div className='flex items-center gap-1'>
-                                            Select a Token
+                                            {SwapModalData.PaySection.TokenSelectButtonText}
                                             <span className='cursor-pointer'
                                                 onClick={() => {
                                                     console.log(searchToken1)
@@ -145,15 +145,15 @@ const Swap = () => {
                         {
                             RecieveCoin ? (
                                 <div className='flex flex-col font-cabin font-normal gap-2'>
-                                    <span className='text-base font-medium'>Recieve</span>
+                                    <span className='text-base font-medium'>{SwapModalData.RecieveSection.Heading}</span>
                                     <span className='text-4xl'>0</span>
-                                    <span className='text-base font-normal'>Balance: 0.00</span>
+                                    <span className='text-base font-normal'>{SwapModalData.RecieveSection.Balance}: 0.00</span>
                                 </div>
                             ) : (
                                 <div className='flex flex-col font-cabin font-normal gap-2'>
-                                    <span className='text-base font-medium'>Recieve</span>
+                                    <span className='text-base font-medium'>{SwapModalData.RecieveSection.Heading}</span>
                                     <span className='text-4xl'>0</span>
-                                    <span className='text-base font-normal'>Balance: Select a Token to fetch balance</span>
+                                    <span className='text-base font-normal'> {SwapModalData.RecieveSection.Balance}:  {SwapModalData.RecieveSection.NoTokenSelectBalanceMessage}</span>
                                 </div>
                             )
                         }
@@ -164,7 +164,7 @@ const Swap = () => {
                             <div className='flex mr-12 items-center place-self-end gap-2'>
                                 <BlueGradientButton customCss={'px-4 py-3 font-cabin font-extrabold'}>
                                     <div className='flex items-center gap-1'>
-                                        Select a Token
+                                        {SwapModalData.RecieveSection.TokenSelectButtonText}
                                         <span className='cursor-pointer'
                                             onClick={() => {
                                                 console.log(searchToken2)
@@ -207,7 +207,7 @@ const Swap = () => {
 
                             <div className='flex items-center'>
                                 <Dot color='#F7931A' />
-                                <span>Price</span>
+                                <span>{SwapModalData.bothCoinsPresent.Price}</span>
                             </div>
 
                             <div className='font-cabin font-medium'>
@@ -219,7 +219,7 @@ const Swap = () => {
 
                             <div className='flex items-center'>
                                 <Dot color='#F7931A' />
-                                <span>Gas Fees</span>
+                                <span>{SwapModalData.bothCoinsPresent.GasFees}</span>
                             </div>
 
                             <div className='font-cabin font-medium'>
@@ -240,7 +240,7 @@ const Swap = () => {
                                         <div className='flex justify-between'>
                                             <div className='flex items-center'>
                                                 <Dot color='#F7931A' />
-                                                <span>Minimum Recieved </span>
+                                                <span>{SwapModalData.ClickedSwapData.MinimumRecieved}</span>
                                             </div>
 
                                             <div className='font-cabin font-medium text-base'>10.5580 CT</div>
@@ -248,7 +248,7 @@ const Swap = () => {
                                         <div className='flex justify-between items-center'>
                                             <div className='flex items-center'>
                                                 <Dot color='#F7931A' />
-                                                <span className='relative'>Overall Slippage</span>
+                                                <span className='relative'>{SwapModalData.ClickedSwapData.OverallSlippage}</span>
                                             </div>
 
                                             <div><ImpactButton customCss={`font-bold`} Impact={'Positive'}>10%</ImpactButton></div>
@@ -256,7 +256,7 @@ const Swap = () => {
                                         <div className='flex justify-between'>
                                             <div className='flex items-center'>
                                                 <Dot color='#F7931A' />
-                                                <span>Liquidity Provider Incentive</span>
+                                                <span>{SwapModalData.ClickedSwapData.LiquidityProviderIncentive}</span>
                                             </div>
                                             <div className='font-cabin font-medium text-base'>0.000056 ETH</div>
                                         </div>
@@ -269,7 +269,7 @@ const Swap = () => {
                             {CoinAmount > balance ? (
 
                                 <GradientButton CustomCss={'w-full cursor-auto disabled opacity-75 font-extrabold text-3xl '}
-                                >Insufficient Balance</GradientButton>
+                                >{SwapModalData.MainButtonsText.InsufficientBalance}</GradientButton>
                             ) : (
                                 <div>
                                     {ClickedSwap ? (
@@ -277,14 +277,14 @@ const Swap = () => {
 
                                             navigate('/dex-swap/transaction-successfull')
                                         }}>
-                                            <GradientButton CustomCss={'w-full  font-extrabold text-3xl '}>Confirm Swapping</GradientButton>
+                                            <GradientButton CustomCss={'w-full  font-extrabold text-3xl '}>{SwapModalData.MainButtonsText.ConfirmSwapping}</GradientButton>
                                         </div>
                                     ) : (
                                         <div onClick={() => {
                                             setClickSwap(true);
                                             console.log("swap click", ClickedSwap);
                                         }}>
-                                            <GradientButton CustomCss={'w-full  font-extrabold text-3xl '}>Swap Now</GradientButton>
+                                            <GradientButton CustomCss={'w-full  font-extrabold text-3xl '}>{SwapModalData.MainButtonsText.SwapNow}</GradientButton>
                                         </div>
                                     )}
                                 </div>
@@ -306,7 +306,7 @@ const Swap = () => {
 
                     <div className='flex justify-between'>
                         <div className='flex items-center gap-2'>
-                            <span className='relative'>Minimum Recieved
+                            <span className='relative'>{SwapModalData.ClickedSwapData.MinimumRecieved}
                                 {show1 &&
                                     <div className='absolute ml-40 w-[250%]'>
                                         <DialogBox text={Message} />
@@ -316,7 +316,7 @@ const Swap = () => {
                             <span
                                 onMouseEnter={() => {
                                     setShow1(true);
-                                    setMessage(SwapModalData.infoMessageOne);
+                                    setMessage(SwapModalData.infoMessageMinimumRecieved);
                                 }}
 
                                 onMouseLeave={() => {
@@ -332,7 +332,7 @@ const Swap = () => {
                     </div>
                     <div className='flex justify-between'>
                         <div className='flex items-center gap-2'>
-                            <span className='relative'>Overall Slippage
+                            <span className='relative'>{SwapModalData.ClickedSwapData.OverallSlippage}
                                 {show2 &&
                                     <div className='absolute ml-40 w-[250%]'>
                                         <DialogBox text={Message} />
@@ -344,7 +344,7 @@ const Swap = () => {
                                 className='z-50'
                                 onMouseEnter={() => {
                                     setShow2(true);
-                                    setMessage(SwapModalData.infoMessageTwo);
+                                    setMessage(SwapModalData.infoMessageOverallSlippage);
                                 }}
                                 onMouseLeave={() => {
                                     setShow2(false);
@@ -357,7 +357,7 @@ const Swap = () => {
                     </div>
                     <div className='flex justify-between'>
                         <div className='flex items-center gap-2'>
-                            <span className='relative'>Liquidity Provider Incentive
+                            <span className='relative'>{SwapModalData.ClickedSwapData.LiquidityProviderIncentive}
                                 {show3 &&
                                     <div className='absolute ml-40 w-[250%]'>
                                         <DialogBox text={Message} />
@@ -368,7 +368,7 @@ const Swap = () => {
                                 className='z-50'
                                 onMouseEnter={() => {
                                     setShow3(true);
-                                    setMessage(SwapModalData.infoMessageThree);
+                                    setMessage(SwapModalData.infoMessageLiquidityProviderIncentive);
                                 }}
 
                                 onMouseLeave={() => {
@@ -381,7 +381,7 @@ const Swap = () => {
                         <div className='font-cabin font-medium text-base'>0.000056 ETH</div>
                     </div>
 
-                    <BorderGradientButton customCss={`w-full `}>Analyse Pair</BorderGradientButton>
+                    <BorderGradientButton customCss={`w-full `}>{SwapModalData.MainButtonsText.AnalysePair}</BorderGradientButton>
 
 
                 </div>

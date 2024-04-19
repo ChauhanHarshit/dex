@@ -259,14 +259,49 @@ export const SearchTokenData = {
 }
 
 export const SwapModalData = {
+    Heading: 'SWAP',
 
+    PaySection: {
+        Heading: 'Pay',
+        Balance: 'Balance',
+        Max: 'Max',
+        NoTokenSelectBalanceMessage: 'Select a Coin to Fetch Balance',
+        TokenSelectButtonText: 'Select a Token',
+    },
 
-
-
-    infoMessageOne: 'Your Transaction will be roll backed if there is a large price movement before its being confirmed',
-    infoMessageTwo: 'It is the estimated difference between the market price and estimated price due to Trade size',
-    infoMessageThree: `A portion of the trade goes to Liquidity 
+    RecieveSection: {
+        Heading: 'Recieve',
+        Balance: 'Balance',
+        Max: 'Max',
+        NoTokenSelectBalanceMessage: 'Select a Coin to Fetch Balance',
+        TokenSelectButtonText: 'Select a Token',
+    },
+    bothCoinsPresent: {
+        Price: 'Price',
+        GasFees: 'GasFees',
+    },
+    ClickedSwapData: {
+        MinimumRecieved:'Minimum Recieved',
+        OverallSlippage: 'Overall Slippage',
+        LiquidityProviderIncentive: 'Liquidity Provider Incentive',
+    },
+    MainButtonsText:{
+        InsufficientBalance:'Insufficient Balance',
+        ConfirmSwapping:'Confirm Swapping',
+        SwapNow:'Swap Now',
+        AnalysePair:'Analyse Pair'
+    },
+    infoMessageMinimumRecieved: 'Your Transaction will be roll backed if there is a large price movement before its being confirmed',
+    infoMessageOverallSlippage: 'It is the estimated difference between the market price and estimated price due to Trade size',
+    infoMessageLiquidityProviderIncentive: `A portion of the trade goes to Liquidity 
     provider as their Incentive`,
+}
+
+export const TransactionSuccessfullData = {
+    TransactionCompleteMessage:'Transaction Completed Successfully!',
+    TransactionSwapMessageFirstHalf:'You Swap',
+    TransactionSwapMessageSecondHalf:'for',
+    BackButtonText:'Back to Profile',
 }
 
 

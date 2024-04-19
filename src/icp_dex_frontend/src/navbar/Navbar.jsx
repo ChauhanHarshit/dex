@@ -1,14 +1,9 @@
 import React, { useState,useEffect } from 'react';
 import GradientButton from '../buttons/GradientButton';
 import { Link as RouterLink } from 'react-router-dom';
-import {useSelector } from 'react-redux';
 const Navbar = ({ NavbarData, setClickConnectWallet }) => {
     const [activeLink, setActiveLink] = useState(null);
 
-    useEffect(() => {
-        console.log(activeLink);  // Log the active link after each state update
-        console.log("mobile navbar--->",isMobileNav)
-    }, [activeLink]);
     return (
         <div className='w-fit sticky top-8 rounded-2xl mx-auto   bg-[#05071D] font-cabin backdrop-blur-md z-50 '>
             <div className='w-full m-8 p-4 flex justify-between gap-8 items-center'>
