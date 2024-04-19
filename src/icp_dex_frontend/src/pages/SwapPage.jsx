@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { CommonNavbarData } from '../TextData'
 import Navbar from '../navbar/Navbar'
+import MobileNavbar from '../navbar/MobileNavbar'
 import Swap from '../Modals/Swap'
 import ConnectWallet from '../Modals/ConnectWallet'
 import { useEffect } from 'react'
@@ -12,7 +13,7 @@ const SwapPage = () => {
     }, [clickConnectWallet])
     return (
         <div >
-            <Navbar NavbarData={CommonNavbarData} setClickConnectWallet={setClickConnectWallet} walletClicked={walletClicked} />
+            <MobileNavbar NavbarData={CommonNavbarData} setClickConnectWallet={setClickConnectWallet} walletClicked={walletClicked} />
 
             {clickConnectWallet && <ConnectWallet setClickConnectWallet={setClickConnectWallet} setWalletClicked={setWalletClicked} />}
             <div >

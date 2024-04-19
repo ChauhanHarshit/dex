@@ -3,7 +3,10 @@ import BraveWallet from './assets/images/BraveWallet.png'
 import MetaMaskWallet from './assets/images/MetaMaskWallet.png'
 import CoinBaseWallet from './assets/images/CoinBaseWallet.png'
 import UniSwapWallet from './assets/images/UniSwapWallet.png'
-
+import Etherum from './assets/images/etherum.png'
+import Bitcoin from './assets/images/bitcoin.png'
+import Solana from './assets/images/solana.png'
+import Xrp from './assets/images/xrp.png'
 
 export const LandingPageNavbarData = {
     ButtonText: 'Explore Pools',
@@ -231,23 +234,23 @@ export const SearchTokenData = {
     Array: [
         {
             Name: 'BitCoin',
-            Element: 'SiBitcoinsv',
             ShortForm: 'BTC',
+            Image: Bitcoin,
         },
         {
             Name: 'Ethereum',
-            Element: 'FaEthereum',
             ShortForm: 'ETH',
+            Image: Etherum,
         },
         {
             Name: 'XRP',
-            Element: 'TbCurrencyXrp',
             ShortForm: 'XRP',
+            Image: Xrp,
         },
         {
             Name: 'Solana',
-            Element: 'TbCurrencySolana',
             ShortForm: 'SOL',
+            Image: Solana,
         },
     ],
     Heading: 'Select Token',

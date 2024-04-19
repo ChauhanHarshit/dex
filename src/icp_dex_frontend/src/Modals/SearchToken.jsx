@@ -8,28 +8,7 @@ import { CiSearch } from "react-icons/ci";
 const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id }) => {
     const [TokenOption, SetTokenOption] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
-    const [filteredTokens, setFilteredTokens] = useState([
-        {
-            Name: 'BitCoin',
-            Element: 'SiBitcoinsv',
-            ShortForm: 'BTC',
-        },
-        {
-            Name: 'Ethereum',
-            Element: 'FaEthereum',
-            ShortForm: 'ETH',
-        },
-        {
-            Name: 'XRP',
-            Element: 'TbCurrencyXrp',
-            ShortForm: 'XRP',
-        },
-        {
-            Name: 'Solana',
-            Element: 'TbCurrencySolana',
-            ShortForm: 'SOL',
-        },
-    ])
+    const [filteredTokens, setFilteredTokens] = useState(SearchTokenData.Array)
     const HandleClickToken = (index) => {
         console.log("token selected", index)
         SetTokenOption(TokenOption === index ? null : index);
@@ -46,34 +25,13 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id }) => {
     useEffect(() => {
         // console.log("filteredTokens",filteredTokens)
         // console.log("searchQuery",searchQuery)
-        if(searchQuery && searchQuery.trim() && searchQuery.trim() !== ""){
-       setFilteredTokens(filteredTokens.filter((token) => token.Name.toLowerCase().includes(searchQuery.toLowerCase())))
-        }else{
-            setFilteredTokens([
-                {
-                    Name: 'BitCoin',
-                    Element: 'SiBitcoinsv',
-                    ShortForm: 'BTC',
-                },
-                {
-                    Name: 'Ethereum',
-                    Element: 'FaEthereum',
-                    ShortForm: 'ETH',
-                },
-                {
-                    Name: 'XRP',
-                    Element: 'TbCurrencyXrp',
-                    ShortForm: 'XRP',
-                },
-                {
-                    Name: 'Solana',
-                    Element: 'TbCurrencySolana',
-                    ShortForm: 'SOL',
-                },
-            ])
+        if (searchQuery && searchQuery.trim() && searchQuery.trim() !== "") {
+            setFilteredTokens(filteredTokens.filter((token) => token.Name.toLowerCase().includes(searchQuery.toLowerCase())))
+        } else {
+            setFilteredTokens(SearchTokenData.Array)
 
         }
-        
+
 
     }, [searchQuery])
 
@@ -110,7 +68,8 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id }) => {
                         placeholder='Search token by Name'
                         className='w-full  border rounded-lg text-white bg-[#303030] placeholder-gray-400  p-4'
                         value={searchQuery}
-                        onChange={(e) =>{setSearchQuery(e.target.value);
+                        onChange={(e) => {
+                            setSearchQuery(e.target.value);
                         }}
                     />
                 </div>
@@ -123,12 +82,12 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id }) => {
                             ${TokenOption === index ? ' font-bold opacity-100 border bg-gradient-to-r from-[#000711] via-[#525E91] to-[#000711]' : ''}`} key={index}
                                 onClick={() => {
                                     console.log("id-->", id)
-                                    if (id === 1) setPayToken(token.ShortForm)
-                                    if (id === 2) setRecToken(token.ShortForm)
+                                    if (id === 1) setPayToken(token)
+                                    if (id === 2) setRecToken(token)
                                     HandleClickToken(index);
                                 }}>
                                 <div className='rounded-lg bg-[#3D3F47] p-4'>
-                                    {<SiBitcoinsv />}
+                                    <img src={token.Image} alt="" className='h-8 w-8 transform scale-150' />
                                 </div>
                                 <div className='font-normal text-xl font-cabin text-start'>
                                     {token.Name}
