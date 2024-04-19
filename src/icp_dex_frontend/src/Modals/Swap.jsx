@@ -4,7 +4,6 @@ import BlueGradientButton from '../buttons/BlueGradientButton';
 import GradientButton from '../buttons/GradientButton';
 import ImpactButton from '../buttons/ImpactButton';
 import BorderGradientButton from '../buttons/BorderGradientButton'
-import { TokensSvgData } from '../TextData';
 import SearchToken from './SearchToken';
 import DialogBox from './Dialouge';
 import { SwapModalData } from '../TextData';
