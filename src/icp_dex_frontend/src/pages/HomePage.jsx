@@ -17,7 +17,8 @@ const HomePage = () => {
             <Routes>
                 <Route path="/" element={<SwapPage clickConnectWallet={clickConnectWallet} setClickConnectWallet={setClickConnectWallet} setWalletClicked={setWalletClicked}/>} />
                 <Route path="/transaction-successfull" element={<TransactionPage />} />
-                <Route path="/pool" element={<PoolPage />} />
+                <Route path="/pool/*" element={<PoolPage />} />
+                
             </Routes>
         </div>
     )
