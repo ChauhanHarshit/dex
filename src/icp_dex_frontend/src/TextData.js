@@ -44,14 +44,17 @@ export const CommonNavbarData = {
         },
         {
             LinkName: 'Pool',
+            LinkPath: '/dex-swap/pool',
             LinkId: 'pool',
         },
         {
             LinkName: 'Portfolio',
+            LinkPath: '/dex-swap/portfolio',
             LinkId: 'staking',
         },
         {
             LinkName: 'Whitepaper',
+            LinkPath: '/dex-swap/whitepaper',
             LinkId: 'whitepaper',
         },
     ]
