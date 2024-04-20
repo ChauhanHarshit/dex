@@ -1,20 +1,10 @@
-import React, { useState } from 'react'
-import { CommonNavbarData } from '../TextData'
-import Navbar from '../navbar/Navbar'
-import MobileNavbar from '../navbar/MobileNavbar'
+import React from 'react'
 import Swap from '../Modals/Swap'
 import ConnectWallet from '../Modals/ConnectWallet'
-import { useEffect } from 'react'
-const SwapPage = () => {
-    const [clickConnectWallet, setClickConnectWallet] = useState(false);
-    const [walletClicked, setWalletClicked] = useState(false);
-    useEffect(() => {
-        console.log("connect clicked", clickConnectWallet)
-    }, [clickConnectWallet])
+const SwapPage = ({clickConnectWallet,setClickConnectWallet,setWalletClicked}) => {
+
     return (
         <div >
-            <MobileNavbar NavbarData={CommonNavbarData} setClickConnectWallet={setClickConnectWallet} walletClicked={walletClicked} />
-
             {clickConnectWallet && <ConnectWallet setClickConnectWallet={setClickConnectWallet} setWalletClicked={setWalletClicked} />}
             <div >
                 <Swap />

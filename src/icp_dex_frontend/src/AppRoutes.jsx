@@ -1,7 +1,5 @@
 import LandingPage from "./pages/LandingPage";
-import SwapPage from "./pages/SwapPage";
-import TransactionPage from './pages/TransactionPage.jsx'
-
+import HomePage from "./pages/HomePage.jsx";
 const AppRoutes = [
 
     {
@@ -10,12 +8,10 @@ const AppRoutes = [
     },
     {
         path: "/dex-swap",
-        page: <SwapPage />,
+        page: <HomePage />,
     },
-    {
-        path: "/dex-swap/transaction-successfull",
-        page: <TransactionPage />,
-    }
+    
+
 ]
 
 

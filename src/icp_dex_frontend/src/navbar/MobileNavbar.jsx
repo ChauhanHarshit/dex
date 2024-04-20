@@ -32,8 +32,9 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
                                         className='text-white hover:text-orange-500 duration-500'
                                         onClick={() => setActiveLink(index)}
                                     >
-                                        {Link?.LinkName}
-                                        <div className={`${activeLink === index ? 'rounded-full bg-orange-500 w-1 h-1' : 'rounded-full bg-transparent'}`}>
+                                        <div className='flex flex-col justify-center items-center'>
+                                            {Link?.LinkName}
+                                            <div className={`${activeLink === index ? 'rounded-full bg-orange-500 w-1 h-1' : 'rounded-full bg-transparent'}`}></div>
                                         </div>
                                     </RouterLink>
                                 </li>
