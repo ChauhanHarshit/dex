@@ -7,7 +7,8 @@ import Etherum from './assets/images/etherum.png'
 import Bitcoin from './assets/images/bitcoin.png'
 import Solana from './assets/images/solana.png'
 import Xrp from './assets/images/xrp.png'
-
+import LiteCoin from './assets/images/Litecoin.png'
+import RandomCoin from './assets/images/RandomCoin.png'
 export const LandingPageNavbarData = {
     ButtonText: 'Explore Pools',
     Links: [
@@ -284,15 +285,15 @@ export const SwapModalData = {
         GasFees: 'GasFees',
     },
     ClickedSwapData: {
-        MinimumRecieved:'Minimum Recieved',
+        MinimumRecieved: 'Minimum Recieved',
         OverallSlippage: 'Overall Slippage',
         LiquidityProviderIncentive: 'Liquidity Provider Incentive',
     },
-    MainButtonsText:{
-        InsufficientBalance:'Insufficient Balance',
-        ConfirmSwapping:'Confirm Swapping',
-        SwapNow:'Swap Now',
-        AnalysePair:'Analyse Pair'
+    MainButtonsText: {
+        InsufficientBalance: 'Insufficient Balance',
+        ConfirmSwapping: 'Confirm Swapping',
+        SwapNow: 'Swap Now',
+        AnalysePair: 'Analyse Pair'
     },
     infoMessageMinimumRecieved: 'Your Transaction will be roll backed if there is a large price movement before its being confirmed',
     infoMessageOverallSlippage: 'It is the estimated difference between the market price and estimated price due to Trade size',
@@ -301,11 +302,63 @@ export const SwapModalData = {
 }
 
 export const TransactionSuccessfullData = {
-    TransactionCompleteMessage:'Transaction Completed Successfully!',
-    TransactionSwapMessageFirstHalf:'You Swap',
-    TransactionSwapMessageSecondHalf:'for',
-    BackButtonText:'Back to Profile',
+    TransactionCompleteMessage: 'Transaction Completed Successfully!',
+    TransactionSwapMessageFirstHalf: 'You Swap',
+    TransactionSwapMessageSecondHalf: 'for',
+    BackButtonText: 'Back to Profile',
 }
 
+
+export const AllPoolsData = [
+
+    {
+        TokenImageOne: RandomCoin,
+        TokenImageTwo: LiteCoin,
+        TokensComposition: 'CT / LTC : : 75/25',
+        PoolValue: '$125,625,175',
+        TotalVolume: '$625,175',
+        APR: '0.50% - 0.95%'
+    },
+    {
+        TokenImageOne: RandomCoin,
+        TokenImageTwo: LiteCoin,
+        TokensComposition: 'CT / LTC : : 75/25',
+        PoolValue: '$125,625,175',
+        TotalVolume: '$625,175',
+        APR: '0.50% - 0.95%'
+    },
+    {
+        TokenImageOne: RandomCoin,
+        TokenImageTwo: LiteCoin,
+        TokensComposition: 'CT / LTC : : 75/25',
+        PoolValue: '$125,625,175',
+        TotalVolume: '$625,175',
+        APR: '0.50% - 0.95%'
+    },
+    {
+        TokenImageOne: RandomCoin,
+        TokenImageTwo: LiteCoin,
+        TokensComposition: 'CT / LTC : : 75/25',
+        PoolValue: '$125,625,175',
+        TotalVolume: '$625,175',
+        APR: '0.50% - 0.95%'
+    },
+    {
+        TokenImageOne: RandomCoin,
+        TokenImageTwo: LiteCoin,
+        TokensComposition: 'CT / LTC : : 75/25',
+        PoolValue: '$125,625,175',
+        TotalVolume: '$625,175',
+        APR: '0.50% - 0.95%'
+    },
+    {
+        TokenImageOne: RandomCoin,
+        TokenImageTwo: LiteCoin,
+        TokensComposition: 'CT / LTC : : 75/25',
+        PoolValue: '$125,625,175',
+        TotalVolume: '$625,175',
+        APR: '0.50% - 0.95%'
+    }
+]
 
 
