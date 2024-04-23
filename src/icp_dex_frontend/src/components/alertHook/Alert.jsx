@@ -15,7 +15,7 @@ const Alert = ({ type, text }) => {
                     >
                         <p className={`${type == 'danger' ? 'bg-red-500' : 'bg-green-500'}
                  flex rounded-full uppercase px-2 py-1 font-semibold mr-0`}>{`${type == 'danger' ? '✖️ failed' : '✔️ Success'}`}</p>
-                        <p className='mr-2 text-left'>{text}</p>
+                        <p className='mr-2 text-left font-cabin mx-3 text-xl font-normal'>{text}</p>
                     </div>
 
 

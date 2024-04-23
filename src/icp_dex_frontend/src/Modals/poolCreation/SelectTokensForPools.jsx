@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Bolt } from 'lucide-react';
-import BorderGradientButton from '../buttons/BorderGradientButton'
-import SearchTokenShowData from '../components/searchTokenForPoolComponents/SearchTokenShowData';
-import GradientButton from '../buttons/GradientButton';
-import { showAlert, hideAlert } from '../reducer/Alert';
+import BorderGradientButton from '../../buttons/BorderGradientButton'
+import SearchTokenShowData from '../../components/searchTokenForPoolComponents/SearchTokenShowData';
+import GradientButton from '../../buttons/GradientButton';
+import { showAlert, hideAlert } from '../../reducer/Alert';
 import { useDispatch } from 'react-redux';
 
 const SelectTokensForPools = () => {
