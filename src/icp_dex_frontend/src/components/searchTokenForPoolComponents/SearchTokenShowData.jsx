@@ -3,7 +3,7 @@ import SearchToken from '../../Modals/SearchToken';
 import BlueGradientButton from '../../buttons/BlueGradientButton';
 import { Bolt, ChevronDown, ChevronUp, Dot, Trash } from 'lucide-react';
 
-const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
+const SearchTokenShowData = ({ token, index, HandleSelectCheck, Tokens }) => {
     const [TokenData, setTokenData] = useState({});
     const [searchToken, setSearchToken] = useState(false);
     return (
@@ -11,7 +11,11 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
             <div className='flex items-center gap-4'>
                 <span>{token.ShortForm}</span>
                 <span className='bg-[#3E434B] p-1 rounded-lg px-3'>{token.WeightedPercentage}%</span>
-                <Trash size={20} />
+                <span onClick={() => {
+                    Tokens.splice(index, 1);
+                }} className='cursor-pointer'>
+                    <Trash size={20} />
+                </span>
             </div>
 
             <div>

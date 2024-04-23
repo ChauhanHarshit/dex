@@ -6,35 +6,11 @@ import GradientButton from '../../buttons/GradientButton';
 import { showAlert, hideAlert } from '../../reducer/Alert';
 import { useDispatch } from 'react-redux';
 
-const SelectTokensForPools = () => {
+const SelectTokensForPools = ({ Tokens, SetTokens, PercentShare }) => {
 
     const dispatch = useDispatch();
-    const [PercentShare, SetPercentShare] = useState(50);
+
     const [ButtonActive, SetButtonActive] = useState(false);
-
-    const [Tokens, SetTokens] = useState([
-        {
-            Name: 'Token1',
-            ShortForm: 'Token1',
-            Selected: false,
-            WeightedPercentage: PercentShare,
-            ImagePath: null,
-        },
-        {
-            Name: "Token2",
-            ShortForm: 'Token2',
-            Selected: false,
-            WeightedPercentage: PercentShare,
-            ImagePath: null,
-        }
-    ]);
-
-    useEffect(() => {
-        let ReCalculatedShare = parseFloat(100 / Tokens.length);
-
-        SetPercentShare(ReCalculatedShare);
-    }, [Tokens])
-
 
     const HandleSelectCheck = () => {
         const allTokensSelected = Tokens.every((token) => token.Selected);
@@ -56,10 +32,10 @@ const SelectTokensForPools = () => {
                 {Tokens.map((token, index) => {
 
 
-                    const weightedPercentage = parseFloat(100 / Tokens.length);
+                    const weightedPercentage = parseFloat(100 / Tokens.length).toFixed(2);
                     token.WeightedPercentage = weightedPercentage;
                     return (
-                        <SearchTokenShowData token={token} key={index} HandleSelectCheck={HandleSelectCheck} />
+                        <SearchTokenShowData token={token} key={index} HandleSelectCheck={HandleSelectCheck} Tokens={Tokens}/>
                     );
                 })}
             </div>
@@ -69,8 +45,9 @@ const SelectTokensForPools = () => {
                 onClick={() => {
                     SetTokens([...Tokens,
                     {
-                        Name: 'Token1',
-                        ShortForm: 'Token1',
+                        Name: 'New Token',
+                        ShortForm: 'NWT',
+                        Amount: 0,
                         Selected: false,
                         WeightedPercentage: PercentShare,
                         ImagePath: null,

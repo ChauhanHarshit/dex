@@ -3,6 +3,7 @@ import PoolPageBackGround from '../assets/images/PoolPageBackGround.png'
 import { Routes, Route } from 'react-router-dom'
 import ShowAllPools from '../components/poolPageComponent/ShowAllPools'
 import CreatePools from '../components/poolPageComponent/CreatePools'
+import CreatePoolStepsPage from './CreatePoolStepsPage'
 import { useLocation } from 'react-router-dom'
 
 const PoolPage = () => {
@@ -46,6 +47,7 @@ const PoolPage = () => {
             <Routes>
                 <Route path='/' element={<ShowAllPools />} />
                 <Route path='/create-pool' element={<CreatePools />} />
+                <Route path='/create-pool/steps' element={<CreatePoolStepsPage />} />
             </Routes>
 
         </div>

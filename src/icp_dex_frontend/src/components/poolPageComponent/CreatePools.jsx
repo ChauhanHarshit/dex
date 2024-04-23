@@ -2,18 +2,20 @@ import React, { useState } from 'react'
 import GradientButton from '../../buttons/GradientButton'
 import { CreatePoolsData } from '../../TextData';
 import { ChevronDown } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import SelectTokensForPools from '../../Modals/poolCreation/SelectTokensForPools';
+import InitialLiquidity from '../../Modals/poolCreation/InitialLiquidity';
 import SetPoolFees from '../../Modals/poolCreation/SetPoolFees';
 const CreatePools = () => {
-  const [createPoolbutton, setCreatePoolButton] = useState(false);
+
+  const navigate = useNavigate();
   return (
     <div>
-      {createPoolbutton && <SetPoolFees />}
       <div className='w-10/12 lg:w-4/12 mx-auto '>
         <div className='flex justify-between items-center'>
           <span className='font-cabin font-medium text-2xl leading-7'>{CreatePoolsData.HeadingText}</span>
           <div onClick={() => {
-            setCreatePoolButton(!createPoolbutton);
+            navigate('/dex-swap/pool/create-pool/steps')
           }}>
             <GradientButton>
               {CreatePoolsData.HeadingButtonText}

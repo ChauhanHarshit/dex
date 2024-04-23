@@ -6,7 +6,7 @@ import GradientButton from '../../buttons/GradientButton';
 import { showAlert, hideAlert } from '../../reducer/Alert';
 import { useDispatch } from 'react-redux';
 
-const SetPoolFees = () => {
+const SetPoolFees = ({ SetFeeShare }) => {
 
     const dispatch = useDispatch();
     const [ButtonActive, SetButtonActive] = useState(false);
@@ -50,6 +50,12 @@ const SetPoolFees = () => {
                             key={index}
                             onClick={() => {
                                 HandleClick(index);
+
+                                if (selectedIndex === null) {
+                                    SetFeeShare(0);
+                                } else if (selectedIndex === index) {
+                                    SetFeeShare(share)
+                                }
                             }}
                         >
                             <BorderGradientTransparentButton customCss={`${selectedIndex === index ? 'custom-gradient text-2xl p-3 ' : 'button-border-custom-gradient-content p-4'}`}>
