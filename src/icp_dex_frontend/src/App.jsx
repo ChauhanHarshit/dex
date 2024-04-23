@@ -2,8 +2,12 @@ import { useState } from 'react';
 import { icp_dex_backend } from 'declarations/icp_dex_backend';
 import AppRoutes from './AppRoutes';
 import { Suspense } from 'react';
-import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Alert from './components/alertHook/Alert'
 function App() {
+
+
   // const [greeting, setGreeting] = useState('');
 
   // function handleSubmit(event) {
@@ -14,9 +18,14 @@ function App() {
   //   });
   //   return false;
   // }
+  const { show, type, text } = useSelector((state) => state.alert)
+
 
   return (
-    <>
+    <div>
+      <div className='sticky top-10 z-40'>
+        {show && <Alert type={type} text={text} />}
+      </div>
       <Router>  {/* Wrap with Router */}
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
@@ -32,7 +41,7 @@ function App() {
           </Routes>
         </Suspense>
       </Router>  {/* Close Router */}
-    </>
+    </div>
   );
 }
 

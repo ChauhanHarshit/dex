@@ -16,7 +16,7 @@ const LandingPage = () => {
     return (
         <div className=''>
             <div className='items-center'>
-                <MobileNavbar NavbarData={LandingPageNavbarData} />
+                <Navbar  NavbarData={LandingPageNavbarData} />
             </div>
 
             <div className='md:mx-8 mx-4'>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { CommonNavbarData } from '../TextData'
 import MobileNavbar from '../navbar/MobileNavbar'
+import Navbar from '../navbar/Navbar'
 import SwapPage from './SwapPage'
 import TransactionPage from './TransactionPage'
 import PoolPage from './PoolPage'

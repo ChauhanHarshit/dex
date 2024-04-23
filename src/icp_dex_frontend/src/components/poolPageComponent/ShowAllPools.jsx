@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { poolsSvg } from './PoolPageComponentsSvg'
 import GradientButton from '../../buttons/GradientButton'
 import ArrowPool from '../../assets/images/ArrowPool.png'
 import { AllPoolsData } from '../../TextData'
+import { useNavigate } from 'react-router-dom'
 const ShowAllPools = () => {
+
+  const navigate = useNavigate();
   return (
     <div className='w-full h-screen  text-white max-w-[80%] mt-4 z-50 px-8 mx-auto'>
 
@@ -15,7 +18,10 @@ const ShowAllPools = () => {
           </div>
         </div>
 
-        <div className='mr-4'>
+        <div className='mr-4'
+          onClick={() => {
+            navigate('/dex-swap/pool/create-pool');
+          }}>
           <GradientButton>
             Create Pool
           </GradientButton>

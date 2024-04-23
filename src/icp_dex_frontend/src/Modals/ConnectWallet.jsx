@@ -12,9 +12,9 @@ const ConnectWallet = ({ setClickConnectWallet, setWalletClicked }) => {
         SetWalletOption(WalletOption === index ? null : index);
     }
     return (
-        <div className='z-50'>
+        <div className=''>
 
-            <div className='fixed  inset-0  h-fit  xl:w-3/12 lg:w-6/12 md:w-7/12 sm:w-8/12 w-10/12 border rounded-xl flex flex-col gap-2 bg-[#05071D] my-auto mx-auto'>
+            <div className='z-50 fixed  inset-0  h-fit  xl:w-3/12 lg:w-6/12 md:w-7/12 sm:w-8/12 w-10/12 border rounded-xl flex flex-col gap-2 bg-[#05071D] my-auto mx-auto'>
 
                 <div className='md:w-[64%] w-[62%] flex place-self-end items-center justify-between mx-4'>
                     <span className='font-fahkwang font-medium md:text-2xl text-xl py-4'>{ConnectWalletData.Heading}</span>

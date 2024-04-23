@@ -362,3 +362,34 @@ export const AllPoolsData = [
 ]
 
 
+export const CreatePoolsData = {
+    HeadingText: 'Your Liquidity',
+    HeadingButtonText: 'Create Pool',
+    PersonalPools: [
+        {
+            Images:[
+                RandomCoin,
+                LiteCoin,
+                Etherum
+            ],
+            TokenName:[
+                'CT',
+                '/LTC',
+                '/ETH : : 50/25/25',
+            ]
+        },
+        {
+            Images:[
+                RandomCoin,
+                LiteCoin,
+            ],
+            TokenName:[
+                'CT',
+                '/LTC',
+            ]
+        },
+
+    ]
+}
+
+

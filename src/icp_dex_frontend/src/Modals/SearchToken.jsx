@@ -5,7 +5,7 @@ import GradientButton from '../buttons/GradientButton';
 import { SiBitcoinsv } from "react-icons/si";
 import { CiSearch } from "react-icons/ci";
 
-const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id }) => {
+const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id, setTokenData }) => {
     const [TokenOption, SetTokenOption] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredTokens, setFilteredTokens] = useState(SearchTokenData.Array)
@@ -46,9 +46,9 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id }) => {
     // }, [searchQuery]);
 
     return (
-        <div className='z-50'>
+        <div>
 
-            <div className='fixed  inset-0  h-fit  xl:w-3/12 lg:w-6/12 md:w-7/12 sm:w-8/12 w-10/12 border rounded-xl flex flex-col gap-2 bg-[#05071D] my-auto mx-auto'>
+            <div className='z-50 fixed  inset-0  h-fit  xl:w-3/12 lg:w-6/12 md:w-7/12 sm:w-8/12 w-10/12 border rounded-xl flex flex-col gap-2 bg-[#05071D] my-auto mx-auto'>
 
                 <div className='md:w-[64%] w-[62%] flex place-self-end items-center justify-between mx-4'>
                     <span className='font-fahkwang font-medium md:text-2xl text-xl py-4'>{SearchTokenData.Heading}</span>
@@ -60,8 +60,6 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id }) => {
 
 
                 <div className='border border-transparent font-bold custom-height-3 bg-gradient-to-r from-transparent via-[#00308E] to-transparent w-full mx-auto'></div>
-
-
                 <div className='m-4 w-10/12 mx-auto font-cabin font-normal text-xl'>
                     <input
                         type='text'
@@ -84,6 +82,13 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id }) => {
                                     console.log("id-->", id)
                                     if (id === 1) setPayToken(token)
                                     if (id === 2) setRecToken(token)
+                                    if (id === 3) {
+                                        setTokenData({
+                                            Name: token.Name,
+                                            ImagePath: token.Image,
+                                            ShortForm : token.ShortForm,
+                                        })
+                                    }
                                     HandleClickToken(index);
                                 }}>
                                 <div className='rounded-lg bg-[#3D3F47] p-4'>

@@ -46,8 +46,8 @@ const Swap = () => {
 
     }
     return (
-        <div className=''>
-            <div className='lg:w-4/12 md:w-6/12 h-5/6 flex flex-col gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
+        <div>
+            <div className='lg:w-4/12 md:w-6/12 h-5/6 flex flex-col  gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
                 <div className='w-[58%] place-self-end  flex justify-between'>
                     <span className='font-fahkwang font-light text-3xl '>{SwapModalData.Heading}</span>
                     <Bolt size={30} className='cursor-pointer' onClick={() => { console.log("settings open") }} />
@@ -88,7 +88,7 @@ const Swap = () => {
                                             {SwapModalData.PaySection.TokenSelectButtonText}
                                             <span className='cursor-pointer'
                                                 onClick={() => {
-                                                    console.log(searchToken1)
+                                                    // console.log(searchToken1)
                                                     setId(1);
                                                     setSearchToken1(!searchToken1);
                                                 }}><ChevronDown /></span>

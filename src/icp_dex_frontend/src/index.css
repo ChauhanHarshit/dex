@@ -17,7 +17,7 @@ body {
   src: url('./assets/fonts/Cabin-Regular.ttf');
 }
 
-@layer utilities {
+ @layer utilities {
 
   /* Act as a border */
   .button-gradient-wrapper {
@@ -42,7 +42,8 @@ body {
     @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-lg bg-[#000711];
   }
 
-}
+} 
+
 
 .rotate-11-7 {
   transform: rotate(-11.7deg);

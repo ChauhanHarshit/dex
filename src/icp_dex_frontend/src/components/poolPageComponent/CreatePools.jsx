@@ -1,9 +1,62 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import GradientButton from '../../buttons/GradientButton'
+import { CreatePoolsData } from '../../TextData';
+import { ChevronDown } from 'lucide-react';
+import SelectTokensForPools from '../../Modals/SelectTokensForPools';
 const CreatePools = () => {
+  const [createPoolbutton, setCreatePoolButton] = useState(false);
   return (
     <div>
-      
+      {createPoolbutton && <SelectTokensForPools />}
+      <div className='w-10/12 lg:w-4/12 mx-auto '>
+        <div className='flex justify-between items-center'>
+          <span className='font-cabin font-medium text-2xl leading-7'>{CreatePoolsData.HeadingText}</span>
+          <div onClick={() => {
+            setCreatePoolButton(!createPoolbutton);
+          }}>
+            <GradientButton>
+              {CreatePoolsData.HeadingButtonText}
+            </GradientButton>
+          </div>
+        </div>
+
+        {
+          CreatePoolsData.PersonalPools ? (
+            <div >
+              {CreatePoolsData.PersonalPools.map((pool, index) => (
+                <div className='my-10 bg-[#181B21]  rounded-lg mx-auto p-4 font-cabin font-medium text-base leading-5 flex justify-between items-center' key={index}>
+                  <div className='flex justify-between items-center gap-4'>
+                    <div className='flex gap-2'>
+                      {
+                        pool.Images.map((image, index) => (
+                          <div key={index} className='bg-[#3D3F47] p-1 rounded-lg'><img src={image} alt="" className='h-8 w-8' /></div>
+                        ))
+                      }
+                    </div>
+
+                    <div className='flex text-base'>
+                      {
+                        pool.TokenName.map((name, index) => (
+                          <div key={index}>
+                            {name}
+                          </div>
+                        ))
+                      }
+                    </div>
+                  </div>
+                  <div className='mr-2 cursor-pointer'>
+                    <ChevronDown />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className='my-10 bg-[#303030] rounded-lg mx-auto p-6 text-center font-cabin font-medium text-xl leading-5'>
+              You have not created any pool !
+            </div>
+          )
+        }
+      </div>
     </div>
   )
 }

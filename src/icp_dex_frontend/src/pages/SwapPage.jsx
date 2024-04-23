@@ -4,7 +4,7 @@ import ConnectWallet from '../Modals/ConnectWallet'
 const SwapPage = ({clickConnectWallet,setClickConnectWallet,setWalletClicked}) => {
 
     return (
-        <div >
+        <div>
             {clickConnectWallet && <ConnectWallet setClickConnectWallet={setClickConnectWallet} setWalletClicked={setWalletClicked} />}
             <div >
                 <Swap />
