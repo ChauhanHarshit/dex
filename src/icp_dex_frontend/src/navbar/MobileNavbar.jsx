@@ -8,7 +8,7 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
-        console.log(activeLink);
+        // console.log(activeLink);
     }, [activeLink]);
 
     return (

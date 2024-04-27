@@ -4,38 +4,36 @@ import BorderGradientButton from '../../buttons/BorderGradientButton'
 import SearchTokenShowData from '../../components/searchTokenForPoolComponents/SearchTokenShowData';
 import GradientButton from '../../buttons/GradientButton';
 import { showAlert, hideAlert } from '../../reducer/Alert';
-import { useDispatch } from 'react-redux';
-
-const SelectTokensForPools = ({ Tokens, SetTokens, PercentShare }) => {
+import { useDispatch, useSelector } from 'react-redux';
+import { AddCoin } from '../../reducer/PoolCreation';
+const SelectTokensForPools = () => {
 
     const dispatch = useDispatch();
-
+    const { Tokens } = useSelector((state) => state.pool)
+    // console.log(Tokens)
     const [ButtonActive, SetButtonActive] = useState(false);
 
     const HandleSelectCheck = () => {
         const allTokensSelected = Tokens.every((token) => token.Selected);
-        console.log("Selected or not->", allTokensSelected)
+        // console.log("Selected or not->", allTokensSelected)
         SetButtonActive(allTokensSelected);
     }
 
 
     return (
-        <div className='z-50 w-10/12 lg:w-4/12 md:w-6/12 h-5/6 flex flex-col gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
+        <div className='inset-0 bg-opacity-10 z-50 w-10/12 lg:w-4/12 md:w-6/12 h-5/6 flex flex-col gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
             <div className='w-[70%] place-self-end  flex justify-between'>
                 <span className='font-fahkwang font-light text-3xl '>Select Tokens</span>
                 <Bolt size={30} className='cursor-pointer' onClick={() => { console.log("settings open") }} />
             </div>
 
 
-
             <div>
                 {Tokens.map((token, index) => {
-
-
-                    const weightedPercentage = parseFloat(100 / Tokens.length).toFixed(2);
-                    token.WeightedPercentage = weightedPercentage;
                     return (
-                        <SearchTokenShowData token={token} key={index} HandleSelectCheck={HandleSelectCheck} Tokens={Tokens}/>
+                        <div key={index}>
+                            <SearchTokenShowData token={token} index={index} HandleSelectCheck={HandleSelectCheck} />
+                        </div>
                     );
                 })}
             </div>
@@ -43,15 +41,7 @@ const SelectTokensForPools = ({ Tokens, SetTokens, PercentShare }) => {
 
             <div className='place-self-end mx-10'
                 onClick={() => {
-                    SetTokens([...Tokens,
-                    {
-                        Name: 'New Token',
-                        ShortForm: 'NWT',
-                        Amount: 0,
-                        Selected: false,
-                        WeightedPercentage: PercentShare,
-                        ImagePath: null,
-                    }])
+                    dispatch(AddCoin())
                 }}
             >
                 <BorderGradientButton>

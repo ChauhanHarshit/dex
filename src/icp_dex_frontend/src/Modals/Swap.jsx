@@ -167,7 +167,7 @@ const Swap = () => {
                                         {SwapModalData.RecieveSection.TokenSelectButtonText}
                                         <span className='cursor-pointer'
                                             onClick={() => {
-                                                console.log(searchToken2)
+                                                // console.log(searchToken2)
                                                 setId(2);
                                                 setSearchToken2(!searchToken2);
                                             }}><ChevronDown /></span>
@@ -282,7 +282,7 @@ const Swap = () => {
                                     ) : (
                                         <div onClick={() => {
                                             setClickSwap(true);
-                                            console.log("swap click", ClickedSwap);
+                                            // console.log("swap click", ClickedSwap);
                                         }}>
                                             <GradientButton CustomCss={'w-full  font-extrabold text-3xl '}>{SwapModalData.MainButtonsText.SwapNow}</GradientButton>
                                         </div>

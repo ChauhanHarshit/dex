@@ -46,14 +46,12 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id, setTokenDat
     // }, [searchQuery]);
 
     return (
-        <div>
-
-            <div className='z-50 fixed  inset-0  h-fit  xl:w-3/12 lg:w-6/12 md:w-7/12 sm:w-8/12 w-10/12 border rounded-xl flex flex-col gap-2 bg-[#05071D] my-auto mx-auto'>
-
+        <div className='flex z-50 justify-center fixed inset-0  bg-opacity-50 backdrop-blur-sm'>
+            <div className=' h-fit xl:w-3/12 lg:w-6/12 md:w-7/12 sm:w-8/12 w-10/12 border rounded-xl flex flex-col gap-2 bg-[#05071D] my-auto mx-auto'>
                 <div className='md:w-[64%] w-[62%] flex place-self-end items-center justify-between mx-4'>
                     <span className='font-fahkwang font-medium md:text-2xl text-xl py-4'>{SearchTokenData.Heading}</span>
                     <span className='cursor-pointer' onClick={() => {
-                        console.log("Closed Token search")
+                        // console.log("Closed Token search")
                         setSearchToken(false)
                     }}><X /></span>
                 </div>
@@ -79,17 +77,18 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id, setTokenDat
                             <div className={`flex gap-6 items-center w-10/12  p-2 bg-[#303030] hover:opacity-80 cursor-pointer  opacity-100 rounded-xl
                             ${TokenOption === index ? ' font-bold opacity-100 border bg-gradient-to-r from-[#000711] via-[#525E91] to-[#000711]' : ''}`} key={index}
                                 onClick={() => {
-                                    console.log("id-->", id)
+                                    // console.log("id-->", id)
                                     if (id === 1) setPayToken(token)
                                     if (id === 2) setRecToken(token)
                                     if (id === 3) {
                                         setTokenData({
                                             Name: token.Name,
                                             ImagePath: token.Image,
-                                            ShortForm : token.ShortForm,
+                                            ShortForm: token.ShortForm,
                                         })
                                     }
                                     HandleClickToken(index);
+                                    setSearchToken(false)
                                 }}>
                                 <div className='rounded-lg bg-[#3D3F47] p-4'>
                                     <img src={token.Image} alt="" className='h-8 w-8 transform scale-150' />

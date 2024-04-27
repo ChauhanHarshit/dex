@@ -4,19 +4,19 @@ import BlueGradientButton from '../../buttons/BlueGradientButton';
 import SearchTokenShowData from '../../components/searchTokenForPoolComponents/SearchTokenShowData';
 import GradientButton from '../../buttons/GradientButton';
 import { showAlert, hideAlert } from '../../reducer/Alert';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-const InitialLiquidity = ({ Tokens }) => {
+const InitialLiquidity = () => {
 
     const dispatch = useDispatch();
-
+    const { Tokens } = useSelector((state) => state.pool);
     const [ButtonActive, SetButtonActive] = useState(false);
 
     let InitialToken = Tokens[0];
-    Tokens = Tokens.slice(1);
+    let RestTokens = Tokens.slice(1);
     const HandleSelectCheck = () => {
         const allTokensSelected = Tokens.every((token) => token.AmountPay > 0);
-        console.log("Selected or not->", allTokensSelected)
+        // console.log("Selected or not->", allTokensSelected)
         SetButtonActive(allTokensSelected);
     }
 
@@ -62,7 +62,7 @@ const InitialLiquidity = ({ Tokens }) => {
                 </div>
             </div>
             <div>
-                {Tokens.map((token, index) => {
+                {RestTokens.map((token, index) => {
 
                     return (
                         <div key={index}>

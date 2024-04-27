@@ -5,13 +5,14 @@ import SearchTokenShowData from '../../components/searchTokenForPoolComponents/S
 import GradientButton from '../../buttons/GradientButton';
 import { showAlert, hideAlert } from '../../reducer/Alert';
 import { useDispatch } from 'react-redux';
+import { SetFeeShare } from '../../reducer/PoolCreation';
 
-const SetPoolFees = ({ SetFeeShare }) => {
+const SetPoolFees = () => {
 
     const dispatch = useDispatch();
     const [ButtonActive, SetButtonActive] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(null);
-    const PercentShares = ['0.1', '0.30', '0.50', '1.00'];
+    const PercentShares = [0.1, 0.30, 0.50, 1.00];
 
     useEffect(() => {
 
@@ -24,7 +25,23 @@ const SetPoolFees = ({ SetFeeShare }) => {
 
     const HandleClick = (index) => {
         setSelectedIndex(selectedIndex === index ? null : index);
+    }
 
+    const setFeeShare = (share) => {
+        if (selectedIndex === null) {
+
+            dispatch(SetFeeShare(
+                {
+                    FeeShare: 0
+                }
+            ))
+        } else if (selectedIndex === index) {
+            dispatch(SetFeeShare(
+                {
+                    FeeShare: share
+                }
+            ))
+        }
     }
     return (
         <div className='z-50 w-10/12 lg:w-4/12 md:w-6/12 h-5/6 flex flex-col gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
@@ -50,12 +67,8 @@ const SetPoolFees = ({ SetFeeShare }) => {
                             key={index}
                             onClick={() => {
                                 HandleClick(index);
+                                setFeeShare(share);
 
-                                if (selectedIndex === null) {
-                                    SetFeeShare(0);
-                                } else if (selectedIndex === index) {
-                                    SetFeeShare(share)
-                                }
                             }}
                         >
                             <BorderGradientTransparentButton customCss={`${selectedIndex === index ? 'custom-gradient text-2xl p-3 ' : 'button-border-custom-gradient-content p-4'}`}>
