@@ -6,7 +6,7 @@ const SwapPage = ({clickConnectWallet,setClickConnectWallet,setWalletClicked}) =
     return (
         <div>
             {clickConnectWallet && <ConnectWallet setClickConnectWallet={setClickConnectWallet} setWalletClicked={setWalletClicked} />}
-            <div >
+            <div>
                 <Swap />
             </div>
         </div>

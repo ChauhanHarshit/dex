@@ -21,27 +21,43 @@ const PoolPage = () => {
     return (
         <div className='h-screen bg-[#000711]'>
             <div className='items-center'>
-                <img src={PoolPageBackGround} alt="" className='z-0 h-96 w-full absolute top-0' />
-                <div className='flex justify-center'>
-                    {
-                        boxText == 'Create Pool' ? (
-                            <div className='m-14 w-10/12 border  text-white p-8 rounded-2xl backdrop-blur-3xl lg:w-4/12'>
-                                <div className='text-start font-fawhkwang font-normal leading-7 text-2xl'>
-                                    Rewards For Liquidity Providers
-                                </div>
-                                <div className='border-t-2 my-6 border-[#00308E]'></div>
-                                <span className='font-normal text-base font-cabin leading-5 italic'>
-                                    When you add money to a liquidity pool, you can earn 0.3% of all trades made in that pool. Your earnings are based on how much of the pool you own. Every time someone makes a trade, a small fee is added to the pool, and you can collect your share of those fees whenever you decide to withdraw your money from the pool.
-                                    <a href="" className='text-blue-500 underline ml-2'>Learn More</a>
-                                </span>
-                            </div>
-                        ) : (
-                            <div className='m-14 text-center border font-fahkwang  text-white p-8 rounded-2xl backdrop-blur-3xl font-semibold text-3xl max-w-[15%]'>
-                                {boxText}
-                            </div>
-                        )
-                    }
-                </div>
+                {
+                    location.pathname != '/dex-swap/pool/create-pool/steps' ? (
+                        <img src={PoolPageBackGround} alt="" className='z-0 h-96 w-full absolute top-0' />
+                    ) : (
+                        <div>
+
+                        </div>
+                    )
+                }
+                {
+                    location.pathname != '/dex-swap/pool/create-pool/steps' ? (
+                        <div className='flex justify-center'>
+                            {
+                                boxText == 'Create Pool' ? (
+                                    <div className='m-14 w-10/12 border  text-white p-8 rounded-2xl backdrop-blur-3xl lg:w-4/12'>
+                                        <div className='text-start font-fawhkwang font-normal leading-7 text-2xl'>
+                                            Rewards For Liquidity Providers
+                                        </div>
+                                        <div className='border-t-2 my-6 border-[#00308E]'></div>
+                                        <span className='font-normal text-base font-cabin leading-5 italic'>
+                                            When you add money to a liquidity pool, you can earn 0.3% of all trades made in that pool. Your earnings are based on how much of the pool you own. Every time someone makes a trade, a small fee is added to the pool, and you can collect your share of those fees whenever you decide to withdraw your money from the pool.
+                                            <a href="" className='text-blue-500 underline ml-2'>Learn More</a>
+                                        </span>
+                                    </div>
+                                ) : (
+                                    <div className='m-14 text-center border font-fahkwang  text-white p-8 rounded-2xl backdrop-blur-3xl font-semibold text-3xl max-w-[15%]'>
+                                        {boxText}
+                                    </div>
+                                )
+                            }
+                        </div>
+                    ) : (
+                        <div>
+
+                        </div>
+                    )
+                }
             </div>
 
             <Routes>

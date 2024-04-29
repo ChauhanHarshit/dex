@@ -1,56 +1,36 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
-import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import React, { useState } from 'react';
 import SelectTokensForPools from '../Modals/poolCreation/SelectTokensForPools';
 import SetPoolFees from '../Modals/poolCreation/SetPoolFees';
 import InitialLiquidity from '../Modals/poolCreation/InitialLiquidity';
+import { MoveRight, MoveLeft } from 'lucide-react';
+const steps = ['Select Tokens for Pools', 'Set Pool Fees', 'Add Initial Liquidity'];
 
 const CreatePoolStepsPage = () => {
-
-
-    const steps = ['Select Tokens for Pools', 'Set Pool Fees', 'Add Initial Liquidity'];
-    const [activeStep, setActiveStep] = React.useState(0);
-    const [skipped, setSkipped] = React.useState(new Set());
-
-    const isStepOptional = (step) => {
-        return step === 1; // Assuming the second step can be optional
-    };
-
-    const isStepSkipped = (step) => {
-        return skipped.has(step);
-    };
+    const [activeStep, setActiveStep] = useState(0);
+    const isLastStep = activeStep === steps.length - 1;
 
     const handleNext = () => {
-        let newSkipped = skipped;
-        if (isStepSkipped(activeStep)) {
-            newSkipped = new Set(newSkipped.values());
-            newSkipped.delete(activeStep);
+        if (!isLastStep) {
+            setActiveStep(current => current + 1);
         }
-
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        setSkipped(newSkipped);
     };
 
     const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+        if (activeStep > 0) {
+            setActiveStep(current => current - 1);
+        }
     };
 
     const handleReset = () => {
         setActiveStep(0);
-        setSkipped(new Set());
     };
 
     const getStepContent = (step) => {
         switch (step) {
             case 0:
-                return <SelectTokensForPools />;
+                return <SelectTokensForPools handleNext={handleNext} />;
             case 1:
-                return <SetPoolFees />;
+                return <SetPoolFees handleNext={handleNext}/>;
             case 2:
                 return <InitialLiquidity />;
             default:
@@ -58,60 +38,34 @@ const CreatePoolStepsPage = () => {
         }
     };
 
-
     return (
-        <div className='mx-32'>
-            <Box sx={{ width: '100%' }}>
-                <Stepper activeStep={activeStep}>
-                    {steps.map((label, index) => {
-                        const stepProps = {};
-                        const labelProps = {};
-                        if (isStepOptional(index)) {
-                            labelProps.optional = <Typography variant="caption">Optional</Typography>;
-                        }
-                        if (isStepSkipped(index)) {
-                            stepProps.completed = false;
-                        }
-                        return (
-
-
-                            <Step key={label} {...stepProps}>
-                                <StepLabel {...labelProps} >{label}</StepLabel>
-                            </Step>
-
-                        );
-                    })}
-                </Stepper>
-                <React.Fragment>
-                    <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
-                    <div>
-                        {getStepContent(activeStep)}
+        <div className="mx-32 my-10">
+            <div className="border-b-2 border-gray-200 mb-4">
+                {steps.map((label, index) => (
+                    <div key={label} className={`inline-block text-center px-4 py-2 ${index <= activeStep ? 'text-blue-500 border-b-4 border-blue-500' : 'text-gray-500'}`}>
+                        {label}
                     </div>
-                    <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                        <Button
-                            className='text-amber-800'
-                            disabled={activeStep === 0}
-                            onClick={handleBack}
-                            sx={{ mr: 1 }}
-                        >
-                            Back
-                        </Button>
-                        <Box sx={{ flex: '1 1 auto' }} />
-                        <Button onClick={handleNext}>
-                            {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                        </Button>
-                    </Box>
-                </React.Fragment>
-                {activeStep === steps.length && (
-                    <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                        <Typography sx={{ mt: 2, mb: 1 }}>
-                            All steps completed - you&apos;re finished
-                        </Typography>
-                        <Box sx={{ flex: '1 1 auto' }} />
-                        <Button onClick={handleReset}>Reset</Button>
-                    </Box>
-                )}
-            </Box>
+                ))}
+            </div>
+            <div className='my-16'>
+                {/* <div className="text-lg font-semibold mb-2">Step {activeStep + 1}</div> */}
+                <div>{getStepContent(activeStep)}</div>
+                <div className="flex mt-4">
+                    <button className={`mr-2 p-5 rounded-full bg-[#8D4C00] ${activeStep === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-50'}`} disabled={activeStep === 0} onClick={handleBack}>
+                        <MoveLeft />
+                    </button>
+                    <div className="flex-grow"></div>
+                    {isLastStep ? (
+                        <button className="p-5 rounded-full bg-[#8D4C00] opacity-50 cursor-not-allowed" onClick={handleReset}>
+                            <MoveRight />
+                        </button>
+                    ) : (
+                        <button className="p-5 rounded-full bg-[#8D4C00] hover:opacity-50" onClick={handleNext}>
+                            <MoveRight />
+                        </button>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }

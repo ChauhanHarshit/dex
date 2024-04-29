@@ -6,7 +6,7 @@ import GradientButton from '../../buttons/GradientButton';
 import { showAlert, hideAlert } from '../../reducer/Alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddCoin } from '../../reducer/PoolCreation';
-const SelectTokensForPools = () => {
+const SelectTokensForPools = ({ handleNext }) => {
 
     const dispatch = useDispatch();
     const { Tokens } = useSelector((state) => state.pool)
@@ -62,6 +62,8 @@ const SelectTokensForPools = () => {
                         setTimeout(() => {
                             dispatch(hideAlert());
                         }, [3000])
+                    } else {
+                        handleNext()
                     }
                 }}
             >

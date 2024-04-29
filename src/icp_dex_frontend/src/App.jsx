@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div>
-      <div className='sticky top-10 z-40'>
+      <div className='sticky top-10 z-50'>
         {show && <Alert type={type} text={text} />}
       </div>
       <Router>  {/* Wrap with Router */}

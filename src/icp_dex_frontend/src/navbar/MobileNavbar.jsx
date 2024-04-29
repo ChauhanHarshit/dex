@@ -13,7 +13,7 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
 
     return (
         <div className='mx-12'>
-            <div className='w-full sticky top-8 rounded-2xl  bg-[#05071D] font-cabin backdrop-blur-md z-50'>
+            <div className='w-full sticky top-8 rounded-2xl  bg-[#05071D] font-cabin backdrop-blur-md z-40'>
                 <div className='w-full m-8 p-4 flex justify-between lg:gap-8 items-center'>
                     <div className='text-base flex justify-evenly   gap-4 lg:gap-16 items-center rounded-b-lg'>
                         <span className='font-extrabold'>LOGO</span>

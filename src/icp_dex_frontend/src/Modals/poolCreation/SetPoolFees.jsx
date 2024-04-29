@@ -7,7 +7,7 @@ import { showAlert, hideAlert } from '../../reducer/Alert';
 import { useDispatch } from 'react-redux';
 import { SetFeeShare } from '../../reducer/PoolCreation';
 
-const SetPoolFees = () => {
+const SetPoolFees = ({ handleNext }) => {
 
     const dispatch = useDispatch();
     const [ButtonActive, SetButtonActive] = useState(false);
@@ -42,7 +42,7 @@ const SetPoolFees = () => {
         setSelectedIndex(selectedIndex === index ? null : index);
     }
 
-  
+
     return (
         <div className='z-50 w-10/12 lg:w-4/12 md:w-6/12 h-5/6 flex flex-col gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
             <div className='w-[65%] place-self-end  flex justify-between'>
@@ -90,6 +90,8 @@ const SetPoolFees = () => {
                         setTimeout(() => {
                             dispatch(hideAlert());
                         }, [3000])
+                    } else {
+                        handleNext()
                     }
                 }}
             >
