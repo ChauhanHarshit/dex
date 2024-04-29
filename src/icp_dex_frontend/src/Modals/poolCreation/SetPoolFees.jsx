@@ -21,28 +21,28 @@ const SetPoolFees = () => {
         } else {
             SetButtonActive(true);
         }
-    }, [selectedIndex])
 
-    const HandleClick = (index) => {
-        setSelectedIndex(selectedIndex === index ? null : index);
-    }
 
-    const setFeeShare = (share) => {
         if (selectedIndex === null) {
-
             dispatch(SetFeeShare(
                 {
                     FeeShare: 0
                 }
             ))
-        } else if (selectedIndex === index) {
+        } else {
             dispatch(SetFeeShare(
                 {
-                    FeeShare: share
+                    FeeShare: PercentShares[selectedIndex]
                 }
             ))
         }
+    }, [selectedIndex, selectedIndex])
+
+    const HandleClick = (index) => {
+        setSelectedIndex(selectedIndex === index ? null : index);
     }
+
+  
     return (
         <div className='z-50 w-10/12 lg:w-4/12 md:w-6/12 h-5/6 flex flex-col gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
             <div className='w-[65%] place-self-end  flex justify-between'>
@@ -67,8 +67,6 @@ const SetPoolFees = () => {
                             key={index}
                             onClick={() => {
                                 HandleClick(index);
-                                setFeeShare(share);
-
                             }}
                         >
                             <BorderGradientTransparentButton customCss={`${selectedIndex === index ? 'custom-gradient text-2xl p-3 ' : 'button-border-custom-gradient-content p-4'}`}>

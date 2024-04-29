@@ -6,13 +6,11 @@ const Navbar = ({ NavbarData, setClickConnectWallet }) => {
 
     return (
         <div className='mx-12'>
-            {/* bg-[#05071D]  */}
-            <div className='w-full sticky top-8 rounded-2xl bg-white font-cabin backdrop-blur-lg  z-50 '>
+            <div className='w-full sticky top-8 rounded-2xl bg-[#05071D] font-cabin backdrop-blur-lg  z-50 '>
                 <div className='w-full  p-4 flex justify-between gap-8 items-center'>
                     <div className='text-base  flex gap-16 items-center'>
                         <span className='font-extrabold'>LOGO</span>
                         <div className="border-l border-white h-12 items-center"></div>
-
                         {
                             NavbarData.Links.map((Link, index) => (
                                 <div key={index}>
@@ -35,7 +33,6 @@ const Navbar = ({ NavbarData, setClickConnectWallet }) => {
                                 </div>
                             ))
                         }
-
                     </div>
                     <div className='flex items-center gap-8'>
                         <div className="border-l border-white h-12"></div>

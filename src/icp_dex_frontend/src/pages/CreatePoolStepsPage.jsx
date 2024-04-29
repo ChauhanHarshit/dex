@@ -9,34 +9,13 @@ import Typography from '@mui/material/Typography';
 import SelectTokensForPools from '../Modals/poolCreation/SelectTokensForPools';
 import SetPoolFees from '../Modals/poolCreation/SetPoolFees';
 import InitialLiquidity from '../Modals/poolCreation/InitialLiquidity';
-import { useSelector } from 'react-redux';
-import { SetToken, AddCoin, RemoveCoin } from '../reducer/PoolCreation';
-const steps = ['Select Tokens for Pools', 'Set Pool Fees', 'Add Initial Liquidity'];
 
 const CreatePoolStepsPage = () => {
 
-    
+
+    const steps = ['Select Tokens for Pools', 'Set Pool Fees', 'Add Initial Liquidity'];
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
-    // const [Tokens, SetTokens] = useState([
-    //     {
-    //         Name: 'Token1',
-    //         ShortForm: 'Token1',
-    //         Amount: 0,
-    //         Selected: false,
-    //         WeightedPercentage: PercentShare,
-    //         ImagePath: null,
-    //     },
-    //     {
-    //         Name: "Token2",
-    //         ShortForm: 'Token2',
-    //         Amount: 0,
-    //         Selected: false,
-    //         WeightedPercentage: PercentShare,
-    //         ImagePath: null,
-    //     }
-    // ]);
-
 
     const isStepOptional = (step) => {
         return step === 1; // Assuming the second step can be optional
@@ -69,11 +48,11 @@ const CreatePoolStepsPage = () => {
     const getStepContent = (step) => {
         switch (step) {
             case 0:
-                return <SelectTokensForPools  />;
+                return <SelectTokensForPools />;
             case 1:
                 return <SetPoolFees />;
             case 2:
-                return <InitialLiquidity  />;
+                return <InitialLiquidity />;
             default:
                 return 'Unknown step';
         }
@@ -110,7 +89,7 @@ const CreatePoolStepsPage = () => {
                     </div>
                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                         <Button
-                            color="inherit"
+                            className='text-amber-800'
                             disabled={activeStep === 0}
                             onClick={handleBack}
                             sx={{ mr: 1 }}

@@ -1,26 +1,51 @@
 import React, { useEffect, useState } from 'react'
 import { Bolt } from 'lucide-react';
 import BlueGradientButton from '../../buttons/BlueGradientButton';
-import SearchTokenShowData from '../../components/searchTokenForPoolComponents/SearchTokenShowData';
+import FinalizePool from './FinalizePool';
 import GradientButton from '../../buttons/GradientButton';
 import { showAlert, hideAlert } from '../../reducer/Alert';
 import { useDispatch, useSelector } from 'react-redux';
+import { UpdateAmount, toggleConfirm } from '../../reducer/PoolCreation'
 
 const InitialLiquidity = () => {
 
+
     const dispatch = useDispatch();
-    const { Tokens } = useSelector((state) => state.pool);
+    const { Tokens, Confirmation } = useSelector((state) => state.pool);
     const [ButtonActive, SetButtonActive] = useState(false);
+    const [initialTokenAmount, setInitialTokenAmount] = useState(Tokens[0].Amount);
+    const [restTokensAmount, setRestTokensAmount] = useState(Tokens.slice(1).map(token => token.Amount));
+    
 
     let InitialToken = Tokens[0];
     let RestTokens = Tokens.slice(1);
     const HandleSelectCheck = () => {
-        const allTokensSelected = Tokens.every((token) => token.AmountPay > 0);
-        // console.log("Selected or not->", allTokensSelected)
+        const allTokensSelected = Tokens.every((token) => token.Selected);
+
         SetButtonActive(allTokensSelected);
     }
 
+    useEffect(() => {
+        HandleSelectCheck()
+    }, [Tokens])
 
+    const handleInput = (event, index) => {
+        // Allow only numbers and decimal point
+        const newValue = event.target.textContent.replace(/[^\d.]/g, '');
+
+        if (index === 0) {
+            setInitialTokenAmount(newValue);
+        } else {
+            const newAmounts = [...restTokensAmount];
+            newAmounts[index - 1] = newValue;
+            setRestTokensAmount(newAmounts);
+        }
+
+        dispatch(UpdateAmount({
+            index: index,
+            Amount: newValue
+        }));
+    };
     return (
         <div className='z-50 w-10/12 lg:w-4/12 md:w-6/12 h-5/6 flex flex-col gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
             <div className='w-[74%] place-self-end  flex justify-between'>
@@ -32,9 +57,14 @@ const InitialLiquidity = () => {
             <div className='flex justify-between items-center font-cabin'>
 
                 <div className='flex flex-col'>
-                    <span className='font-normal text-3xl'>
-                        0.02
-                    </span>
+
+                    <div className='text-center'>
+                        {/* contentEditable="true" onInput={(e) => { handleInput(e, 0) }} */}
+                        <span className="font-normal leading-5 text-3xl px-2 py-1 inline-block" contentEditable="true" onInput={(e) => { handleInput(e, 0) }}>
+                            {initialTokenAmount}
+                        </span>
+                    </div>
+
                     <span className='text-base font-normal'>
                         Balance: 2.2501
                     </span>
@@ -70,11 +100,17 @@ const InitialLiquidity = () => {
                             <div className='flex justify-between items-center font-cabin' >
 
                                 <div className='flex flex-col'>
-                                    <span className='font-normal text-3xl'>
-                                        0.02
-                                    </span>
+                                    <div className='text-center'>
+                                        {/* contentEditable="true" onInput={(e) => { handleInput(e, index + 1) }} */}
+                                        <span className="font-normal leading-5 text-3xl px-2 py-1 inline-block" contentEditable="true" onInput={(e) => { handleInput(e, index + 1) }}>
+                                            {restTokensAmount[index]}
+
+                                        </span>
+
+                                    </div>
                                     <span className='text-base font-normal'>
                                         Balance: 2.2501
+
                                     </span>
                                 </div>
 
@@ -105,8 +141,7 @@ const InitialLiquidity = () => {
             </div>
 
 
-
-
+            {Confirmation && <FinalizePool />}
             <div
                 className={`font-cabin text-base font-medium `}
                 onClick={() => {
@@ -120,6 +155,13 @@ const InitialLiquidity = () => {
                         setTimeout(() => {
                             dispatch(hideAlert());
                         }, [3000])
+                    } else {
+                        console.log("dispatched called")
+                        dispatch(toggleConfirm({
+                            value: true,
+                            page: "Initial Page"
+                        }))
+                        console.log("dispatched finished")
                     }
                 }}
             >
