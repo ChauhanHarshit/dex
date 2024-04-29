@@ -143,7 +143,7 @@ const FinalizePool = () => {
                     <span>Pool Name</span>
 
                     <div className='leading-6 inline-block items-center text-center'>
-                        {FeeShare}
+                        {FeeShare}  %
                     </div>
 
                 </div>

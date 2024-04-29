@@ -47,7 +47,7 @@ const Swap = () => {
     }
     return (
         <div>
-            <div className='lg:w-4/12 md:w-6/12 h-5/6 flex flex-col  gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
+            <div className='lg:w-4/12 md:w-6/12 h-5/6 flex flex-col  gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg z-10'>
                 <div className='w-[58%] place-self-end  flex justify-between'>
                     <span className='font-fahkwang font-light text-3xl '>{SwapModalData.Heading}</span>
                     <Bolt size={30} className='cursor-pointer' onClick={() => { console.log("settings open") }} />
@@ -308,7 +308,7 @@ const Swap = () => {
                         <div className='flex items-center gap-2'>
                             <span className='relative'>{SwapModalData.ClickedSwapData.MinimumRecieved}
                                 {show1 &&
-                                    <div className='absolute ml-40 w-[250%]'>
+                                    <div className='z-50 absolute ml-40 w-[250%]'>
                                         <DialogBox text={Message} />
                                     </div>
                                 }
@@ -334,14 +334,14 @@ const Swap = () => {
                         <div className='flex items-center gap-2'>
                             <span className='relative'>{SwapModalData.ClickedSwapData.OverallSlippage}
                                 {show2 &&
-                                    <div className='absolute ml-40 w-[250%]'>
+                                    <div className='z-50 absolute ml-40 w-[250%]'>
                                         <DialogBox text={Message} />
                                     </div>
                                 }
                             </span>
 
                             <span
-                                className='z-50'
+
                                 onMouseEnter={() => {
                                     setShow2(true);
                                     setMessage(SwapModalData.infoMessageOverallSlippage);
@@ -359,13 +359,13 @@ const Swap = () => {
                         <div className='flex items-center gap-2'>
                             <span className='relative'>{SwapModalData.ClickedSwapData.LiquidityProviderIncentive}
                                 {show3 &&
-                                    <div className='absolute ml-40 w-[250%]'>
+                                    <div className='z-50 absolute ml-40 w-[250%]'>
                                         <DialogBox text={Message} />
                                     </div>
                                 }
                             </span>
                             <span
-                                className='z-50'
+
                                 onMouseEnter={() => {
                                     setShow3(true);
                                     setMessage(SwapModalData.infoMessageLiquidityProviderIncentive);

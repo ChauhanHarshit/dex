@@ -42,7 +42,7 @@ const CreatePoolStepsPage = () => {
         <div className="mx-32 my-10">
             <div className="border-b-2 border-gray-200 mb-4">
                 {steps.map((label, index) => (
-                    <div key={label} className={`inline-block text-center px-4 py-2 ${index <= activeStep ? 'text-blue-500 border-b-4 border-blue-500' : 'text-gray-500'}`}>
+                    <div key={label} className={`inline-block font-cabin font-normal text-xl text-center px-4 py-2 ${index <= activeStep ? 'text-blue-500 border-b-4 border-blue-500' : 'text-gray-500'}`}>
                         {label}
                     </div>
                 ))}
@@ -52,16 +52,16 @@ const CreatePoolStepsPage = () => {
                 <div>{getStepContent(activeStep)}</div>
                 <div className="flex mt-4">
                     <button className={`mr-2 p-5 rounded-full bg-[#8D4C00] ${activeStep === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-50'}`} disabled={activeStep === 0} onClick={handleBack}>
-                        <MoveLeft />
+                        <MoveLeft size={30}/>
                     </button>
                     <div className="flex-grow"></div>
                     {isLastStep ? (
                         <button className="p-5 rounded-full bg-[#8D4C00] opacity-50 cursor-not-allowed" onClick={handleReset}>
-                            <MoveRight />
+                            <MoveRight size={30}/>
                         </button>
                     ) : (
                         <button className="p-5 rounded-full bg-[#8D4C00] hover:opacity-50" onClick={handleNext}>
-                            <MoveRight />
+                            <MoveRight size={30}/>
                         </button>
                     )}
                 </div>
