@@ -21,9 +21,7 @@ const CreatePoolStepsPage = () => {
         }
     };
 
-    const handleReset = () => {
-        setActiveStep(0);
-    };
+
 
     const getStepContent = (step) => {
         switch (step) {
@@ -56,7 +54,7 @@ const CreatePoolStepsPage = () => {
                     </button>
                     <div className="flex-grow"></div>
                     {isLastStep ? (
-                        <button className="p-5 rounded-full bg-[#8D4C00] opacity-50 cursor-not-allowed" onClick={handleReset}>
+                        <button className="p-5 rounded-full bg-[#8D4C00] opacity-50 cursor-not-allowed">
                             <MoveRight size={30}/>
                         </button>
                     ) : (

@@ -15,14 +15,19 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
         <div className='mx-12'>
             <div className='w-full sticky top-8 rounded-2xl  bg-[#05071D] font-cabin backdrop-blur-md z-40'>
                 <div className='w-full m-8 p-4 flex justify-between lg:gap-8 items-center'>
-                    <div className='text-base flex justify-evenly   gap-4 lg:gap-16 items-center rounded-b-lg'>
-                        <span className='font-extrabold'>LOGO</span>
-                        <div className="border-l border-white h-12 items-center ml-4 lg:ml-0"></div>
+
+                    <div className='flex items-center justify-between md:justify-start w-10/12'>
+                        <div className='flex items-center gap-2 md:gap-10'>
+                            <span className='font-extrabold'>LOGO</span>
+                            <div className="border-l border-white h-12 items-center ml-4 lg:ml-0"></div>
+                        </div>
+
 
                         <div onClick={() => setOpen(!open)} className='md:hidden cursor-pointer w-7 h-7'>
                             {open ? <XMarkIcon className='text-white ' /> : <Bars3BottomRightIcon className='text-white' />}
                         </div>
-
+                    </div>
+                    <div className='text-base flex  gap-4 lg:gap-16 items-center rounded-b-lg'>
                         <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-[#05071D] rounded-lg left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in gap-4 lg:gap-14 ${open ? 'top-12' : 'top-[-490px]'}`}>
                             {
                                 NavbarData.Links.map((Link, index) => (
@@ -41,7 +46,7 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
                                 ))
                             }
 
-                            <div className='my-7 font-semibold items-center block md:hidden '>
+                            <div className='my-7 font-semibold text-center block md:hidden '>
 
                                 <div className=''
                                     onClick={() => {

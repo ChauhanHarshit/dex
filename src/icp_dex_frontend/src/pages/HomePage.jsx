@@ -5,6 +5,7 @@ import Navbar from '../navbar/Navbar'
 import SwapPage from './SwapPage'
 import TransactionPage from './TransactionPage'
 import PoolPage from './PoolPage'
+import PortfolioPage from './PortfolioPage'
 import { Routes, Route } from 'react-router-dom'
 const HomePage = () => {
     const [clickConnectWallet, setClickConnectWallet] = useState(false);
@@ -20,6 +21,7 @@ const HomePage = () => {
             <Routes>
                 <Route path="/" element={<SwapPage clickConnectWallet={clickConnectWallet} setClickConnectWallet={setClickConnectWallet} setWalletClicked={setWalletClicked} />} />
                 <Route path="/transaction-successfull" element={<TransactionPage />} />
+                <Route path="/portfolio" element={<PortfolioPage />} />
                 <Route path="/pool/*" element={<PoolPage />} />
 
             </Routes>

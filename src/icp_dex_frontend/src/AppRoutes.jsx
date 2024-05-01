@@ -1,5 +1,6 @@
 import LandingPage from "./pages/LandingPage";
 import HomePage from "./pages/HomePage.jsx";
+
 const AppRoutes = [
 
     {

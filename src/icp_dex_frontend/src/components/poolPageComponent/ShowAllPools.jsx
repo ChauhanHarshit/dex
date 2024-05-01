@@ -80,7 +80,7 @@ const ShowAllPools = () => {
 
       </div>
 
-    </div>
+    </div>  
   )
 }
 

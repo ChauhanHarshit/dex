@@ -46,7 +46,7 @@ const PoolPage = () => {
                                         </span>
                                     </div>
                                 ) : (
-                                    <div className='m-14 text-center border font-fahkwang  text-white p-8 rounded-2xl backdrop-blur-3xl font-semibold text-3xl max-w-[15%]'>
+                                    <div className='m-14 text-center  font-fahkwang  text-white p-8 font-semibold text-3xl max-w-[15%] h-full w-full bg-white-900 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-100 border border-gray-100'>
                                         {boxText}
                                     </div>
                                 )
