@@ -60,7 +60,7 @@ const PortfolioDataComponent = () => {
                                             onClick={() => {
                                                 navigate(`/dex-swap/portfolio/pool-info/${index}`)
                                             }}>
-                                            <div className='grid grid-cols-2 md:grid-cols-6  p-4 font-cabin text-base font-medium'>
+                                            <div className='grid grid-cols-2 md:grid-cols-6  p-4 font-cabin text-base font-medium items-center'>
                                                 <div className='col-span-2 flex items-center gap-4 ml-4'>
                                                     <div className='flex items-center gap-1'>
                                                         {
