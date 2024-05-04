@@ -9,6 +9,8 @@ import Solana from './assets/images/solana.png'
 import Xrp from './assets/images/xrp.png'
 import LiteCoin from './assets/images/Litecoin.png'
 import RandomCoin from './assets/images/RandomCoin.png'
+import { nanoid } from 'nanoid';
+
 export const LandingPageNavbarData = {
     ButtonText: 'Explore Pools',
     Links: [
@@ -367,23 +369,23 @@ export const CreatePoolsData = {
     HeadingButtonText: 'Create Pool',
     PersonalPools: [
         {
-            Images:[
+            Images: [
                 RandomCoin,
                 LiteCoin,
                 Etherum
             ],
-            TokenName:[
+            TokenName: [
                 'CT',
                 '/LTC',
                 '/ETH : : 50/25/25',
             ]
         },
         {
-            Images:[
+            Images: [
                 RandomCoin,
                 LiteCoin,
             ],
-            TokenName:[
+            TokenName: [
                 'CT',
                 '/LTC',
             ]
@@ -391,5 +393,791 @@ export const CreatePoolsData = {
 
     ]
 }
+
+
+export const portfolioSampleData = {
+    Pools: [
+        {
+            PoolData: [
+                {
+                    Name: "BitCoin",
+                    ShortForm: "BTC",
+                    WeightedPercentage: 50,
+                    ImagePath: Bitcoin,
+                    Balance: 189050,
+                    Value: 189050
+                },
+                {
+                    Name: "LiteCoin",
+                    ShortForm: "LTC",
+                    WeightedPercentage: 25,
+                    ImagePath: LiteCoin,
+                    Balance: 189050,
+                    Value: 189050
+                },
+                {
+                    Name: "Ethereum",
+                    ShortForm: "ETH",
+                    WeightedPercentage: 25,
+                    ImagePath: Etherum,
+                    Balance: 189050,
+                    Value: 189050
+                },
+            ],
+            PoolMetaData: {
+                Balance: 125625175,
+                PoolValue: 125625175,
+                APRstart: 0.05,
+                APRend: 0.95,
+                Time: new Date(),
+                PoolId: nanoid(),
+                TwentyFourHourFees: 950.859,
+                TwentyFourHourVolume: 625175,
+                PersonalPoolBalance: 189.05
+            }
+        },
+        {
+            PoolData: [
+                {
+                    Name: "BitCoin",
+                    ShortForm: "BTC",
+                    WeightedPercentage: 50,
+                    ImagePath: Bitcoin,
+                    Balance: 189050,
+                    Value: 189050
+                },
+                {
+                    Name: "LiteCoin",
+                    ShortForm: "LTC",
+                    WeightedPercentage: 50,
+                    ImagePath: LiteCoin,
+                    Balance: 189050,
+                    Value: 189050
+                },
+            ],
+            PoolMetaData: {
+                Balance: 125625175,
+                PoolValue: 125625175,
+                APRstart: 0.05,
+                APRend: 0.95,
+                Time: new Date(),
+                PoolId: nanoid(),
+                TwentyFourHourFees: 950.859,
+                TwentyFourHourVolume: 625175,
+                PersonalPoolBalance: 200
+            }
+        }
+    ]
+}
+
+
+export const PoolCompositionsData = {
+    Headings: ['Token', 'Weightage', 'Balance', 'Value'],
+    SeeMoreButtonText: "See More",
+    SeeLessButtonText: "See Less"
+
+}
+
+export const SwappingTextData = {
+    Headings: ['Swap', 'Value', 'Wallet ID', 'Time']
+}
+export const SwappingTableData = [
+    {
+        Enteries: [
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'BitCoin',
+                    ImagePath: Bitcoin,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'LiteCoin',
+                    ImagePath: LiteCoin,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            }
+        ]
+    },
+    {
+        Entries: [
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                FromToken: {
+                    Name: 'Solana',
+                    ImagePath: Solana,
+                    Value: 1.0256
+                },
+                ToTokenn: {
+                    Name: 'Xrp',
+                    ImagePath: Xrp,
+                    Value: 12.0256
+                },
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            }
+        ]
+    }
+]
+
+export const LiquidityOverviewText = {
+    Headings :  ['Tokens','Value','Wallet ID','Time']
+}
+export const LiquidityOverviewData = [
+
+    {
+        Entries: [
+            {
+                Tokens: [
+                    {
+                        ImagePath: RandomCoin,
+                        Value: 1.0256
+                    },
+                    {
+                        ImagePath: LiteCoin,
+                        Value: 12.0256
+                    }
+                ],
+                Impact: "Positive",
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                Tokens: [
+                    {
+                        ImagePath: RandomCoin,
+                        Value: 1.0256
+                    },
+                    {
+                        ImagePath: LiteCoin,
+                        Value: 12.0256
+                    }
+                ],
+                Impact: "Positive",
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                Tokens: [
+                    {
+                        ImagePath: RandomCoin,
+                        Value: 1.0256
+                    }
+                ],
+                Impact: "Negative",
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                Tokens: [
+                    {
+                        ImagePath: RandomCoin,
+                        Value: 1.0256
+                    },
+                    {
+                        ImagePath: LiteCoin,
+                        Value: 12.0256
+                    }
+                ],
+                Impact: "Negative",
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                Tokens: [
+                    {
+                        ImagePath: LiteCoin,
+                        Value: 12.0256
+                    }
+                ],
+                Impact: "Positive",
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            }
+        ]
+    },
+    {
+        Entries: [
+            {
+                Tokens: [
+                    {
+                        ImagePath: RandomCoin,
+                        Value: 1.0256
+                    },
+                    {
+                        ImagePath: LiteCoin,
+                        Value: 12.0256
+                    }
+                ],
+                Impact: "Positive",
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                Tokens: [
+                    {
+                        ImagePath: RandomCoin,
+                        Value: 1.0256
+                    },
+                    {
+                        ImagePath: LiteCoin,
+                        Value: 12.0256
+                    }
+                ],
+                Impact: "Positive",
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                Tokens: [
+                    {
+                        ImagePath: RandomCoin,
+                        Value: 1.0256
+                    }
+                ],
+                Impact: "Negative",
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                Tokens: [
+                    {
+                        ImagePath: RandomCoin,
+                        Value: 1.0256
+                    },
+                    {
+                        ImagePath: LiteCoin,
+                        Value: 12.0256
+                    }
+                ],
+                Impact: "Negative",
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            },
+            {
+                Tokens: [
+                    {
+                        ImagePath: LiteCoin,
+                        Value: 12.0256
+                    }
+                ],
+                Impact: "Positive",
+                Value: 189056,
+                WalletId: 'abcdexjsbdjchbc1025',
+                Time: new Date()
+            }
+        ]
+    }
+]
+
+
+
+
 
 

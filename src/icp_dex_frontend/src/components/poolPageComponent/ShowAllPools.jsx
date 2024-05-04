@@ -51,7 +51,7 @@ const ShowAllPools = () => {
 
 
         {AllPoolsData.map((Token, index) => (
-          <div key={index} className='my-5 hover:bg-[#546093] rounded-lg cursor-pointer'>
+          <div key={index} className=':bg-[#546093] rounded-lg cursor-pmy-5 hoverointer'>
             <div className='grid grid-cols-4  p-4 font-cabin text-lg font-medium'>
               <div className='text-center'>
                 <div className='flex items-center justify-evenly'>

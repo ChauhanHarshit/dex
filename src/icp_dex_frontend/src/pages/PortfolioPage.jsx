@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PoolPageBackGround from '../assets/images/PoolPageBackGround.png'
 import { Routes, Route } from 'react-router-dom'
 import PortfolioDataComponent from '../components/portfolioComponents/PortfolioDataComponent'
+import PoolInfo from '../components/portfolioComponents/PoolInfo '
 const PortfolioPage = () => {
 
 
@@ -19,6 +20,7 @@ const PortfolioPage = () => {
             </div>
             <Routes>
                 <Route path='/' element={<PortfolioDataComponent />} />
+                <Route path='/pool-info/:id' element={<PoolInfo />} />
             </Routes>
         </div>
     )
