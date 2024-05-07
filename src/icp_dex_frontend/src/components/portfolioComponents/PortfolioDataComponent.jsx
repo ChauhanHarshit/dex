@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import GradientButton from '../../buttons/GradientButton';
 import NoPortfolioImage from '../../assets/images/NoPortfolioImage.png'
 import { portfolioSampleData } from '../../TextData';
 import { useNavigate } from 'react-router-dom';
 
 const PortfolioDataComponent = () => {
+
+    const [displayCount, setDisplayCount] = useState(Math.min(5, portfolioSampleData.TableData.length));
+    const [buttonVisible, setButtonVisibility] = useState(true);
+    useEffect(() => {
+        if (portfolioSampleData.TableData.length < 6) {
+            setButtonVisibility(false)
+        }
+    }, [portfolioSampleData.TableData])
 
     const navigate = useNavigate();
     return (
@@ -19,119 +27,115 @@ const PortfolioDataComponent = () => {
                     onClick={() => {
                         navigate('/dex-swap/pool/create-pool');
                     }}>
-                    <GradientButton>
+                    <GradientButton CustomCss={`hover:opacity-75 text-xs md:text-base lg:text-base h-[50px] w-[95px] lg:h-[60px] lg:w-[150px] py-2 lg:py-4`}>
                         Create Pool
                     </GradientButton>
                 </div>
             </div>
 
-            <div className='bg-[#05071D] h-fit rounded-lg text-white p-4'>
-
-                <div>
-                    <div className='grid grid-cols-2 md:grid-cols-6  p-4 font-cabin text-lg font-medium'>
-                        <div className='col-span-2 text-start ml-7'>Tokens Composition</div>
-
-                        <div className='flex justify-end  items-center'>
-                            Balance
-                        </div>
-
-                        <div className='hidden md:flex justify-end  items-center'>
-                            Pool Value
-                        </div>
-
-                        <div className='hidden md:flex justify-end items-center '>
-                            APR
-                        </div>
-
-                        <div className='hidden md:flex justify-end items-center '>
-                            Time
-                        </div>
-
-                    </div>
-
-                    <div className='border-t-[1px] my-2 border-[#00308E]'></div>
-
-                    {
-                        portfolioSampleData.Pools ? (
-                            <div>
-                                {
-                                    portfolioSampleData.Pools.map((pool, index) => (
-                                        <div key={index} className='my-5 hover:bg-[#546093] rounded-lg cursor-pointer'
+            <div className='flex flex-col font-cabin bg-[#05071D] '>
+                <div className='-my-2 overflow-x-auto'>
+                    <div className='inline-block min-w-full py-2 align-middle'>
+                        <div className='overflow-hidden shadow ring-1 ring-black ring-opacity-5 '>
+                            <table className='min-w-full   '>
+                                <thead className=' '>
+                                    <tr className=''>
+                                        {portfolioSampleData.Headings.map((heading, index) => (
+                                            <th scope='col'
+                                                key={index}
+                                                className='py-3.5 pl-6 pr-3 text-center text-sm md:text-base lg:text-xl font-medium text-white '
+                                            >
+                                                {heading}
+                                            </th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody className=' '>
+                                    {portfolioSampleData.TableData.slice(0, displayCount).map((pool, index) => (
+                                        <tr key={index} className='hover:bg-[#546093] rounded-xl  cursor-pointer'
                                             onClick={() => {
                                                 navigate(`/dex-swap/portfolio/pool-info/${index}`)
-                                            }}>
-                                            <div className='grid grid-cols-2 md:grid-cols-6  p-4 font-cabin text-base font-medium items-center'>
-                                                <div className='col-span-2 flex items-center gap-4 ml-4'>
-                                                    <div className='flex items-center gap-1'>
-                                                        {
-                                                            pool.PoolData.map((token, index) => (
-                                                                <div key={index}>
-                                                                    <div className='bg-[#3D3F47] p-1 rounded-lg'>
-                                                                        <img src={token.ImagePath} alt="" className='w-7 h-7 transform scale-125' />
-                                                                    </div>
-                                                                </div>
-                                                            ))
+                                            }}  
+                                        >
 
-                                                        }
+                                            <td className='min-w-80 whitespace-nowrap my-4 text-sm md:text-base font-medium text-white flex items-center gap-5 justify-start ml-8'>
+                                                <span className='flex gap-2'>
+                                                    {pool.PoolData.map((token, index) => (
+                                                        <span key={index} className='bg-[#3D3F47] p-2 rounded-xl'>
+                                                            <img src={token.ImagePath} alt="" className=' w-4 h-4 md:w-6 md:h-6' />
+                                                        </span>
+                                                    ))}
+                                                </span>
 
-                                                    </div>
-
-                                                    <div className='flex items-center'>
-                                                        <span  >{pool.PoolData[0].ShortForm}</span>
+                                                <span className='flex items-center'>
+                                                    <span>
+                                                        {pool.PoolData[0].ShortForm}
+                                                    </span>
+                                                    <span>
                                                         {
                                                             pool.PoolData.slice(1).map((token, index) => (
-                                                                <div key={index} className=''>
-                                                                    <span className='mx-0.5'>/</span>
-                                                                    {token.ShortForm}
-                                                                </div>
+                                                                <span key={index}>/{token.ShortForm}</span>
                                                             ))
                                                         }
-                                                        <span className='mx-1'>:  :</span>
-
-                                                        <span>{pool.PoolData[0].WeightedPercentage}</span>
+                                                    </span>
+                                                    <span>: :</span>
+                                                    <span>{pool.PoolData[0].WeightedPercentage}</span>
+                                                    <span>
                                                         {
                                                             pool.PoolData.slice(1).map((token, index) => (
-                                                                <div key={index} className=''>
-                                                                    <span className='mx-0.5'>/</span>
-                                                                    {token.WeightedPercentage}
-                                                                </div>
+                                                                <span key={index}>/{token.WeightedPercentage}</span>
                                                             ))
                                                         }
-                                                    </div>
+                                                    </span>
+                                                </span>
 
-                                                </div>
 
-                                                <div className='col-span-1 flex justify-end'>
-                                                    $ {pool.PoolMetaData.Balance.toLocaleString('en-US')}
-                                                </div>
-                                                <div className='col-span-1 flex justify-end'>
-                                                    $ {pool.PoolMetaData.PoolValue.toLocaleString('en-US')}
-                                                </div>
-                                                <div className='col-span-1 flex justify-end'>
-                                                    {pool.PoolMetaData.APRstart}%  -  {pool.PoolMetaData.APRend}%
-                                                </div>
-                                                <div className='col-span-1 flex justify-end'>
-                                                    {new Date(pool.PoolMetaData.Time).toLocaleString()}
-                                                </div>
+                                            </td>
+
+                                            <td className='whitespace-nowrap px-3 py-4 text-sm md:text-base text-white text-center'>
+                                                $ {pool.PoolMetaData.Balance.toLocaleString('en-US')}
+                                            </td>
+                                            <td className='whitespace-nowrap px-3 py-4 text-sm md:text-base text-white text-center'>
+                                                $ {pool.PoolMetaData.PoolValue.toLocaleString('en-US')}
+                                            </td>
+                                            <td className='whitespace-nowrap py-4 pl-3 text-center text-sm md:text-base font-medium pr-6'>
+                                                {pool.PoolMetaData.APRstart}% - {pool.PoolMetaData.APRend}%
+                                            </td>
+                                            <td className='whitespace-nowrap py-4 pl-3 text-center text-sm md:text-base font-medium pr-6'>
+                                                {pool.PoolMetaData.Time.toLocaleString()}
+                                            </td>
+                                        </tr>
+                                    ))}
+
+
+
+
+                                </tbody>
+                            </table>
+                            <div className='flex justify-center items-center mb-8'>
+                                {buttonVisible && (
+                                    <div>
+                                        {portfolioSampleData.TableData.length > displayCount && (
+                                            <div className='text-center mt-4'>
+                                                <button className='bg-gray-800 text-white px-4 py-2 rounded-md' onClick={() => setDisplayCount(displayCount + 5)}>
+                                                    {portfolioSampleData.SeeMoreButtonText}
+                                                </button>
                                             </div>
-                                        </div>
-                                    ))
-                                }
+                                        )}
+
+                                        {portfolioSampleData.TableData.length <= displayCount && (
+                                            <div className='text-center mt-4'>
+                                                <button className='bg-gray-800 text-white px-4 py-2 rounded-md' onClick={() => setDisplayCount(Math.min(5, AllPoolsData.TableData.length))}>
+                                                    {portfolioSampleData.SeeLessButtonText}
+                                                </button>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
                             </div>
-                        ) : (
-                            <div className='flex justify-center items-center text-center    '>
-                                <div>
-                                    <img src={NoPortfolioImage} alt="" />
-                                    <span className='font-cabin font-medium leading-5 text-[#F7931A]'>
-                                        You have not added liquidity yet
-                                    </span>
-                                </div>
-                            </div>
-                        )
-                    }
 
-
-
+                        </div>
+                    </div>
                 </div>
             </div>
 

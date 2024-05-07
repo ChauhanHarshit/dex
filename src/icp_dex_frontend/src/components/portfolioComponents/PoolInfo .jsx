@@ -15,7 +15,7 @@ const PoolInfo = () => {
     console.log("pool id", id)
   }, [id])
 
-  let TokenData = portfolioSampleData.Pools[id]
+  let TokenData = portfolioSampleData.TableData[id]
 
 
   return (

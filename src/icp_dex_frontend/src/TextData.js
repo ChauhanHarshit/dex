@@ -467,7 +467,10 @@ export const CreatePoolsData = {
 
 
 export const portfolioSampleData = {
-    Pools: [
+    SeeMoreButtonText:'See more',
+    SeeLessButtonText:'See Less',
+    Headings: ['Token Composition', 'Balance', 'Pool value', 'APR', 'Time'],
+    TableData: [
         {
             PoolData: [
                 {

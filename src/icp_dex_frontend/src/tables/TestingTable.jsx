@@ -1,119 +1,131 @@
-import React, { useEffect, useState } from 'react'
-import { LiquidityOverviewText, LiquidityOverviewData } from '../TextData'
-import { Dropdown } from "flowbite-react";
-import { Plus, Minus } from 'lucide-react';
-import WalletID from '../assets/images/WalletID.png'
-const LiquidityOverview = ({ id }) => {
+const PortfolioDataComponent = () => {
 
-  let LiquidityTableData = LiquidityOverviewData[id].Entries
-  useEffect(() => {
-    console.log("Liuquidity Data:->", LiquidityTableData)
-  }, [])
-  const [LiquidityType, setLiquidityType] = useState('All Liquidity')
-  const [displayCount, setDisplayCount] = useState(5);
-  const [buttonVisible, setButtonVisibility] = useState(true);
-  useEffect(() => {
-    if (LiquidityTableData.length < 6) {
-      setButtonVisibility(false)
-    }
-  }, [LiquidityTableData])
+  const navigate = useNavigate();
   return (
-    <div>
-      <div className='w-11/12 mx-auto my-6 text-white'>
-        <div className='border border-gray-500 border-opacity-80 rounded-xl'>
-          {/* LiquidityOverview Headings */}
-          <div className='grid grid-cols-12 items-center rounded-xl p-4'>
+    <div className='w-full h-screen  text-white  md:max-w-[80%] mt-28 z-50 px-8 mx-auto'>
 
-            <div className='col-span-3 text-center text-xl font-cabin'>
-              <Dropdown label={`${LiquidityOverviewText.Headings[0]} (${LiquidityType})`} dismissOnClick={true}
-                className='rounded-lg bg-[#00308E]'>
-                <div onClick={() => setLiquidityType('All Liquidity')}
+      <div className='flex justify-between bg-[#010427] p-2  py-6  rounded-lg mx-auto'>
+        <div className='flex justify-between items-center  mx-2  md:mx-16'>
+          <span className='font-cabin text-xl md:text-3xl font-medium'>My Liquidity Pools</span>
+        </div>
 
-                  className={`${LiquidityType === "All Liquidity" ? 'bg-[#010427] rounded-lg m-2' : ''}`}>
-                  <Dropdown.Item>All Liquidity</Dropdown.Item>
-                </div>
-                <div onClick={() => setLiquidityType('My Liquidity')}
-                  className={`${LiquidityType === "My Liquidity" ? 'bg-[#010427] rounded-lg m-2' : ''}`}>
-                  <Dropdown.Item>My Liquidity</Dropdown.Item>
-                </div>
-              </Dropdown>
+        <div className='mr-4'
+          onClick={() => {
+            navigate('/dex-swap/pool/create-pool');
+          }}>
+          <GradientButton>
+            Create Pool
+          </GradientButton>
+        </div>
+      </div>
+
+      <div className='bg-[#05071D] h-fit rounded-lg text-white p-4'>
+
+        <div>
+          <div className='grid grid-cols-2 md:grid-cols-6  p-4 font-cabin text-lg font-medium'>
+            <div className='col-span-2 text-start ml-7'>Tokens Composition</div>
+
+            <div className='flex justify-end  items-center'>
+              Balance
             </div>
 
-            {LiquidityOverviewText.Headings.slice(1).map((heading, index) => (
-              <div key={index} className='col-span-3 text-center text-xl font-cabin'>
-                {heading}
-              </div>
-            ))}
+            <div className='hidden md:flex justify-end  items-center'>
+              Pool Value
+            </div>
+
+            <div className='hidden md:flex justify-end items-center '>
+              APR
+            </div>
+
+            <div className='hidden md:flex justify-end items-center '>
+              Time
+            </div>
+
           </div>
 
-          {/* Entries */}
-          <div className='bg-[#000711] items-center rounded-b-xl p-4'>
-            {LiquidityTableData.slice(0, displayCount).map((liquidity, index) => (
-              <div key={index} className='grid grid-cols-12 items-center text-base font-normal font-cabin my-4'>
-                {/* Columns */}
-                <div className='col-span-3 flex justify-start gap-3 items-center text-center mx-4'>
-                  {liquidity.Tokens.map((token, index) => (
-                    <div key={index}>
-                      <span className='bg-[#3D3F47] p-1 rounded-lg flex justify-between gap-1  items-center'>
-                        <img src={token.ImagePath} alt="" className='w-6 h-6 transform scale-125' />
-                        <span>{token.Value}</span>
-                      </span>
-                    </div>
-                  ))}
+          <div className='border-t-[1px] my-2 border-[#00308E]'></div>
 
-                  <span>
-                    {
-                      liquidity.Impact === "Positive" ? (
-                        <span><Plus color={"green"} /></span>
-                      ) : (
-                        <span>
-                          <Minus color={"red"} />
-                        </span>
-                      )
-                    }
-                  </span>
-                </div>
-                <div className='col-span-3 text-center'>$ {liquidity.Value.toLocaleString('en-US')}</div>
-                <div className='col-span-3 flex justify-center gap-4 items-center'>
-                  <span>
-                    <img src={WalletID} alt="" className='w-4 h-4 rounded-full' />
-                  </span>
-                  <span>
-                    {liquidity.WalletId}
-                  </span>
-                </div>
-                <div className='col-span-3 text-center'>{liquidity.Time.toLocaleString()}</div>
-              </div>
-            ))}
+          {
+            portfolioSampleData.Pools ? (
+              <div>
+                {
+                  portfolioSampleData.Pools.map((pool, index) => (
+                    <div key={index} className='my-5 hover:bg-[#546093] rounded-lg cursor-pointer'
+                      onClick={() => {
+                        navigate(`/dex-swap/portfolio/pool-info/${index}`)
+                      }}
+                      >
+                      <div className='grid grid-cols-2 md:grid-cols-6  p-4 font-cabin text-base font-medium items-center'>
+                        <div className='col-span-2 flex items-center gap-4 ml-4'>
+                          <div className='flex items-center gap-1'>
+                            {
+                              pool.PoolData.map((token, index) => (
+                                <div key={index}>
+                                  <div className='bg-[#3D3F47] p-1 rounded-lg'>
+                                    <img src={token.ImagePath} alt="" className='w-7 h-7 transform scale-125' />
+                                  </div>
+                                </div>
+                              ))
 
+                            }
 
-            {
-              buttonVisible && (
-                <div>
-                  {LiquidityTableData.length > displayCount && (
-                    <div className='text-center mt-4'>
-                      <button className='bg-gray-800 text-white px-4 py-2 rounded-md' onClick={() => setDisplayCount(displayCount + 10)}>
-                        See More
-                      </button>
-                    </div>
-                  )}
-                  {
-                    ((LiquidityTableData.length <= displayCount)) && (
-                      <div className='text-center mt-4'>
-                        <button className='bg-gray-800 text-white px-4 py-2 rounded-md' onClick={() => setDisplayCount(10)}>
-                          See Less
-                        </button>
+                          </div>
+
+                          <div className='flex items-center'>
+                            <span  >{pool.PoolData[0].ShortForm}</span>
+                            {
+                              pool.PoolData.slice(1).map((token, index) => (
+                                <div key={index} className=''>
+                                  <span className='mx-0.5'>/</span>
+                                  {token.ShortForm}
+                                </div>
+                              ))
+                            }
+                            <span className='mx-1'>:  :</span>
+
+                            <span>{pool.PoolData[0].WeightedPercentage}</span>
+                            {
+                              pool.PoolData.slice(1).map((token, index) => (
+                                <div key={index} className=''>
+                                  <span className='mx-0.5'>/</span>
+                                  {token.WeightedPercentage}
+                                </div>
+                              ))
+                            }
+                          </div>
+
+                        </div>
+
+                        <div className='col-span-1 flex justify-end'>
+                          $ {pool.PoolMetaData.Balance.toLocaleString('en-US')}
+                        </div>
+                        <div className='col-span-1 flex justify-end'>
+                          $ {pool.PoolMetaData.PoolValue.toLocaleString('en-US')}
+                        </div>
+                        <div className='col-span-1 flex justify-end'>
+                          {pool.PoolMetaData.APRstart}%  -  {pool.PoolMetaData.APRend}%
+                        </div>
+                        <div className='col-span-1 flex justify-end'>
+                          {new Date(pool.PoolMetaData.Time).toLocaleString()}
+                        </div>
                       </div>
-                    )
-                  }
+                    </div>
+                  ))
+                }
+              </div>
+            ) : (
+              <div className='flex justify-center items-center text-center    '>
+                <div>
+                  <img src={NoPortfolioImage} alt="" />
+                  <span className='font-cabin font-medium leading-5 text-[#F7931A]'>
+                    You have not added liquidity yet
+                  </span>
                 </div>
-              )
-            }
+              </div>
+            )
+          }
 
 
-          </div>
-
-          {/* See More Button */}
 
         </div>
       </div>
@@ -122,4 +134,4 @@ const LiquidityOverview = ({ id }) => {
   )
 }
 
-export default LiquidityOverview
+export default PortfolioDataComponent
