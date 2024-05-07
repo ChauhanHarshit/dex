@@ -15,6 +15,11 @@ export const LandingPageNavbarData = {
     ButtonText: 'Explore Pools',
     Links: [
         {
+            LinkName: 'Home',
+            LinkId: 'home',
+            LinkPath: '/',
+        },
+        {
             LinkName: 'Swap',
             LinkId: 'swap',
             LinkPath: '/dex-swap',
@@ -40,6 +45,11 @@ export const LandingPageNavbarData = {
 export const CommonNavbarData = {
     ButtonText: 'Connect Wallet',
     Links: [
+        {
+            LinkName: 'Home',
+            LinkId: 'home',
+            LinkPath: '/',
+        },
         {
             LinkName: 'Swap',
             LinkId: 'swap',
@@ -1018,7 +1028,7 @@ export const SwappingTableData = [
 ]
 
 export const LiquidityOverviewText = {
-    Headings :  ['Tokens','Value','Wallet ID','Time']
+    Headings: ['Tokens', 'Value', 'Wallet ID', 'Time']
 }
 export const LiquidityOverviewData = [
 

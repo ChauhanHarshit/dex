@@ -4,7 +4,7 @@ import GradientButton from '../buttons/GradientButton';
 import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid';
 
 const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
-    const [activeLink, setActiveLink] = useState(null);
+    const [activeLink, setActiveLink] = useState(0);
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
