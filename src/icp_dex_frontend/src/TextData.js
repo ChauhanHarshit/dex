@@ -27,7 +27,7 @@ export const LandingPageNavbarData = {
         {
             LinkName: 'Pool',
             LinkId: 'pool',
-            LinkPath: '/dex-pool',
+            LinkPath: '/dex-swap/pool',
         },
         {
             LinkName: 'Staking',
@@ -321,57 +321,118 @@ export const TransactionSuccessfullData = {
 }
 
 
-export const AllPoolsData = [
+export const AllPoolsData = {
 
-    {
-        TokenImageOne: RandomCoin,
-        TokenImageTwo: LiteCoin,
-        TokensComposition: 'CT / LTC : : 75/25',
-        PoolValue: '$125,625,175',
-        TotalVolume: '$625,175',
-        APR: '0.50% - 0.95%'
-    },
-    {
-        TokenImageOne: RandomCoin,
-        TokenImageTwo: LiteCoin,
-        TokensComposition: 'CT / LTC : : 75/25',
-        PoolValue: '$125,625,175',
-        TotalVolume: '$625,175',
-        APR: '0.50% - 0.95%'
-    },
-    {
-        TokenImageOne: RandomCoin,
-        TokenImageTwo: LiteCoin,
-        TokensComposition: 'CT / LTC : : 75/25',
-        PoolValue: '$125,625,175',
-        TotalVolume: '$625,175',
-        APR: '0.50% - 0.95%'
-    },
-    {
-        TokenImageOne: RandomCoin,
-        TokenImageTwo: LiteCoin,
-        TokensComposition: 'CT / LTC : : 75/25',
-        PoolValue: '$125,625,175',
-        TotalVolume: '$625,175',
-        APR: '0.50% - 0.95%'
-    },
-    {
-        TokenImageOne: RandomCoin,
-        TokenImageTwo: LiteCoin,
-        TokensComposition: 'CT / LTC : : 75/25',
-        PoolValue: '$125,625,175',
-        TotalVolume: '$625,175',
-        APR: '0.50% - 0.95%'
-    },
-    {
-        TokenImageOne: RandomCoin,
-        TokenImageTwo: LiteCoin,
-        TokensComposition: 'CT / LTC : : 75/25',
-        PoolValue: '$125,625,175',
-        TotalVolume: '$625,175',
-        APR: '0.50% - 0.95%'
-    }
-]
+    Headings: ['Tokens Composition', 'Pool Value',
+        'Total Volume', 'APR'],
+
+    TableData: [
+        {
+            Tokens: [
+                {
+                    TokenName: 'CT',
+                    ImagePath: RandomCoin,
+                    Share: 75,
+                },
+                {
+                    TokenName: 'LTC',
+                    ImagePath: LiteCoin,
+                    Share: 25,
+                }
+            ],
+            PoolValue: 125625175,
+            TotalVolume: 625175,
+            APR: '0.50% - 0.95%'
+        },
+        {
+            Tokens: [
+                {
+                    TokenName: 'CT',
+                    ImagePath: RandomCoin,
+                    Share: 75,
+                },
+                {
+                    TokenName: 'LTC',
+                    ImagePath: LiteCoin,
+                    Share: 25,
+                }
+            ],
+            PoolValue: '$125,625,175',
+            TotalVolume: '$625,175',
+            APR: '0.50% - 0.95%'
+        },
+        {
+            Tokens: [
+                {
+                    TokenName: 'CT',
+                    ImagePath: RandomCoin,
+                    Share: 75,
+                },
+                {
+                    TokenName: 'LTC',
+                    ImagePath: LiteCoin,
+                    Share: 25,
+                }
+            ],
+            PoolValue: '$125,625,175',
+            TotalVolume: '$625,175',
+            APR: '0.50% - 0.95%'
+        },
+        {
+            Tokens: [
+                {
+                    TokenName: 'CT',
+                    ImagePath: RandomCoin,
+                    Share: 75,
+                },
+                {
+                    TokenName: 'LTC',
+                    ImagePath: LiteCoin,
+                    Share: 25,
+                }
+            ],
+            PoolValue: '$125,625,175',
+            TotalVolume: '$625,175',
+            APR: '0.50% - 0.95%'
+        },
+        {
+            Tokens: [
+                {
+                    TokenName: 'CT',
+                    ImagePath: RandomCoin,
+                    Share: 75,
+                },
+                {
+                    TokenName: 'LTC',
+                    ImagePath: LiteCoin,
+                    Share: 25,
+                }
+            ],
+            PoolValue: '$125,625,175',
+            TotalVolume: '$625,175',
+            APR: '0.50% - 0.95%'
+        },
+        {
+            Tokens: [
+                {
+                    TokenName: 'CT',
+                    ImagePath: RandomCoin,
+                    Share: 75,
+                },
+                {
+                    TokenName: 'LTC',
+                    ImagePath: LiteCoin,
+                    Share: 25,
+                }
+            ],
+            PoolValue: '$125,625,175',
+            TotalVolume: '$625,175',
+            APR: '0.50% - 0.95%'
+        }
+    ],
+    SeeMoreButtonText: "See More",
+    SeeLessButtonText: "See Less",
+}
 
 
 export const CreatePoolsData = {
