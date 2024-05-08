@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import SearchToken from '../../Modals/SearchToken';
 import BlueGradientButton from '../../buttons/BlueGradientButton';
-import { ChevronDown, ChevronUp, Trash } from 'lucide-react';
+import { ChevronDown, ChevronUp, Trash, LockKeyhole, LockKeyholeOpen } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SetToken, RemoveCoin } from '../../reducer/PoolCreation';
+import { SetToken, RemoveCoin, ToggleLocked, setWeightedPercent } from '../../reducer/PoolCreation';
 import { showAlert, hideAlert } from '../../reducer/Alert';
 
 const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
@@ -11,6 +11,7 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
     const [TokenData, setTokenData] = useState({});
     const [searchToken, setSearchToken] = useState(false);
     const { CoinCount } = useSelector(state => state.pool);
+
 
     useEffect(() => {
         // console.log("index of the coin",index)
@@ -24,12 +25,53 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
             }));
         }
     };
+    const handleChangePercent = (e) => {
+        dispatch(setWeightedPercent({
+            index: index,
+            percent: e.target.value
+        }))
+    };
 
     return (
         <div className='flex justify-between items-center mt-4 z-10' key={token.id}>
-            <div className='flex items-center gap-4'>
+            <div className='flex items-center gap-2'>
                 <span>{token.ShortForm}</span>
-                <span className='bg-[#3E434B] p-1 rounded-lg px-3'>{token.WeightedPercentage}%</span>
+                <span className='bg-[#3E434B] p-1 rounded-lg px-3'>
+                    <input
+                        type="number"
+                        className='bg-transparent w-16 hide-arrows'
+                        value={token.WeightedPercentage}
+                        onChange={handleChangePercent}
+                        disabled={token.WeightedPercentageLocked}
+                    />%
+                </span>
+                <span>
+                    {
+                        token.WeightedPercentageLocked ? (
+                            <span className='cursor-pointer'
+                                onClick={() => {
+                                    dispatch(ToggleLocked({
+                                        index: index,
+                                        toggle: false,
+                                        percent: token.WeightedPercentage,
+                                    }))
+                                }}>
+                                <LockKeyhole size={18} />
+                            </span>
+                        ) : (
+                            <span className='cursor-pointer'
+                                onClick={() => {
+                                    dispatch(ToggleLocked({
+                                        index: index,
+                                        toggle: true,
+                                        percent: token.WeightedPercentage,
+                                    }))
+                                }}>
+                                <LockKeyholeOpen size={18} />
+                            </span>
+                        )
+                    }
+                </span>
                 <span onClick={() => {
                     if (CoinCount > 2) {
                         dispatch(RemoveCoin({
@@ -45,8 +87,9 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
                         }, 3000);
                     }
                 }} className='cursor-pointer'>
-                    <Trash size={20} />
+                    <Trash size={18} />
                 </span>
+
             </div>
 
             <div>
