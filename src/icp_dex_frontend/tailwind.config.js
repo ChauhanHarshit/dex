@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'custom-450': '450px', // Define your custom screen size with its breakpoint
+        'custom-400': '400px',
+      },
       keyframes: {
         'border-spin': {
           '100%': {

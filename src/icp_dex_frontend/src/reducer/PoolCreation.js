@@ -103,9 +103,11 @@ const Pool = createSlice({
             state.Tokens[index].WeightedPercentageLocked = action.payload.toggle
 
             if (action.payload.toggle === true) {
-                state.TotalPercentage -= action.payload.percent
+                console.log("percent gya", action.payload.percent)
+                state.TotalPercentage -= parseFloat(action.payload.percent)
             } else {
-                state.TotalPercentage += action.payload.percent
+                console.log("percent waapis aaya", typeof action.payload.percent)
+                state.TotalPercentage += parseFloat(action.payload.percent)
             }
 
             console.log("new total percentage", state.TotalPercentage)
