@@ -45,6 +45,20 @@ const Swap = () => {
         setRecieveCoin(Temp);
 
     }
+
+    const handleChangeAmount = (e) => {
+        // Remove any non-numeric characters
+        let number = parseInt(e.target.value);
+        console.log("number this time",number)
+
+        if (isNaN(number)) {
+            setCoinAmount(0);
+        }
+        else {
+            setCoinAmount(number);
+        }
+    };
+
     return (
         <div className='mx-4 mb-10 md:mx-0'>
             <div >
@@ -60,13 +74,22 @@ const Swap = () => {
                             PayCoin ? (
                                 <div className='flex flex-col font-cabin font-normal gap-2'>
                                     <span className='text-base font-medium'>{SwapModalData.PaySection.Heading}</span>
-                                    <span className='text-3xl md:text-4xl'>{CoinAmount}</span>
+                                    <span className='text-3xl md:text-4xl'>
+                                        <input
+                                            type="number"
+                                            className='bg-transparent w-24 hide-arrows'
+                                            value={CoinAmount}
+                                            onChange={handleChangeAmount}
+                                        />
+
+                                    </span>
                                     <div className=''>
-                                        <span className='text-base font-normal '
+                                        <span className='text-base font-normal'
                                         >{SwapModalData.PaySection.Balance}:  {parseFloat(balance)}
                                             <button className='font-cabin ml-1 sm:ml-2 text-orange-400' onClick={() => {
                                                 setCoinAmount(parseFloat(balance))
-                                            }}>{SwapModalData.PaySection.Max}</button></span>
+                                            }}>{SwapModalData.PaySection.Max}</button>
+                                        </span>
 
                                     </div>
                                 </div>
@@ -327,7 +350,7 @@ const Swap = () => {
                                         setShow1(false);
                                     }}
                                 >
-                                    <Info size={20}/>
+                                    <Info size={20} />
 
                                 </span>
                             </div>
@@ -353,7 +376,7 @@ const Swap = () => {
                                     onMouseLeave={() => {
                                         setShow2(false);
                                     }}>
-                                    <Info size={20}/>
+                                    <Info size={20} />
                                 </span>
                             </div>
 
@@ -363,8 +386,8 @@ const Swap = () => {
                             <div className='flex justify-evenly items-center gap-1 sm:gap-2 my-3'>
                                 <span className='relative custom-text-size-14 sm:text-base '>
                                     {SwapModalData.ClickedSwapData.LiquidityProviderIncentive}
-                                    
-                
+
+
                                     {show3 &&
                                         <div className='z-50 mb-32 absolute sm:ml-40 w-[150%]'>
                                             <DialogBox text={Message} />
@@ -381,7 +404,7 @@ const Swap = () => {
                                     onMouseLeave={() => {
                                         setShow3(false);
                                     }}>
-                                    <Info size={20}/>
+                                    <Info size={20} />
                                 </span>
                             </div>
 

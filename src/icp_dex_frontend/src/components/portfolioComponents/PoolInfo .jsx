@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { portfolioSampleData } from '../../TextData';
 import PoolInfoBox from '../../displayBoxes/PoolInfoBox';
 import GradientButton from '../../buttons/GradientButton'
-import { PoolCompositions, Swapping, LiquidityOverview, TestingTable } from '../../tables'
+import { PoolCompositions, Swapping, LiquidityOverview } from '../../tables'
 const PoolInfo = () => {
 
   const { id } = useParams()
