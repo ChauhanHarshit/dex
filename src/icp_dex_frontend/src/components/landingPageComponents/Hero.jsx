@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { LandingPageData } from '../../TextData'
 import GradientButton from '../../buttons/GradientButton'
 import BorderGradientButton from '../../buttons/BorderGradientButton'
-import Flow from '../../assets/images/Flow.json'
+import { useNavigate } from 'react-router-dom'
 const Hero = () => {
+    const navigate = useNavigate();
     return (
         <div className=' h-screen '>
 
@@ -22,9 +23,13 @@ const Hero = () => {
                 </span>
 
                 <div className='flex mt-5 gap-4 justify-center'>
-                    <GradientButton>
-                        {LandingPageData.HeroSection.ExploreButton}
-                    </GradientButton>
+                    <div onClick={() => {
+                        navigate('/dex-swap/pool')
+                    }}>
+                        <GradientButton>
+                            {LandingPageData.HeroSection.ExploreButton}
+                        </GradientButton>
+                    </div>
                     <BorderGradientButton>
                         {LandingPageData.HeroSection.ConnectButton}
                     </BorderGradientButton>
