@@ -39,7 +39,7 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
                 <span className='bg-[#3E434B] py-1 rounded-lg px-1 md:px-3'>
                     <input
                         type="number"
-                        className='bg-transparent w-8 text-base hide-arrows'
+                        className='bg-transparent w-10 text-base hide-arrows'
                         value={token.WeightedPercentage}
                         onChange={handleChangePercent}
                         disabled={token.WeightedPercentageLocked}
