@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import GradientButton from '../buttons/GradientButton';
 import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid';
-
+import { useAuth } from '../components/utils/useAuthClient';
 const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
     const [activeLink, setActiveLink] = useState(0);
     const [open, setOpen] = useState(false);
+    const { isAuthenticated, login, logout } = useAuth();
 
     useEffect(() => {
         // console.log(activeLink);
@@ -51,7 +52,9 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
                                 <div className=''
                                     onClick={() => {
                                         if (NavbarData.ButtonText === 'Connect Wallet') {
-                                            setClickConnectWallet(true);
+                                            // console.log("here")
+                                            // setClickConnectWallet(true);
+                                            login()
                                         }
                                     }}>
                                     <GradientButton
@@ -65,15 +68,34 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
                     </div>
                     <div className='md:ml-8 md:my-0 my-7 font-semibold md:flex md:items-center md:gap-5 hidden '>
                         <div className="border-l border-white h-12"></div>
-                        <div className='mr-9'
-                            onClick={() => {
-                                if (NavbarData.ButtonText === 'Connect Wallet') {
-                                    setClickConnectWallet(true);
-                                }
-                            }}>
+                        <div className='mr-9'>
                             <GradientButton
-                                CustomCss={`hover:opacity-75 text-xs md:text-base lg:text-base h-[50px] w-[95px] lg:h-[60px] lg:w-[150px] py-2 lg:py-4`}
-                            >{NavbarData.ButtonText}</GradientButton>
+                            >
+                                {
+                                    NavbarData.ButtonText === "Connect Wallet" ? (
+                                        <div
+                                            className='hover:opacity-75 text-xs md:text-base lg:text-base h-[50px] w-[95px] lg:h-[60px] lg:w-[150px] py-2 lg:py-4'
+                                        >
+                                            {!isAuthenticated ? (<div
+                                                onClick={() => {
+                                                    login()
+                                                }}>
+                                                {NavbarData.ButtonText}
+                                            </div>) : (
+                                                <div onClick={() => {
+                                                    logout()
+                                                }}>
+                                                    {NavbarData.ButtonTextDisconnet}
+                                                </div>
+                                            )}
+                                        </div>
+                                    ) : (
+                                        <div className='hover:opacity-75 text-xs md:text-base lg:text-base h-[50px] w-[95px] lg:h-[60px] lg:w-[150px] py-2 lg:py-4'>
+                                            {NavbarData.ButtonText}
+                                        </div>
+                                    )
+                                }
+                            </GradientButton>
                         </div>
                     </div>
                 </div>

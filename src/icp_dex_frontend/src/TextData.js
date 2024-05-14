@@ -6,6 +6,7 @@ import UniSwapWallet from './assets/images/UniSwapWallet.png'
 import Etherum from './assets/images/etherum.png'
 import Bitcoin from './assets/images/bitcoin.png'
 import Solana from './assets/images/solana.png'
+import icp from './assets/images/icp.png'
 import Xrp from './assets/images/xrp.png'
 import LiteCoin from './assets/images/Litecoin.png'
 import RandomCoin from './assets/images/RandomCoin.png'
@@ -44,6 +45,7 @@ export const LandingPageNavbarData = {
 
 export const CommonNavbarData = {
     ButtonText: 'Connect Wallet',
+    ButtonTextDisconnet: "Disconnect",
     Links: [
         {
             LinkName: 'Home',
@@ -237,6 +239,10 @@ export const ConnectWalletData = {
             Name: 'Uniswap',
             Image: UniSwapWallet
         },
+        {
+            Name: 'ICP',
+            Image: icp
+        }
     ],
     TermsAndConditions: 'By connecting a wallet, you agree to [company name] Terms of Service and consent to its Privacy Policy.',
     LearnMore: 'Learn More',
@@ -467,8 +473,8 @@ export const CreatePoolsData = {
 
 
 export const portfolioSampleData = {
-    SeeMoreButtonText:'See more',
-    SeeLessButtonText:'See Less',
+    SeeMoreButtonText: 'See more',
+    SeeLessButtonText: 'See Less',
     Headings: ['Token Composition', 'Balance', 'Pool value', 'APR', 'Time'],
     TableData: [
         {
