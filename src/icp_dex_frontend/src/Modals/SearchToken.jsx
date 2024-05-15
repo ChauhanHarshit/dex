@@ -1,49 +1,52 @@
 import React, { useEffect, useState } from 'react'
 import { X } from 'lucide-react';
 import { SearchTokenData } from '../TextData';
+import { useSelector } from 'react-redux';
 import GradientButton from '../buttons/GradientButton';
 import { SiBitcoinsv } from "react-icons/si";
 import { CiSearch } from "react-icons/ci";
 
 const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id, setTokenData }) => {
+    const { Tokens } = useSelector(state => state.pool)
     const [TokenOption, SetTokenOption] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
-    const [filteredTokens, setFilteredTokens] = useState(SearchTokenData.Array)
+    const [filteredTokens, setFilteredTokens] = useState(SearchTokenData.Array.filter(token => {
+
+        return Tokens.some(Token =>
+            Token.ShortForm == token.ShortForm
+        )
+    }))
     const HandleClickToken = (index) => {
         console.log("token selected", index)
         SetTokenOption(TokenOption === index ? null : index);
     }
 
-
-    const SearchFunction = () => {
-        const filtered = SearchTokenData.Array.filter(token =>
-            token.Name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-        setFilteredTokens(filtered);
-    }
-
-    useEffect(() => {
-        // console.log("filteredTokens",filteredTokens)
-        // console.log("searchQuery",searchQuery)
-        if (searchQuery && searchQuery.trim() && searchQuery.trim() !== "") {
-            setFilteredTokens(filteredTokens.filter((token) => token.Name.toLowerCase().includes(searchQuery.toLowerCase())))
-        } else {
-            setFilteredTokens(SearchTokenData.Array)
-
-        }
-
-
-    }, [searchQuery])
-
-
-
-
-    // useEffect(() => {
+    // const SearchFunction = () => {
     //     const filtered = SearchTokenData.Array.filter(token =>
     //         token.Name.toLowerCase().includes(searchQuery.toLowerCase())
     //     );
     //     setFilteredTokens(filtered);
-    // }, [searchQuery]);
+    // }
+    useEffect(() => {
+        console.log("Token Selected:- >", Tokens)
+        let filterTokens = SearchTokenData.Array.filter(token => {
+            return !Tokens.some(Token => {
+                console.log("Token Short form:->",  Token.ShortForm)
+                console.log("token shortform",  token.ShortForm);
+                return Token.ShortForm == token.ShortForm
+            })
+        })
+        console.log("Filtered Out Tokens:", filterTokens)
+        setFilteredTokens(filterTokens)
+    }, [Tokens])
+    useEffect(() => {
+        if (searchQuery && searchQuery.trim() && searchQuery.trim() !== "") {
+            setFilteredTokens(filteredTokens.filter((token) => token.Name.toLowerCase().includes(searchQuery.toLowerCase())))
+        } else {
+            setFilteredTokens(SearchTokenData.Array)
+        }
+    }, [searchQuery])
+
 
     return (
         <div className='flex z-50 justify-center fixed inset-0  bg-opacity-50 backdrop-blur-sm'>

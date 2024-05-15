@@ -33,17 +33,18 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
     };
 
     return (
-        <div className='flex justify-between items-center mt-4 z-10' key={token.id}>
-            <div className='flex items-center gap-2'>
+        <div className='flex justify-between gap-8 custom-400:gap-8 custom-450:gap-16 sm:gap-32 items-center mt-4 z-10' key={token.id}>
+            <div className='flex justify-between items-center gap-1 sm:gap-2'>
                 <span>{token.ShortForm}</span>
-                <span className='bg-[#3E434B] p-1 rounded-lg px-3'>
+                <span className='bg-[#3E434B] py-1 rounded-lg px-1 md:px-3'>
                     <input
                         type="number"
-                        className='bg-transparent w-16 hide-arrows'
+                        className='bg-transparent w-10 text-base hide-arrows'
                         value={token.WeightedPercentage}
                         onChange={handleChangePercent}
                         disabled={token.WeightedPercentageLocked}
-                    />%
+                    />
+                    <span className='md:text-lg text-xs'>%</span>
                 </span>
                 <span>
                     {
@@ -95,22 +96,22 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
             <div>
                 {token.Selected ? (
                     <div className='flex flex-col gap-1'>
-                        <div className='flex mr-12 items-center place-self-end gap-2'>
-                            <BlueGradientButton customCss={'disabled px-4 py-3 normal-cursor'}>
-                                <img src={token.ImagePath} alt="" className='h-8 w-8 transform scale-150' />
+                        <div className='flex items-center place-self-end gap-1 custom-400:gap-2'>
+                            <BlueGradientButton customCss={'disabled px-2 py-2 md:px-4 md:py-3 normal-cursor'}>
+                                <img src={token.ImagePath} alt="" className='h-4 w-4 md:h-8 md:w-8 transform scale-150' />
                             </BlueGradientButton>
 
-                            <div className='font-cabin font-normal text-2xl'>
+                            <div className='font-cabin font-normal text-xl md:text-2xl'>
                                 {token.ShortForm}
                             </div>
                             {!searchToken ? (
                                 <span className='cursor-pointer' onClick={() => {
                                     setSearchToken(!searchToken);
-                                }}><ChevronDown /></span>
+                                }}><ChevronDown size={18}/></span>
                             ) : (
                                 <span className='cursor-pointer' onClick={() => {
                                     setSearchToken(!searchToken);
-                                }}><ChevronUp /></span>
+                                }}><ChevronUp size={18}/></span>
                             )}
                             <div className=''>
                                 {searchToken && <SearchToken setSearchToken={setSearchToken} setTokenData={setTokenData} set id={3} />}
@@ -123,12 +124,12 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
                     </div>
                 ) : (
                     <div>
-                        <BlueGradientButton customCss={'px-4 py-3 font-cabin font-extrabold'}>
-                            <div className='flex items-center gap-1'>
+                        <BlueGradientButton customCss={'px-1 py-2 lg:px-4 lg:py-3 font-cabin font-extrabold'}>
+                            <div className='flex items-center gap-1 text-xs sm:text-sm'>
                                 Select a Token
                                 <span className='cursor-pointer' onClick={() => {
                                     setSearchToken(!searchToken);
-                                }}><ChevronDown /></span>
+                                }}><ChevronDown size={18}/></span>
                             </div>
                         </BlueGradientButton>
                         {searchToken && <SearchToken setSearchToken={setSearchToken} setTokenData={setTokenData} set id={3} />}
