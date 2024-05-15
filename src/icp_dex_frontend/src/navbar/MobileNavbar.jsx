@@ -3,16 +3,60 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import GradientButton from '../buttons/GradientButton';
 import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid';
 import { useAuth } from '../components/utils/useAuthClient';
+import { Copy, Check } from 'lucide-react';
+import { useDispatch } from 'react-redux';
+import { showAlert, hideAlert } from '../reducer/Alert';
+
 
 const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
+
+    const dispatch = useDispatch()
     const [activeLink, setActiveLink] = useState(0);
     const [open, setOpen] = useState(false);
-    const { isAuthenticated, login, logout } = useAuth();
-
+    const { isAuthenticated, login, logout, principal, } = useAuth();
+    const [Principal, setPrincipal] = useState('');
+    const [copied, setCopied] = useState(false);
     useEffect(() => {
-        // console.log(activeLink);
-    }, [activeLink]);
+        const getDisplayFunction = () => {
+            const SlicedPrincipal = principal.toText().slice(0, 5);
+            // console.log(typeof SlicedPrincipal)
+            const FinalId = SlicedPrincipal.padEnd(10, '.') + principal.toText().slice(56, 63);
+            setPrincipal(FinalId)
+            console.log("Principal of user is:", FinalId)
+        }
+
+        if (principal) {
+            getDisplayFunction()
+        }
+
+    }, [principal]);
     const navigate = useNavigate();
+
+    const CopyPrincipalId = () => {
+        navigator.clipboard.writeText(principal)
+            .then(() => {
+                console.log('Text copied to clipboard:', principal);
+
+            })
+            .catch(err => {
+                console.error('Unable to copy text to clipboard:', err);
+            });
+
+        dispatch(showAlert({
+            type: 'success',
+            text: 'Copied to ClipBoard'
+        }))
+
+        setTimeout(() => {
+            dispatch(hideAlert());
+        }, [3000])  
+
+        setCopied(true);
+
+        setTimeout(() => {
+            setCopied(false);
+        }, 2000)
+    };
     return (
         <div className='mx-10'>
             <div className='w-full sticky top-8 rounded-2xl  bg-[#05071D] font-cabin tracking-wide backdrop-blur-md z-40'>
@@ -71,7 +115,33 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
                     </div>
                     <div className='md:ml-8 md:my-0 my-7 font-semibold md:flex md:items-center md:gap-5 hidden '>
                         <div className="border-l border-white h-12"></div>
-                        <div className='mr-9'>
+                        <div className='mr-9 flex justify-center items-center'>
+
+                            {
+                                isAuthenticated && <div className='flex items-center gap-2 w-48 text-center text-white font-cabin text-xl font-normal'>
+                                    <span>
+                                        {Principal}
+                                    </span>
+                                    {
+                                        copied ? (
+                                            <span className='cursor-pointer'>
+                                                <Check size={18} />
+                                            </span>
+                                        ) : (
+                                            <span className='cursor-pointer'
+                                                onClick={
+                                                    () => {
+                                                        CopyPrincipalId()
+                                                    }
+                                                }>
+                                                <Copy size={18} />
+                                            </span>
+                                        )
+
+
+                                    }
+                                </div>
+                            }
                             <GradientButton
                             >
                                 {
@@ -107,7 +177,7 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
