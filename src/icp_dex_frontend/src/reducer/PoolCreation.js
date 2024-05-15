@@ -11,7 +11,7 @@ const initialState = {
     Tokens: [
         {
             Name: 'Token1',
-            ShortForm: 'Token1',
+            ShortForm: 'Token 1',
             Amount: 0,
             Selected: false,
             WeightedPercentage: 50,
@@ -22,7 +22,7 @@ const initialState = {
         },
         {
             Name: "Token2",
-            ShortForm: 'Token2',
+            ShortForm: 'Token 2',
             Amount: 0,
             Selected: false,
             WeightedPercentage: 50,
@@ -51,7 +51,7 @@ const Pool = createSlice({
             state.Tokens.push(
                 {
                     Name: 'new Token',
-                    ShortForm: 'NWT',
+                    ShortForm: `Token ${state.CoinCount}`,
                     Amount: 0,
                     Selected: false,
                     WeightedPercentage: PercentShare,

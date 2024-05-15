@@ -9,9 +9,13 @@ import { AddCoin } from '../../reducer/PoolCreation';
 const SelectTokensForPools = ({ handleNext }) => {
 
     const dispatch = useDispatch();
-    const { Tokens } = useSelector((state) => state.pool)
+    const { Tokens, CoinCount } = useSelector((state) => state.pool)
     // console.log(Tokens)
     const [ButtonActive, SetButtonActive] = useState(false);
+
+    useEffect(() => {
+        console.log("Current Token Count:->", CoinCount)
+    }, [CoinCount])
 
     const HandleSelectCheck = () => {
         const allTokensSelected = Tokens.every((token) => token.Selected);
@@ -21,59 +25,70 @@ const SelectTokensForPools = ({ handleNext }) => {
 
 
     return (
-        
-            <div className='inset-0 bg-opacity-10 z-50 w-fit h-5/6 flex flex-col gap-4 p-3 sm:p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
-                <div className='w-[70%] place-self-end  flex justify-between'>
-                    <span className='font-fahkwang font-light md:text-3xl '>Select Tokens</span>
-                    <Bolt size={30} className='cursor-pointer' onClick={() => { console.log("settings open") }} />
-                </div>
 
-
-                <div>
-                    {Tokens.map((token, index) => {
-                        return (
-                            <div key={index}>
-                                <SearchTokenShowData token={token} index={index} HandleSelectCheck={HandleSelectCheck} />
-                            </div>
-                        );
-                    })}
-                </div>
-
-
-                <div className='place-self-end'
-                    onClick={() => {
-                        dispatch(AddCoin())
-                    }}
-                >
-                    <BorderGradientButton customCss={`text-xs md:text-base lg:text-base h-[50px] w-[110px] lg:h-[60px] lg:w-[150px] `}>
-                        Add Token
-                    </BorderGradientButton>
-                </div>
-
-                <div
-                    className={`font-cabin text-base font-medium `}
-                    onClick={() => {
-
-                        if (!ButtonActive) {
-                            dispatch(showAlert({
-                                type: 'danger',
-                                text: 'Please select all the coins'
-                            }))
-
-                            setTimeout(() => {
-                                dispatch(hideAlert());
-                            }, [3000])
-                        } else {
-                            handleNext()
-                        }
-                    }}
-                >
-                    <GradientButton CustomCss={`my-4 w-full ${ButtonActive ? ' opacity-100 cursor-pointer' : 'opacity-50 cursor-default'}`}>
-                        Next
-                    </GradientButton>
-                </div>
+        <div className='inset-0 bg-opacity-10 z-50 w-fit h-5/6 flex flex-col gap-4 p-3 sm:p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
+            <div className='w-[70%] place-self-end  flex justify-between'>
+                <span className='font-fahkwang font-light md:text-3xl '>Select Tokens</span>
+                <Bolt size={30} className='cursor-pointer' onClick={() => { console.log("settings open") }} />
             </div>
-        
+
+
+            <div>
+                {Tokens.map((token, index) => {
+                    return (
+                        <div key={index}>
+                            <SearchTokenShowData token={token} index={index} HandleSelectCheck={HandleSelectCheck} />
+                        </div>
+                    );
+                })}
+            </div>
+
+
+            <div className={`place-self-end ${CoinCount < 8 ? 'block' : 'hidden'}`}
+                onClick={() => {
+                    if (CoinCount < 8) {
+                        dispatch(AddCoin())
+                    } else {
+                        dispatch(showAlert({
+                            type: 'danger',
+                            text: 'No More than 8 coins Allowed in the pool'
+                        }))
+
+                        setTimeout(() => {
+                            dispatch(hideAlert());
+                        }, [3000])
+                    }
+                }}
+            >
+                <BorderGradientButton customCss={`text-xs md:text-base lg:text-base h-[50px] w-[110px] lg:h-[60px] lg:w-[150px] `}>
+                    Add Token
+                </BorderGradientButton>
+            </div>
+
+            <div
+                className={`font-cabin text-base font-medium `}
+                onClick={() => {
+
+                    if (!ButtonActive) {
+                        dispatch(showAlert({
+                            type: 'danger',
+                            text: 'Please select all the coins'
+                        }))
+
+                        setTimeout(() => {
+                            dispatch(hideAlert());
+                        }, [3000])
+                    } else {
+                        handleNext()
+                    }
+                }}
+            >
+                <GradientButton CustomCss={`my-4 w-full ${ButtonActive ? ' opacity-100 cursor-pointer' : 'opacity-50 cursor-default'}`}>
+                    Next
+                </GradientButton>
+            </div>
+        </div>
+
     )
 }
 
