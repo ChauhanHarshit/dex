@@ -57,12 +57,17 @@ const ShowAllPools = () => {
                   </tr>
                 </thead>
                 <tbody className=' '>
-                  {AllPoolsData.TableData.slice(0, displayCount).map((pool, index) => (
+                  {AllPoolsData.TableData.slice(0, displayCount).map((pool, index) => {
+                    
+                    const TokenPool = pool.Tokens
+                    const FirstTokenName = pool.Tokens[0].TokenName
+                    const FirstTokenShare = pool.Tokens[0].Share
+                    return (
                     <tr key={index}>
 
                       <td className='min-w-52 whitespace-nowrap my-4 text-sm md:text-base font-medium text-white flex items-center gap-5 justify-center'>
                         <span className='flex gap-2'>
-                          {pool.Tokens.map((token, index) => (
+                          {TokenPool.map((token, index) => (
                             <span key={index} className='bg-[#3D3F47] p-2 rounded-xl'>
                               <img src={token.ImagePath} alt="" className='w-6 h-6' />
                             </span>
@@ -71,17 +76,17 @@ const ShowAllPools = () => {
 
                         <span className='flex items-center'>
                           <span>
-                            {pool.Tokens[0].TokenName}
+                            {FirstTokenName}
                           </span>
                           <span>
                             {
-                              pool.Tokens.slice(1).map((token, index) => (
+                              TokenPool.slice(1).map((token, index) => (
                                 <span key={index}>/{token.TokenName}</span>
                               ))
                             }
                           </span>
                           <span>: :</span>
-                          <span>{pool.Tokens[0].Share}</span>
+                          <span>{FirstTokenShare}</span>
                           <span>
                             {
                               pool.Tokens.slice(1).map((token, index) => (
@@ -104,7 +109,7 @@ const ShowAllPools = () => {
                         {pool.APR}
                       </td>
                     </tr>
-                  ))}
+                  )})}
 
 
 

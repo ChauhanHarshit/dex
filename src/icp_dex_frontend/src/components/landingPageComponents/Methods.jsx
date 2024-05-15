@@ -15,7 +15,7 @@ const Methods = () => {
             <div className='hidden lg:flex  flex-row justify-between space-y-0 m-16'>
 
                 <div className='w-1/2 ml-16 items-end'>
-                    <img src={MethodsImageOne} alt="MethodImageOne" className='h-10/12 w-10/12 transform hover:scale-105 duration-300' />
+                    <img src={MethodsImageOne} alt="MethodImageOne" className='h-10/12 w-10/12 ' />
                 </div>
 
                 <div className='w-1/2 flex flex-col justify-between font-fahkwang text-4xl p-4  items-start'>
@@ -57,7 +57,7 @@ const Methods = () => {
                 </div>
 
                 <div className='w-1/2  ml-16 items-end'>
-                    <img src={MethodsImageTwo} alt="MethodImageTwo"  className=' h-10/12 w-10/12 transform hover:scale-105 duration-300'/>
+                    <img src={MethodsImageTwo} alt="MethodImageTwo" className=' h-10/12 w-10/12 ' />
                 </div>
             </div>
 

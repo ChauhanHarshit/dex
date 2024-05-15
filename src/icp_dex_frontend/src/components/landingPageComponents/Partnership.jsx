@@ -13,27 +13,31 @@ const Partnership = () => {
                     {LandingPageData.PaternshipPageData.HeadingDescription}
                 </div>
             </div>
-            <div className='mx-auto w-[80%]'>
-
-
+            <div className='max-w-6xl mx-auto'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-16 '>
                     {
-                        LandingPageData.PaternshipPageData.PartnershipData.map((Company, index) => (
-                            <div className='bg-gradient-to-r from-[#3D3F47] via-[#000211] to-[#373942] flex justify-between   rounded-lg border border-[#3D3F47] p-8 w-60 mx-auto my-6 items-center' key={index}>
-                                <div>
-                                    <img src={Company.LogoLink} alt="PartnerShipData" />
-                                </div>
+                        LandingPageData.PaternshipPageData.PartnershipData.map((Company, index) => {
 
-                                <div className='flex flex-col font-cabin'>
-                                    <span>
-                                        {Company.CompanyName}
-                                    </span>
-                                    <span>
-                                        {Company.CompanyDesc}
-                                    </span>
+                            const LogoLink = Company.LogoLink
+                            const CompanyName = Company.CompanyName
+                            const Description = Company.CompanyDesc
+                            return (
+                                <div className='bg-gradient-to-r from-[#3D3F47] via-[#000211] to-[#373942] flex justify-between   rounded-lg border border-[#3D3F47] p-8 w-60 mx-auto my-6 items-center' key={index}>
+                                    <div>
+                                        <img src={LogoLink} alt="PartnerShipData" />
+                                    </div>
+
+                                    <div className='flex flex-col font-cabin'>
+                                        <span>
+                                            {CompanyName}
+                                        </span>
+                                        <span>
+                                            {Description}
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                        ))
+                            )
+                        })
                     }
                 </div>
 

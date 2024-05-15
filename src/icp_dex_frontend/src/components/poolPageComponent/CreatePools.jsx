@@ -26,32 +26,38 @@ const CreatePools = () => {
         {
           CreatePoolsData.PersonalPools ? (
             <div >
-              {CreatePoolsData.PersonalPools.map((pool, index) => (
-                <div className='my-10 bg-[#181B21]  rounded-lg mx-auto p-4 font-cabin font-medium text-base leading-5 flex justify-between items-center' key={index}>
-                  <div className='flex justify-between items-center gap-4'>
-                    <div className='flex gap-2'>
-                      {
-                        pool.Images.map((image, index) => (
-                          <div key={index} className='bg-[#3D3F47] p-1 rounded-lg'><img src={image} alt="" className='h-8 w-8' /></div>
-                        ))
-                      }
-                    </div>
+              {CreatePoolsData.PersonalPools.map((pool, index) => {
 
-                    <div className='flex text-base'>
-                      {
-                        pool.TokenName.map((name, index) => (
-                          <div key={index}>
-                            {name}
-                          </div>
-                        ))
-                      }
+                const ImagePool = pool.Images
+                const TokenPool = pool.TokenName
+
+                return (
+                  <div className='my-10 bg-[#181B21]  rounded-lg mx-auto p-4 font-cabin font-medium text-base leading-5 flex justify-between items-center' key={index}>
+                    <div className='flex justify-between items-center gap-4'>
+                      <div className='flex gap-2'>
+                        {
+                          ImagePool.map((image, index) => (
+                            <div key={index} className='bg-[#3D3F47] p-1 rounded-lg'><img src={image} alt="" className='h-8 w-8' /></div>
+                          ))
+                        }
+                      </div>
+
+                      <div className='flex text-base'>
+                        {
+                          TokenPool.map((name, index) => (
+                            <div key={index}>
+                              {name}
+                            </div>
+                          ))
+                        }
+                      </div>
+                    </div>
+                    <div className='mr-2 cursor-pointer'>
+                      <ChevronDown />
                     </div>
                   </div>
-                  <div className='mr-2 cursor-pointer'>
-                    <ChevronDown />
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           ) : (
             <div className='my-10 bg-[#303030] rounded-lg mx-auto p-6 text-center font-cabin font-medium text-xl leading-5'>

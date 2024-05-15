@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { LandingPageData } from '../../TextData'
 import GradientButton from '../../buttons/GradientButton'
 import BorderGradientButton from '../../buttons/BorderGradientButton'
@@ -6,11 +6,10 @@ import { useNavigate } from 'react-router-dom'
 const Hero = () => {
     const navigate = useNavigate();
     return (
-        <div className=' h-screen flex flex-col justify-evenly'>
-
+        <div className=' h-fit flex flex-col justify-evenly'>
             <div className=' items-center  text-center'>
                 <div className='font-fahkwang font-light md:text-6xl text-4xl pb-5 m-2 md:m-0'>
-                    <span className=' '>
+                    <span>
                         {LandingPageData.HeroSection.HeadLineWordOne}
                     </span>
                     <div>
@@ -18,7 +17,7 @@ const Hero = () => {
                         <span > {LandingPageData.HeroSection.HeadLineWordThree}</span>
                     </div>
                 </div>
-                <span className='  font-cabin text-lg'>
+                <span className='font-cabin text-lg '>
                     {LandingPageData.HeroSection.Tagline}
                 </span>
 
@@ -35,7 +34,7 @@ const Hero = () => {
                     </BorderGradientButton>
                 </div>
             </div>
-            <div className='text-center'>
+            <div className='text-center mt-4'>
                 <div className='font-cabin font-normal leading-5 text-xl '>
                     {LandingPageData.HeroSection.BottomLine}
                 </div>

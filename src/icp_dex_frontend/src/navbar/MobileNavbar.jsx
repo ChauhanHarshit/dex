@@ -49,7 +49,7 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
 
                             <div className='my-7 font-semibold text-center block md:hidden '>
 
-                                <div className=''
+                                <div
                                     onClick={() => {
                                         if (NavbarData.ButtonText === 'Connect Wallet') {
                                             setClickConnectWallet(true);
