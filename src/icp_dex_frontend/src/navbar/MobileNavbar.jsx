@@ -3,6 +3,7 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import GradientButton from '../buttons/GradientButton';
 import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid';
 import { useAuth } from '../components/utils/useAuthClient';
+
 const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
     const [activeLink, setActiveLink] = useState(0);
     const [open, setOpen] = useState(false);
@@ -11,7 +12,7 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
     useEffect(() => {
         // console.log(activeLink);
     }, [activeLink]);
-
+    const navigate = useNavigate();
     return (
         <div className='mx-10'>
             <div className='w-full sticky top-8 rounded-2xl  bg-[#05071D] font-cabin tracking-wide backdrop-blur-md z-40'>
@@ -52,9 +53,11 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
                                 <div
                                     onClick={() => {
                                         if (NavbarData.ButtonText === 'Connect Wallet') {
-                                            // console.log("here")
                                             setClickConnectWallet(true);
-                                            // login()
+                                        }
+
+                                        if (NavbarData.ButtonText === 'Explore Pools') {
+                                            navigate('/dex-swap/pool')
                                         }
                                     }}>
                                     <GradientButton
@@ -90,7 +93,11 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
                                             )}
                                         </div>
                                     ) : (
-                                        <div className='hover:opacity-75 text-xs md:text-base lg:text-base h-[50px] w-[95px] lg:h-[60px] lg:w-[150px] py-2 lg:py-4'>
+                                        <div className='hover:opacity-75 text-xs md:text-base lg:text-base h-[50px] w-[95px] lg:h-[60px] lg:w-[150px] py-2 lg:py-4'
+
+                                            onClick={() => {
+                                                navigate('/dex-swap/pool')
+                                            }}>
                                             {NavbarData.ButtonText}
                                         </div>
                                     )
