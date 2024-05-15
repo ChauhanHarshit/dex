@@ -53,8 +53,8 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
                                     onClick={() => {
                                         if (NavbarData.ButtonText === 'Connect Wallet') {
                                             // console.log("here")
-                                            // setClickConnectWallet(true);
-                                            login()
+                                            setClickConnectWallet(true);
+                                            // login()
                                         }
                                     }}>
                                     <GradientButton
@@ -78,7 +78,7 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
                                         >
                                             {!isAuthenticated ? (<div
                                                 onClick={() => {
-                                                    login()
+                                                    setClickConnectWallet(true);
                                                 }}>
                                                 {NavbarData.ButtonText}
                                             </div>) : (

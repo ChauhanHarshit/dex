@@ -86,3 +86,7 @@ body {
 .hide-arrows {
   -moz-appearance: textfield;
 }
+
+.custom-z-index {
+  z-index: 45;
+}
