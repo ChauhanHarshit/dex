@@ -17,4 +17,5 @@ ic-stable-structures = "0.6.4"
 ic-cdk-macros = "0.13.2"
 serde = "1.0.200"
 ciborium = "0.2.2"
+serde_bytes = "0.11.14"
 

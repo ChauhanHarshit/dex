@@ -2,9 +2,7 @@ use ic_stable_structures::memory_manager::{MemoryId, MemoryManager, VirtualMemor
 use ic_stable_structures::DefaultMemoryImpl;
 use std::cell::RefCell;
 
-const UPGRADES: MemoryId = MemoryId::new(0);
-const FILE_CONTENTS: MemoryId = MemoryId::new(1);
-const STATE_CONTENTS: MemoryId = MemoryId::new(1);
+const POST_DATA: MemoryId = MemoryId::new(0);
 
 pub type Memory = VirtualMemory<DefaultMemoryImpl>;
 
@@ -15,13 +13,6 @@ thread_local! {
         RefCell::new(MemoryManager::init(DefaultMemoryImpl::default()));
 }
 
-pub fn get_upgrades_memory() -> Memory {
-    MEMORY_MANAGER.with(|m| m.borrow().get(UPGRADES))
-}
-
-pub fn get_file_contents_memory() -> Memory {
-    MEMORY_MANAGER.with(|m| m.borrow().get(FILE_CONTENTS))
-}
-pub fn get_state_contents_memory() -> Memory {
-    MEMORY_MANAGER.with(|m| m.borrow().get(STATE_CONTENTS))
+pub fn get_postdata_memory() -> Memory {
+    MEMORY_MANAGER.with(|m| m.borrow().get(POST_DATA))
 }

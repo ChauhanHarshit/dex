@@ -1,1 +1,8 @@
-service : { check_username : (text) -> (bool) query }
+type PostData = record { user_principal : text; created_at : text };
+type Result = variant { Ok; Err : text };
+type Result_1 = variant { Ok : PostData; Err : text };
+service : {
+  create_account : () -> (Result);
+  get_user_principal : () -> (Result_1) query;
+  remove_principal : () -> (Result_1);
+}
