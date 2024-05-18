@@ -10,7 +10,8 @@
     "pretest": "npm run prebuild --workspaces --if-present",
     "start": "npm start --workspaces --if-present",
     "test": "npm test --workspaces --if-present",
-    "did": "scripts/generate_did.sh",
+    "did-backend": "scripts/generate_did.sh",
+    "did-pool": "scripts/dex_pool_generate.sh",
     "deploy": "dfx deploy icp_dex_backend && dfx deploy icp_dex_frontend",
     "deploy-backend": "dfx deploy icp_dex_backend",
     "deploy-frontend": "dfx deploy icp_dex_frontend"

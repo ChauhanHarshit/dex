@@ -106,4 +106,3 @@ const SetPoolFees = ({ handleNext }) => {
 }
 
 export default SetPoolFees
-
