@@ -1258,6 +1258,20 @@ export const LiquidityOverviewData = [
 
 
 
+export const DummyDataTokens = {
+    Tokens: [
+        {
+            CanisterId: 'bkyz2-fmaaa-aaaaa-qaaaq-cai',
+            Image: RandomCoin,
+        }, {
+            CanisterId: 'mxzaz-hqaaa-aaaar-qaada-cai',
+            Image: RandomCoin,
+        }
+
+    ]
+}
+
+
 
 
 

@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { X } from 'lucide-react';
-import { SearchTokenData } from '../TextData';
+import { SearchTokenData, DummyDataTokens } from '../TextData';
 import { useSelector } from 'react-redux';
 import GradientButton from '../buttons/GradientButton';
 import { SiBitcoinsv } from "react-icons/si";
 import { CiSearch } from "react-icons/ci";
+import { useAuth } from '../components/utils/useAuthClient';
 
 const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id, setTokenData }) => {
+
+    const { createTokenActor } = useAuth();
+
     const { Tokens } = useSelector(state => state.pool)
     const [TokenOption, SetTokenOption] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
+    const [metadata, setMetadata] = useState([]);
     const [filteredTokens, setFilteredTokens] = useState(SearchTokenData.Array.filter(token => {
 
         return Tokens.some(Token =>
@@ -20,19 +25,12 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id, setTokenDat
         console.log("token selected", index)
         SetTokenOption(TokenOption === index ? null : index);
     }
-
-    // const SearchFunction = () => {
-    //     const filtered = SearchTokenData.Array.filter(token =>
-    //         token.Name.toLowerCase().includes(searchQuery.toLowerCase())
-    //     );
-    //     setFilteredTokens(filtered);
-    // }
     useEffect(() => {
         console.log("Token Selected:- >", Tokens)
         let filterTokens = SearchTokenData.Array.filter(token => {
             return !Tokens.some(Token => {
-                console.log("Token Short form:->",  Token.ShortForm)
-                console.log("token shortform",  token.ShortForm);
+                console.log("Token Short form:->", Token.ShortForm)
+                console.log("token shortform", token.ShortForm);
                 return Token.ShortForm == token.ShortForm
             })
         })
@@ -46,6 +44,28 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id, setTokenDat
             setFilteredTokens(SearchTokenData.Array)
         }
     }, [searchQuery])
+
+
+    useEffect(() => {
+        const fetchMetadata = async () => {
+            const fetchedMetadata = await Promise.all(
+                DummyDataTokens.Tokens.map(async (token) => {
+                    const tokenActor = createTokenActor(token.CanisterId);
+                    const result = await tokenActor.icrc1_metadata();
+                    console.log(`result of canisterId in UseEffect ${token.CanisterId}`, result);
+                    return {
+                        CanisterId: token.CanisterId,
+                        metadata: result
+                    };
+                })
+            );
+
+            console.log("Fetched Data:---->", fetchedMetadata);
+            setMetadata(fetchedMetadata);
+        };
+
+        fetchMetadata();
+    }, [DummyDataTokens]);
 
 
     return (
@@ -74,20 +94,33 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id, setTokenDat
                 </div>
 
                 <div className='flex flex-col items-center gap-4 mb-10'>
-                    {filteredTokens &&
+                    {DummyDataTokens.Tokens.map((token, index) => {
 
-                        filteredTokens.map((token, index) => (
+
+                        const tokenMetadata = metadata.find(meta => meta.CanisterId === token.CanisterId);
+                        const TokenName = tokenMetadata?.metadata[1]?.[1]?.Text || "Yaman";
+                        const Image = token.Image;
+                        const ShortForm = tokenMetadata?.metadata[2]?.[1]?.Text || "Yaman";
+
+                        return (
                             <div className={`flex gap-6 items-center w-10/12  p-2 bg-[#303030] hover:opacity-80 cursor-pointer  opacity-100 rounded-xl
                             ${TokenOption === index ? ' font-bold opacity-100 border bg-gradient-to-r from-[#000711] via-[#525E91] to-[#000711]' : ''}`} key={index}
                                 onClick={() => {
-                                    // console.log("id-->", id)
-                                    if (id === 1) setPayToken(token)
-                                    if (id === 2) setRecToken(token)
+                                    if (id === 1) setPayToken({
+                                        Name: TokenName,
+                                        ImagePath: Image,
+                                        ShortForm: ShortForm,
+                                    })
+                                    if (id === 2) setRecToken({
+                                        Name: TokenName,
+                                        ImagePath: Image,
+                                        ShortForm: ShortForm,
+                                    })
                                     if (id === 3) {
                                         setTokenData({
-                                            Name: token.Name,
-                                            ImagePath: token.Image,
-                                            ShortForm: token.ShortForm,
+                                            Name: TokenName,
+                                            ImagePath: Image,
+                                            ShortForm: ShortForm,
                                         })
                                     }
                                     HandleClickToken(index);
@@ -97,10 +130,11 @@ const SearchToken = ({ setSearchToken, setPayToken, setRecToken, id, setTokenDat
                                     <img src={token.Image} alt="" className='h-8 w-8 transform scale-150' />
                                 </div>
                                 <div className='font-normal text-xl font-cabin text-start'>
-                                    {token.Name}
+                                    {TokenName}
                                 </div>
                             </div>
-                        ))
+                        );
+                    })
                     }
                 </div>
                 <div className='border border-transparent font-bold custom-height-3 bg-gradient-to-r from-transparent via-[#00308E] to-transparent w-full mx-auto'></div>

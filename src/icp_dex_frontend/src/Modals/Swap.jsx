@@ -13,7 +13,7 @@ const Swap = () => {
 
     const { createTokenActor, principal } = useAuth();
     const navigate = useNavigate();
-    const [tokenActor, setActorToken] = useState(createTokenActor("mxzaz-hqaaa-aaaar-qaada-cai"))
+    const [tokenActor, setActorToken] = useState(createTokenActor("bkyz2-fmaaa-aaaaa-qaaaq-cai"))
     const [Message, setMessage] = useState('');
     const [show1, setShow1] = useState(false);
     const [show2, setShow2] = useState(false);
@@ -38,6 +38,8 @@ const Swap = () => {
         const fetch = async () => {
             console.log("principal of the account", principal.toText())
             let balance = await tokenActor.icrc1_balance_of({ owner: principal, subaccount: [] });
+            const tokenMetaData = await tokenActor.icrc1_metadata();
+            console.log("Token ka meta data :", tokenMetaData);
             balance = parseInt(balance) / Math.pow(10, 8);
             console.log("Balance of TokenB is:", balance)
             setBalance(balance);

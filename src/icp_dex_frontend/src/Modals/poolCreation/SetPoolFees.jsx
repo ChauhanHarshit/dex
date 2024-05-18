@@ -44,7 +44,7 @@ const SetPoolFees = ({ handleNext }) => {
 
 
     return (
-        <div className='z-50 w-fit h-5/6 flex flex-col gap-4 p-4 sm:p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-2 rounded-lg'>
+        <div className='z-50 w-fit h-5/6 flex flex-col gap-4 p-4 sm:p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border  rounded-lg mx-4 sm:mx-auto'>
             <div className='w-[75%] sm:w-[65%] place-self-end  flex justify-between'>
                 <span className='font-fahkwang font-light text-2xl sm:text-3xl '>Set Fee Tier</span>
                 <Bolt size={30} className='cursor-pointer' onClick={() => { console.log("settings open") }} />
@@ -61,7 +61,7 @@ const SetPoolFees = ({ handleNext }) => {
             </div>
 
 
-            <div className='flex gap-2 my-6'>
+            <div className='grid grid-cols-12 text-center gap-6 my-6'>
                 {PercentShares.map((share, index) => {
                     return (
                         <div
@@ -69,8 +69,9 @@ const SetPoolFees = ({ handleNext }) => {
                             onClick={() => {
                                 HandleClick(index);
                             }}
+                            className=' col-span-6 sm:col-span-3'
                         >
-                            <BorderGradientTransparentButton Css={`text-xs md:text-base lg:text-base h-10 w-16 lg:h-14 lg:w-32 py-2 lg:py-4`} customCss={`w-8 ${selectedIndex === index ? 'custom-gradient text-base sm:text-2xl p-1 sm:p-3 ' : 'button-border-custom-gradient-content p-2 sm:p-4'}`}>
+                            <BorderGradientTransparentButton Css={`text-base lg:py-4`} customCss={`w-8 ${selectedIndex === index ? 'custom-gradient text-base sm:text-2xl p-1 sm:p-3 ' : 'button-border-custom-gradient-content p-2 sm:p-4'}`}>
                                 {share}  %
                             </BorderGradientTransparentButton>
                         </div>
