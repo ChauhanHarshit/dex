@@ -6,33 +6,74 @@ import GradientButton from '../../buttons/GradientButton';
 import { showAlert, hideAlert } from '../../reducer/Alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { UpdateAmount, toggleConfirm } from '../../reducer/PoolCreation'
+import { useAuth } from '../../components/utils/useAuthClient';
 
 const InitialLiquidity = () => {
 
 
     const dispatch = useDispatch();
+    const [restTokensBalances, setRestTokensBalances] = useState([]);
+    const { createTokenActor, principal } = useAuth()
+    const [tokenActor, setTokenActor] = useState();
+    const [initialTokenBalance, setInitialTokenBalance] = useState();
     const { Tokens, Confirmation } = useSelector((state) => state.pool);
     const [ButtonActive, SetButtonActive] = useState(false);
     const [initialTokenAmount, setInitialTokenAmount] = useState(Tokens[0].Amount);
     const [restTokensAmount, setRestTokensAmount] = useState(Tokens.slice(1).map(token => token.Amount));
-
+    const [AmountSelectCheck, setAmountSelectCheck] = useState(false);
 
     let InitialToken = Tokens[0];
     let RestTokens = Tokens.slice(1);
     const HandleSelectCheck = () => {
         const allTokensSelected = Tokens.every((token) => token.Selected);
-
         SetButtonActive(allTokensSelected);
-    }
+        const amountsValid = initialTokenAmount <= initialTokenBalance && restTokensAmount.every((amount, index) => amount <= restTokensBalances[index]);
+        setAmountSelectCheck(amountsValid);
+    };
+
+
+    useEffect(() => {
+        if (InitialToken) {
+            console.log("Principal of this mf :->", principal)
+            const actor = createTokenActor(InitialToken.CanisterId);
+            setTokenActor(actor);
+        }
+    }, [InitialToken, createTokenActor, principal]);
+
+    useEffect(() => {
+        const fetchTokenBalance = async () => {
+            if (tokenActor) {
+                console.log("Token Actor Set hote hue :->", tokenActor);
+                let balance = await tokenActor.icrc1_balance_of({ owner: principal, subaccount: [] });
+                console.log("Balance of the first Token:", balance);
+                setInitialTokenBalance(parseFloat(balance));
+            }
+        };
+
+        fetchTokenBalance();
+    }, [tokenActor, principal]);
 
     useEffect(() => {
         HandleSelectCheck()
     }, [Tokens])
 
-    const handleInput = (event, index) => {
-        // Allow only numbers and decimal point
-        const newValue = event.target.textContent.replace(/[^\d.]/g, '');
+    useEffect(() => {
+        const fetchRestTokensBalances = async () => {
+            const balances = await Promise.all(RestTokens.map(async (token) => {
+                const actor = createTokenActor(token.CanisterId);
+                const balance = await actor.icrc1_balance_of({ owner: principal, subaccount: [] });
+                return parseFloat(balance);
+            }));
+            setRestTokensBalances(balances);
+        };
 
+        if (RestTokens.length > 0) {
+            fetchRestTokensBalances();
+        }
+    }, [RestTokens, createTokenActor, principal]);
+
+    const handleInput = (event, index) => {
+        const newValue = parseFloat(event.target.textContent)
         if (index === 0) {
             setInitialTokenAmount(newValue);
         } else {
@@ -46,6 +87,7 @@ const InitialLiquidity = () => {
             Amount: newValue
         }));
     };
+
     return (
         <div className='z-50 w-fit h-5/6 flex flex-col gap-4 p-3 sm:p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
             <div className='w-[78%] sm:w-[74%] place-self-end  flex justify-between'>
@@ -71,7 +113,7 @@ const InitialLiquidity = () => {
                     </div>
 
                     <span className='text-sm sm:text-base font-normal'>
-                        Balance: 2.2501
+                        Balance: {initialTokenBalance}
                     </span>
                 </div>
 
@@ -98,6 +140,7 @@ const InitialLiquidity = () => {
             </div>
             <div>
                 {RestTokens.map((token, index) => {
+                    const balance = restTokensBalances[index]
 
                     return (
                         <div key={index}>
@@ -114,7 +157,7 @@ const InitialLiquidity = () => {
 
                                     </div>
                                     <span className='text-sm sm:text-base font-normal'>
-                                        Balance: 2.2501
+                                        Balance: {balance}
 
                                     </span>
                                 </div>
@@ -160,6 +203,14 @@ const InitialLiquidity = () => {
                         setTimeout(() => {
                             dispatch(hideAlert());
                         }, [3000])
+                    } else if (!AmountSelectCheck) {
+                        dispatch(showAlert({
+                            type: 'danger',
+                            text: 'You do not have enough tokens.'
+                        }))
+                        setTimeout(() => {
+                            dispatch(hideAlert());
+                        }, [3000])
                     } else {
                         console.log("dispatched called")
                         dispatch(toggleConfirm({
@@ -179,5 +230,4 @@ const InitialLiquidity = () => {
 }
 
 export default InitialLiquidity
-
 

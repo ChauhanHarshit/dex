@@ -10,7 +10,7 @@ const Alert = ({ type, text }) => {
                     {/* {console.table("aegt",type,text)} */}
                     <div
                         className={`${type == 'danger' ? 'bg-red-800' : 'bg-green-800'} p-2 text-indigo-100 
-                 leading-none lg:rounded-full flex lg:inline-flex items-center`}
+                 leading-none rounded-2xl lg:rounded-full flex lg:inline-flex items-center`}
                         role='alert'
                     >
                         <p className={`${type == 'danger' ? 'bg-red-500' : 'bg-green-500'}

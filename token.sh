@@ -56,7 +56,7 @@ export TOKEN_B_NAME="TokenB"
 export TOKEN_B_SYMBOL="B"
 
 
-dfx identity use anas
+dfx identity use Yaman
 export PERSONAL_ID=$(dfx identity get-principal)
 dfx deploy token2_ledger --specified-id mxzaz-hqaaa-aaaar-qaada-cai --argument "(variant {Init =
 record {

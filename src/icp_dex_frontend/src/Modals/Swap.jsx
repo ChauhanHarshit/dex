@@ -8,9 +8,12 @@ import SearchToken from './SearchToken';
 import DialogBox from './Dialouge';
 import { SwapModalData } from '../TextData';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../components/utils/useAuthClient';
 const Swap = () => {
 
+    const { createTokenActor, principal } = useAuth();
     const navigate = useNavigate();
+    const [tokenActor, setActorToken] = useState(createTokenActor("bkyz2-fmaaa-aaaaa-qaaaq-cai"))
     const [Message, setMessage] = useState('');
     const [show1, setShow1] = useState(false);
     const [show2, setShow2] = useState(false);
@@ -18,7 +21,7 @@ const Swap = () => {
     const [PayCoin, setPayCoin] = useState(null);
     const [RecieveCoin, setRecieveCoin] = useState(null);
     const [changePayCoin, setChangePayCoin] = useState("M5 13.5L9 9.5M5 13.5L1 9.5M5 13.5V1");
-    const [balance, setBalance] = useState(10);
+    const [balance, setBalance] = useState(3);
     const [CoinAmount, setCoinAmount] = useState(0.02);
     const [AmountToPay, setAmountToPay] = useState(66.12);
     const [settings, setSettings] = useState(false);
@@ -28,6 +31,24 @@ const Swap = () => {
     const [searchToken2, setSearchToken2] = useState(false);
     const [id, setId] = useState(0);
     const [ClickedSwap, setClickSwap] = useState(false);
+
+
+    useEffect(() => {
+
+        const fetch = async () => {
+            console.log("principal of the account", principal.toText())
+            let balance = await tokenActor.icrc1_balance_of({ owner: principal, subaccount: [] });
+            const tokenMetaData = await tokenActor.icrc1_metadata();
+            console.log("Token ka meta data :", tokenMetaData);
+            balance = parseInt(balance) / Math.pow(10, 8);
+            console.log("Balance of TokenB is:", balance)
+            setBalance(balance);
+        }
+
+        if (tokenActor) {
+            fetch();
+        }
+    }, [tokenActor])
 
     useEffect(() => {
         if (PayCoin && RecieveCoin) {
@@ -49,7 +70,7 @@ const Swap = () => {
     const handleChangeAmount = (e) => {
         // Remove any non-numeric characters
         let number = parseInt(e.target.value);
-        console.log("number this time",number)
+        console.log("number this time", number)
 
         if (isNaN(number)) {
             setCoinAmount(0);

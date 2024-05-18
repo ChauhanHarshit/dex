@@ -11,7 +11,7 @@ const initialState = {
     Tokens: [
         {
             Name: 'Token1',
-            ShortForm: 'Token1',
+            ShortForm: 'Token 1',
             Amount: 0,
             Selected: false,
             WeightedPercentage: 50,
@@ -19,10 +19,11 @@ const initialState = {
             Amount: 0.02,
             currencyAmount: 66.10,
             WeightedPercentageLocked: false,
+            CanisterId: null
         },
         {
             Name: "Token2",
-            ShortForm: 'Token2',
+            ShortForm: 'Token 2',
             Amount: 0,
             Selected: false,
             WeightedPercentage: 50,
@@ -30,6 +31,7 @@ const initialState = {
             Amount: 12.2161,
             currencyAmount: 64.89,
             WeightedPercentageLocked: false,
+            CanisterId: null
         }
     ],
 
@@ -51,7 +53,7 @@ const Pool = createSlice({
             state.Tokens.push(
                 {
                     Name: 'new Token',
-                    ShortForm: 'NWT',
+                    ShortForm: `Token ${state.CoinCount}`,
                     Amount: 0,
                     Selected: false,
                     WeightedPercentage: PercentShare,
@@ -118,6 +120,7 @@ const Pool = createSlice({
             state.Tokens[index].Name = action.payload.TokenData.Name;
             state.Tokens[index].ShortForm = action.payload.TokenData.ShortForm;
             state.Tokens[index].ImagePath = action.payload.TokenData.ImagePath;
+            state.Tokens[index].CanisterId = action.payload.TokenData.CanisterId;
             state.Tokens[index].Selected = true;
             state.TotalAmount = SumUpValue(state.Tokens)
         },
