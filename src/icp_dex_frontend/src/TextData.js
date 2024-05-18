@@ -1260,11 +1260,17 @@ export const LiquidityOverviewData = [
 
 export const DummyDataTokens = {
     Tokens: [
-        {
-            CanisterId: 'bkyz2-fmaaa-aaaaa-qaaaq-cai',
+        {   // Main Net
+            CanisterId: 'ryjl3-tyaaa-aaaaa-aaaba-cai',
+            // local net
+            // CanisterId: 'bkyz2-fmaaa-aaaaa-qaaaq-cai',
             Image: RandomCoin,
-        }, {
+        },
+        {
+            // Main Net
             CanisterId: 'mxzaz-hqaaa-aaaar-qaada-cai',
+            // local Net
+            // CanisterId: 'mxzaz-hqaaa-aaaar-qaada-cai',
             Image: RandomCoin,
         }
 
