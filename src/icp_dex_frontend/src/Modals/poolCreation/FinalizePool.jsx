@@ -140,7 +140,7 @@ const FinalizePool = () => {
 
                 <div className='flex justify-between font-cabin font-normal text-base mx-10'>
 
-                    <span>Pool Name</span>
+                    <span>Pool Fee Share</span>
 
                     <div className='leading-6 inline-block items-center text-center'>
                         {FeeShare}  %
@@ -162,6 +162,7 @@ const FinalizePool = () => {
                     <div className={`${confirmPool ? 'block enabled' : 'hidden disabled'} ${poolCreated ? 'hidden disabled' : 'block '}`}
                         onClick={() => {
                             setPoolCreated(true)
+                            console.log("Tokens in the pool Data:->", Tokens)
                         }}
                     >
                         <GradientButton CustomCss={`my-4 w-full`}>

@@ -101,18 +101,21 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
                                 <img src={token.ImagePath} alt="" className='h-4 w-4 md:h-8 md:w-8 transform scale-150' />
                             </BlueGradientButton>
 
-                            <div className='font-cabin font-normal text-xl md:text-2xl'>
-                                {token.ShortForm}
+                            <div className='flex items-center gap-1'
+                                onClick={() => {
+                                    setSearchToken(!searchToken);
+                                }}>
+                                <div className='font-cabin font-normal text-xl md:text-2xl cursor-pointer'>
+                                    {token.ShortForm}
+                                </div>
+                                {!searchToken ? (
+                                    <span className='cursor-pointer' ><ChevronDown size={18} /></span>
+                                ) : (
+                                    <span className='cursor-pointer' onClick={() => {
+                                        setSearchToken(!searchToken);
+                                    }}><ChevronUp size={18} /></span>
+                                )}
                             </div>
-                            {!searchToken ? (
-                                <span className='cursor-pointer' onClick={() => {
-                                    setSearchToken(!searchToken);
-                                }}><ChevronDown size={18}/></span>
-                            ) : (
-                                <span className='cursor-pointer' onClick={() => {
-                                    setSearchToken(!searchToken);
-                                }}><ChevronUp size={18}/></span>
-                            )}
                             <div className=''>
                                 {searchToken && <SearchToken setSearchToken={setSearchToken} setTokenData={setTokenData} set id={3} />}
                             </div>
@@ -125,11 +128,12 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
                 ) : (
                     <div>
                         <BlueGradientButton customCss={'px-1 py-2 lg:px-4 lg:py-3 font-cabin font-extrabold'}>
-                            <div className='flex items-center gap-1 text-xs sm:text-sm'>
-                                Select a Token
-                                <span className='cursor-pointer' onClick={() => {
+                            <div className='flex items-center gap-1 text-xs sm:text-sm'
+                                onClick={() => {
                                     setSearchToken(!searchToken);
-                                }}><ChevronDown size={18}/></span>
+                                }}>
+                                Select a Token
+                                <span className='cursor-pointer' ><ChevronDown size={18} /></span>
                             </div>
                         </BlueGradientButton>
                         {searchToken && <SearchToken setSearchToken={setSearchToken} setTokenData={setTokenData} set id={3} />}
