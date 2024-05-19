@@ -1,5 +1,5 @@
 [package]
-name = "icp_dex_backend"
+name = "dex_pool"
 version = "0.1.0"
 edition = "2021"
 

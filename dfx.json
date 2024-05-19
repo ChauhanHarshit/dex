@@ -15,6 +15,11 @@
       "package": "icp_dex_backend",
       "type": "rust"
     },
+    "dex_pool": {
+      "candid": "src/dex_pool/dex_pool.did",
+      "package": "dex_pool",
+      "type": "rust"
+    },
     "icp_dex_frontend": {
       "dependencies": ["icp_dex_backend"],
       "source": ["src/icp_dex_frontend/dist"],
