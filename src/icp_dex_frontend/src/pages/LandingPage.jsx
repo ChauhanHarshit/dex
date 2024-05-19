@@ -5,23 +5,20 @@ import Partnership from '../components/landingPageComponents/Partnership'
 import Methods from '../components/landingPageComponents/Methods'
 import WhitePaper from '../components/landingPageComponents/WhitePaper'
 import LiquidityInfo from '../components/landingPageComponents/LiquidityInfo'
-import DialogBox from '../Modals/Dialouge'
-import Navbar from '../navbar/Navbar'
-import { LandingPageNavbarData } from '../TextData'
-import MobileNavbar from '../navbar/MobileNavbar'
-import { useState } from 'react'
-const LandingPage = () => {
+// import DialogBox from '../Modals/Dialouge'
+// import Navbar from '../navbar/Navbar'
+// import { LandingPageNavbarData } from '../TextData'
+// import MobileNavbar from '../navbar/MobileNavbar'
+// import { useState } from 'react'
+const LandingPage = ({setClickConnectWallet}) => {
 
 
     return (
         <div className=''>
-            <div className='items-center'>
-                <MobileNavbar  NavbarData={LandingPageNavbarData} />
-            </div>
 
             <div className='md:mx-8 mx-4'>
                 <div className='relative'>
-                    <Hero />
+                    <Hero setClickConnectWallet={setClickConnectWallet}/>
                 </div>
 
                 <About />

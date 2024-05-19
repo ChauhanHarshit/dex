@@ -3,7 +3,9 @@ import { LandingPageData } from '../../TextData'
 import GradientButton from '../../buttons/GradientButton'
 import BorderGradientButton from '../../buttons/BorderGradientButton'
 import { useNavigate } from 'react-router-dom'
-const Hero = () => {
+import { useAuth } from '../utils/useAuthClient'
+const Hero = ({ setClickConnectWallet }) => {
+    const { isAuthenticated } = useAuth()
     const navigate = useNavigate();
     return (
         <div className=' h-fit flex flex-col justify-evenly'>
@@ -29,9 +31,22 @@ const Hero = () => {
                             {LandingPageData.HeroSection.ExploreButton}
                         </GradientButton>
                     </div>
-                    <BorderGradientButton>
-                        {LandingPageData.HeroSection.ConnectButton}
-                    </BorderGradientButton>
+                    <div onClick={() => {
+                        setClickConnectWallet(true)
+                    }}>
+                        <BorderGradientButton>
+                            {isAuthenticated ? (
+                                <div>
+                                    {LandingPageData.HeroSection.DisconnectButton}
+                                </div>
+                            ) : (
+                                <div>
+                                    {LandingPageData.HeroSection.ConnectButton}
+                                </div>
+                            )}
+
+                        </BorderGradientButton>
+                    </div>
                 </div>
             </div>
             <div className='text-center mt-4'>
