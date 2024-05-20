@@ -69,7 +69,8 @@ export const CommonNavbarData = {
         },
         {
             LinkName: 'Whitepaper',
-            LinkPath: '/dex-swap/whitepaper',
+            LinkPath: '/',
+            // LinkPath: '/dex-swap/whitepaper',
             LinkId: 'whitepaper',
         },
     ]
@@ -83,6 +84,7 @@ export const LandingPageData = {
         Tagline: "Leveraging Internet Computer Protocol for streamlined liquidity and asset management.",
         ExploreButton: 'Explore Pools',
         ConnectButton: 'Connect Wallet',
+        DisconnectButton: 'Disconnect',
         BottomLine: 'Trade Securely, Trade Decentralized',
     },
     PaternshipPageData: {

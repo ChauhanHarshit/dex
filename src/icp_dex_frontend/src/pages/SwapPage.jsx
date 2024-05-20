@@ -2,13 +2,13 @@ import React from 'react'
 import Swap from '../Modals/Swap'
 import ConnectWallet from '../Modals/ConnectWallet'
 import { useAuth } from '../components/utils/useAuthClient'
-const SwapPage = ({ clickConnectWallet, setClickConnectWallet, setWalletClicked }) => {
+const SwapPage = () => {
 
     const { isAuthenticated, createTokenActor } = useAuth();
 
     return (
         <div>
-            {clickConnectWallet && <ConnectWallet setClickConnectWallet={setClickConnectWallet} setWalletClicked={setWalletClicked} />}
+            
             <div>
                 {isAuthenticated ? (<div>
                     <Swap />
