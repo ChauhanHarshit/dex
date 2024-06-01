@@ -9,7 +9,7 @@ const Partnership = () => {
                     <span className='  mr-2'>{LandingPageData.PaternshipPageData.HeadingWordOne}</span> <GradientSpan>{LandingPageData.PaternshipPageData.HeadingWordTwo}</GradientSpan>
                 </div>
 
-                <div className='text-xl md:leading-6 leading-7   max-w-4xl text-center mt-5'>
+                <div className='text-[#FFFFFFBF] text-lg md:leading-6 leading-7   max-w-4xl text-center mt-5'>
                     {LandingPageData.PaternshipPageData.HeadingDescription}
                 </div>
             </div>

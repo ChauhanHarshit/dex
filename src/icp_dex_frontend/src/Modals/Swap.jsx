@@ -9,6 +9,7 @@ import DialogBox from './Dialouge';
 import { SwapModalData } from '../TextData';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../components/utils/useAuthClient';
+import SwapSetting from './SwapSetting';
 const Swap = () => {
 
     const { createTokenActor, principal } = useAuth();
@@ -80,14 +81,25 @@ const Swap = () => {
         }
     };
 
+    const handleSettings = () => {
+        setSettings((prev) => !prev)
+    }
+    console.log("settings", settings)
     return (
-        <div className='mx-4 mb-10 md:mx-0'>
+        <div className='px-4 py-10 md:px-0'>
             <div >
-                <div className='lg:w-4/12 md:w-8/12 h-5/6 flex flex-col  gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg z-10'>
-                    <div className=' w-[64%] sm:w-[58%] place-self-end  flex justify-between'>
+                <div className='relative align-middle lg:w-5/12 md:w-8/12 h-5/6 flex flex-col  gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg z-10'>
+                    <div className=' w-[64%] sm:w-[58%] place-self-end  flex justify-between z-50'>
                         <span className='font-fahkwang font-light text-3xl '>{SwapModalData.Heading}</span>
-                        <Bolt size={30} className='cursor-pointer' onClick={() => { console.log("settings open") }} />
+                        <Bolt size={30} className='cursor-pointer' onClick={() => handleSettings()} />
                     </div>
+                    {
+                        settings ? (
+                            <div className='absolute flex align-middle items-center justify-center h-full  w-11/12  '>
+                              <SwapSetting />
+                            </div>
+                        ) : ""
+                    }
 
                     <div className=' mx-auto sm:mx-8 w-full flex justify-between items-center'>
 
@@ -126,9 +138,9 @@ const Swap = () => {
                         <div>
                             {!PayCoin ? (
                                 <div>
-                                    <div className='flex  sm:mr-12 items-center  gap-2'
+                                    <div className='flex w-  sm:mr-12 items-center  gap-2'
                                     >
-                                        <BlueGradientButton customCss={'px-2 w-32 md:w-40 sm:px-4 py-1 sm:py-3 font-cabin font-extrabold'}
+                                        <BlueGradientButton customCss={'px-2  md:w-40 sm:px-4 py-1 sm:py-3 font-cabin md:font-extrabold'}
                                         >
                                             <div className='flex text-sm sm:text-base items-center gap-1'>
                                                 {SwapModalData.PaySection.TokenSelectButtonText}
@@ -175,7 +187,7 @@ const Swap = () => {
                     </div>
                     <div className='flex flex-col justify-center items-center my-12'>
                         <div className='border-b border-white w-11/12'></div>
-                        <div className='bg-[#000711] rounded-xl p-4 xl:w-1/12 lg:w-1/6 -mt-6 cursor-pointer' onClick={ClickedChange}>
+                        <div className='bg-[#000711] rounded-xl p-4 xl:w-1/12 lg:w-1/6 -mt-6 cursor-pointer flex flex-col items-center' onClick={ClickedChange}>
                             <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5 13.5L9 9.5L5 13.5ZM5 13.5L1 9.5L5 13.5ZM5 13.5V1V13.5Z" fill="#000711" />
                                 <path d={`${changeRecieveCoin}`} stroke="#0057FF" />
@@ -208,7 +220,7 @@ const Swap = () => {
                         <div>
                             {!RecieveCoin ? (
                                 <div className='flex  sm:mr-12 items-center place-self-end gap-2'>
-                                    <BlueGradientButton customCss={'w-32 md:w-40 px-2 sm:px-4 py-1 sm:py-3 font-cabin font-extrabold'}>
+                                    <BlueGradientButton customCss={'px-2  md:w-40 sm:px-4 py-1 sm:py-3 font-cabin md:font-extrabold'}>
                                         <div className='flex text-sm  sm:text-base  items-center gap-1'
                                             onClick={() => {
                                                 console.log(searchToken2)

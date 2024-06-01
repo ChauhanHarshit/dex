@@ -90,3 +90,16 @@ body {
 .custom-z-index {
   z-index: 45;
 }
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+
+
+

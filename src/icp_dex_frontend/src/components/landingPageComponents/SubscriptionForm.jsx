@@ -1,0 +1,22 @@
+import React from 'react'
+
+const SubscriptionForm = () => {
+  return (
+    <div className="flex justify-center items-center pb-56  ">
+      <div className="text-center ">
+        <h2 className="text-white text-3xl md:text-5xl font-semibold pb-20">Sign up for ICPSwap updates</h2>
+        <form className="flex flex-col gap-y-6 md:flex-row ">
+          <input 
+            type="email" 
+            placeholder="Enter email here" 
+            className="px-6 py-4 w-full md:w-[40vw] text-2xl md:rounded-s-2xl bg-[#292c2f] text-white border border-gray-700 focus:outline-none focus:border-gray-500"
+          />
+          <button className="px-10 py-6  md:rounded-e-2xl bg-gradient-to-br from-[#7a69ff] via-[#4961cc] to-[#7a69ff] text-white hover:bg-purple-700 text-xl font-semibold">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+
+export default SubscriptionForm

@@ -19,7 +19,7 @@ const PoolInfo = () => {
 
 
   return (
-    <div className='w-full h-screen  text-white  md:max-w-[80%] mt-28 z-50 px-8 mx-auto'>
+    <div className='w-full h-screen  text-white  mt-28 z-50 px-8 mx-auto'>
 
       <div className='flex flex-col justify-between bg-[#010427] p-2  py-6  rounded-lg mx-auto'>
         <div className='flex justify-between items-center  mx-2  md:mx-16'>
@@ -60,15 +60,16 @@ const PoolInfo = () => {
           </div>
         </div>
         <div className='flex flex-col lg:flex-row w-full gap-3 mx-auto '>
-          <div className='w-full lg:w-8/12'>
+          <div className='w-full lg:w-8/12 p-4'>
             {/* pool info chart here in this div */}
+            <img className='w-full h-full' src="src/assets/images/graphBg.png" alt="" />
             <div>
-              Pool Chart Here
+             
             </div>
           </div>
 
-          <div className=' flex flex-col w-full lg:w-3/12  gap-4 my-4'>
-            <div className='w-auto flex gap-4 h-20 lg:h-48'>
+          <div className=' flex flex-col items-center lg:w-1/3 gap-4 my-4 '>
+            <div className=' flex gap-4 h-20 lg:h-48 justify-center'>
               <PoolInfoBox Heading={'Pool Value'} Data={`$ ${TokenData.PoolMetaData.PoolValue.toLocaleString('en-US')}`} />
               <PoolInfoBox Heading={'24H_Fees'} Data={`$ ${TokenData.PoolMetaData.TwentyFourHourFees.toLocaleString('en-US')}`} />
             </div>

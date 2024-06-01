@@ -18,7 +18,7 @@ const PortfolioDataComponent = () => {
     return (
         <div className='w-full h-screen  text-white  md:max-w-[80%] mt-28 z-50 px-8 mx-auto'>
 
-            <div className='flex justify-between bg-[#010427] p-2  py-6  rounded-lg mx-auto'>
+            <div className='flex justify-between bg-[#010427] p-2  pb-6 pt-12  rounded-lg mx-auto'>
                 <div className='flex justify-between items-center  mx-2  md:mx-16'>
                     <span className='font-cabin text-xl md:text-3xl font-medium'>My Liquidity Pools</span>
                 </div>

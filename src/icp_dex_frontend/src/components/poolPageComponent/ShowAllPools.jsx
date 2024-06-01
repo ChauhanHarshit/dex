@@ -18,9 +18,9 @@ const ShowAllPools = () => {
   return (
     <div className='w-full h-screen  text-white md:max-w-[80%] mt-4 z-50 px-8 mx-auto'>
 
-      <div className='flex justify-between bg-[#010427] p-2 py-6 rounded-lg mx-auto'>
+      <div className='flex justify-between bg-[#010427] p-2 pb-6 pt-24 rounded-lg mx-auto'>
         <div className='flex justify-between items-center gap-4 md:gap-16 mx-8 md:mx-16'>
-          <span className='font-cabin  md:text-3xl font-medium'>Ethereum Pools</span>
+          <span className='font-cabin  md:text-3xl font-medium text-white' >Ethereum Pools</span>
           <div className='cursor-pointer'>
             {poolsSvg}
           </div>

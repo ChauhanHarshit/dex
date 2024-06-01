@@ -10,6 +10,9 @@ export default {
         'custom-450': '450px', // Define your custom screen size with its breakpoint
         'custom-400': '400px',
       },
+      backgroundImage: {
+        'custom-radial': 'radial-gradient(circle, rgba(153,153,153,1) 0%, rgba(0,48,142,1) 50%)',
+      },
       keyframes: {
         'border-spin': {
           '100%': {
