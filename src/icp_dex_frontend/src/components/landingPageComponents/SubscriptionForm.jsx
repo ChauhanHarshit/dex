@@ -11,7 +11,7 @@ const SubscriptionForm = () => {
             placeholder="Enter email here" 
             className="px-6 py-4 w-full md:w-[40vw] text-2xl md:rounded-s-2xl bg-[#292c2f] text-white border border-gray-700 focus:outline-none focus:border-gray-500"
           />
-          <button className="px-10 py-6  md:rounded-e-2xl bg-gradient-to-br from-[#7a69ff] via-[#4961cc] to-[#7a69ff] text-white hover:bg-purple-700 text-xl font-semibold">Subscribe</button>
+          <button className="px-10 py-6  md:rounded-e-2xl bg-[#ff4500] text-white  text-xl font-semibold">Subscribe</button>
         </form>
       </div>
     </div>
